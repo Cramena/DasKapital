@@ -18,8 +18,7 @@ public class AutoSellStock : UIOwner
     private float distributionTimer;
     private bool distributing;
     private CoinType currentStep;
-    public bool tuto;
-    // private bool available;
+    // public bool tuto;
 
     void Start()
     {
@@ -133,7 +132,7 @@ public class AutoSellStock : UIOwner
                 materialQueue.Dequeue().GetDistributedTo(distributionTargets[0]);
                 if (materialQueue.Count <= 0)
                 {
-                    if (tuto) distributing = false;
+                    if (ScenarioService.instance.delayedDistribution) distributing = false;
                     else currentStep = CoinType.Salary;
                 } 
                 break;
@@ -141,7 +140,7 @@ public class AutoSellStock : UIOwner
                 salaryQueue.Dequeue().GetDistributedTo(distributionTargets[1]);
                 if (salaryQueue.Count <= 0)
                 {
-                    if (tuto) distributing = false;
+                    if (ScenarioService.instance.delayedDistribution) distributing = false;
                     else currentStep = CoinType.Profit;
                 } 
                 break;
@@ -161,7 +160,7 @@ public class AutoSellStock : UIOwner
 
     public void ProcessDistribution()
     {
-        if (!tuto)
+        if (!ScenarioService.instance.delayedDistribution)
         {
             distributing = true;
             currentStep = CoinType.Material;

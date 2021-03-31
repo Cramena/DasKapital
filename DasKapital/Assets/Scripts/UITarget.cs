@@ -67,4 +67,12 @@ public class UITarget : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         SetHighlight(false);
     }
+    
+    public void DestroyCommodity()
+    {
+        if (loadedCommodity != null)
+        {
+            Destroy(loadedCommodity.gameObject);
+        }
+    }
 }

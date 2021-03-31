@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class Stock : UIOwner
 {
-    public Transform canvas;
-    public int id;
     public List<UITarget> spawnTargets = new List<UITarget>();
     public List<CommoditySO> spawnList = new List<CommoditySO>();
 
@@ -33,12 +31,18 @@ public class Stock : UIOwner
         List<UITarget> freeSlots = (from slot in spawnTargets
                                     where slot.loadedCommodity == null
                                     select slot).ToList();
-        print("commodities amount: " + copies.Count);
         for (var i = 0; i < copies.Count; i++)
         {
-            print("Get commodity number: " + i + "Count is: " + copies.Count);
             copies[i].StartLerp();
             freeSlots[i].OnCommodityPlaced(copies[i]);
+        }
+    }
+
+    private void OnDisable()
+    {
+        foreach (UITarget target in spawnTargets)
+        {
+            target.DestroyCommodity();
         }
     }
 }

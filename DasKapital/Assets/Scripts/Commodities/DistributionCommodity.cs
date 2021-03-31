@@ -25,6 +25,7 @@ public class DistributionCommodity : MonoBehaviour
         commodity = GetComponent<Commodity>();
         commodity.InitializeProfile(coinSO);
         commodity.draggable = false;
+        transform.SetParent(UIService.instance.coinsPanel);
         switch(_coinType)
         {
             case CoinType.Material :

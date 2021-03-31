@@ -50,6 +50,5 @@ public class Scale : MonoBehaviour
     public void SetScale(float _ratio)
     {
         targetAngle = _ratio * maxAngle;
-        // rect.rotation = Quaternion.Euler(rotation);
     }
 }

@@ -10,8 +10,9 @@ public class UIService : MonoBehaviour
     [HideInInspector] public GraphicRaycaster graphicRaycatser;
     [HideInInspector] public EventSystem eventSystem;
     public InfoPanel infoPanel;
+    public Transform coinsPanel;
     [HideInInspector] public bool infoPanelDisplaying;
-    public UITarget highlightedTarget;
+    [HideInInspector] public UITarget highlightedTarget;
     private PointerEventData pointerEventData;
 
     private void Awake()

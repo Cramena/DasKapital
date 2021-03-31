@@ -69,16 +69,21 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void Initialize(Commodity _commodity)
     {
         commodity = _commodity;
+
+        //Position
         Vector3 pos = rect.position;
         pos.x = commodity.rect.position.x > Screen.width / 2 ?
                 commodity.rect.position.x - (Screen.width*horizontalOffset) :
                 commodity.rect.position.x + (Screen.width*horizontalOffset);
         rect.position = pos;
 
+        //Main info panel
         title.text = commodity.profile.commodityName;
         icon.sprite = commodity.profile.icon;
         exchangeValueText.text = $"Value: {commodity.profile.exchangeValue.ToString()}";
         useValueText.text = commodity.profile.useValueDescription;
+
+        //Durable panel
         if (commodity.profile.isDurable)
         {
             durablePanel.SetActive(true);
@@ -105,9 +110,11 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             durablePanel.SetActive(false);
         }
 
-        float currentHeight = 0;
-        Vector3 segmentPos = Vector3.zero;
-        Vector3 segmentScale = Vector3.zero;
+        //Value jauge
+        if (!ScenarioService.instance.valueJaugeActive)
+        {
+            return;
+        }
         if (commodity.profile.components.Count == 0)
         {
             JaugeSegment segment = Instantiate(segmentPrefab, jauge);
@@ -133,7 +140,6 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 int value = component.isDurable ? component.valuePerUse : component.exchangeValue;
                 segment.InitializeSegment(value, component.icon, nameText, component.color, component.sizeModifier);
             }
-            print($"currentHeight {currentHeight}");
         }
     }
 }
