@@ -141,18 +141,21 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         currentLerpSpeed = lerpSpeed;
         state = CommodityState.Lerp;
+        transform.SetAsLastSibling();
     }
 
     public void StartLerp(float _speed)
     {
         currentLerpSpeed = _speed;
         state = CommodityState.Lerp;
+        transform.SetAsLastSibling();
     }
 
     public void OnDrag(PointerEventData pointerEventData)
     {
         if (!draggable) return;
         rect.position = pointerEventData.position;
+        transform.SetAsLastSibling();
     }
 
     public void OnBeginDrag(PointerEventData pointerEventData)
