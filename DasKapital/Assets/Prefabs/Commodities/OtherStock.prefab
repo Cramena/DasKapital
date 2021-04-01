@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockID: 1
-  owner: {fileID: 0}
+  owner: {fileID: 8938777642336038992}
   rect: {fileID: 0}
   loadedCommodity: {fileID: 0}
   highlighted: 1
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockID: 1
-  owner: {fileID: 0}
+  owner: {fileID: 8938777642336038992}
   rect: {fileID: 0}
   loadedCommodity: {fileID: 0}
   highlighted: 1
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockID: 1
-  owner: {fileID: 0}
+  owner: {fileID: 8938777642336038992}
   rect: {fileID: 0}
   loadedCommodity: {fileID: 0}
   highlighted: 1
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockID: 1
-  owner: {fileID: 0}
+  owner: {fileID: 8938777642336038992}
   rect: {fileID: 0}
   loadedCommodity: {fileID: 0}
   highlighted: 1
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockID: 1
-  owner: {fileID: 0}
+  owner: {fileID: 8938777642336038992}
   rect: {fileID: 0}
   loadedCommodity: {fileID: 0}
   highlighted: 1
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockID: 1
-  owner: {fileID: 0}
+  owner: {fileID: 8938777642336038992}
   rect: {fileID: 0}
   loadedCommodity: {fileID: 0}
   highlighted: 1
@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 2972536530228605200}
   - component: {fileID: 4739958454672046631}
   m_Layer: 0
-  m_Name: Stock1
+  m_Name: OtherStock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -811,7 +811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockID: 1
-  owner: {fileID: 0}
+  owner: {fileID: 8938777642336038992}
   rect: {fileID: 0}
   loadedCommodity: {fileID: 0}
   highlighted: 1
@@ -904,7 +904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockID: 1
-  owner: {fileID: 0}
+  owner: {fileID: 8938777642336038992}
   rect: {fileID: 0}
   loadedCommodity: {fileID: 0}
   highlighted: 1
@@ -997,7 +997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockID: 1
-  owner: {fileID: 0}
+  owner: {fileID: 8938777642336038992}
   rect: {fileID: 0}
   loadedCommodity: {fileID: 0}
   highlighted: 1
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockID: 1
-  owner: {fileID: 0}
+  owner: {fileID: 8938777642336038992}
   rect: {fileID: 0}
   loadedCommodity: {fileID: 0}
   highlighted: 1
@@ -1183,7 +1183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockID: 1
-  owner: {fileID: 0}
+  owner: {fileID: 8938777642336038992}
   rect: {fileID: 0}
   loadedCommodity: {fileID: 0}
   highlighted: 1
@@ -1276,7 +1276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stockID: 1
-  owner: {fileID: 0}
+  owner: {fileID: 8938777642336038992}
   rect: {fileID: 0}
   loadedCommodity: {fileID: 0}
   highlighted: 1

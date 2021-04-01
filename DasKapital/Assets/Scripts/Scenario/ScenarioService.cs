@@ -11,8 +11,9 @@ public class ScenarioService : MonoBehaviour
     public List<ScenarioNode> nodes = new List<ScenarioNode>();
     private int currentNodeIndex;
     public List<UnityEvent> scenarioEvents = new List<UnityEvent>();
-    public bool delayedDistribution = false;
-    public bool valueJaugeActive = false;
+    public bool delayedDistribution;
+    public bool valueJaugeActive;
+    public bool inProductionPhase;
 
     private void Awake()
     {
@@ -59,5 +60,10 @@ public class ScenarioService : MonoBehaviour
     public void SetValueJaugeActive(bool _active)
     {
         valueJaugeActive = _active;
+    }
+
+    public void SetStockToStockMovement(bool _active)
+    {
+        inProductionPhase = _active;
     }
 }

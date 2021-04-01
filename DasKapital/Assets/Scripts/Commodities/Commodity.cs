@@ -176,10 +176,21 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             if (result.gameObject.CompareTag("Target"))
             {
                 UITarget targetScript = result.gameObject.GetComponent<UITarget>();
-                if (targetScript.OnCommodityPlaced(this))
-                {
+                Stock stockCast = targetScript.owner as Stock;
+                Stock currentStockCast = target.owner as Stock;
+                if (!ScenarioService.instance.inProductionPhase &&
+                    //No direct movement from one base stock to another base stock
+                    ((targetScript.stockID != target.stockID && stockCast != null && currentStockCast != null) || 
+                    //No direct movement from left to right or from right to left
+                    Mathf.Sign(target.stockID) != Mathf.Sign(targetScript.stockID) ||
+                    //No direct movement from trade stock to a base stock from which the commodity doesn't orginate
+                    (currentStockCast == null && stockCast != null && targetScript.stockID != lastTarget.stockID) ||
+                    //No direct movement from base stock to trade stock if another base stock
+                    //already has at least one commodity of its own inside
+                    (currentStockCast != null && stockCast == null && target.stockID >= 0 &&
+                    target.stockID != ExchangeService.instance.otherStockIndex && ExchangeService.instance.otherStockIndex != -1)))
                     break;
-                }
+                if (targetScript.OnCommodityPlaced(this)) break;
             }
         }
         StartLerp();

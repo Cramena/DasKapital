@@ -12,7 +12,7 @@ public class ExchangeService : MonoBehaviour
     public List<Commodity> otherSelectedCommodities = new List<Commodity>();
     public TradingStock homeTradingStock;
     public TradingStock otherTradingStock;
-    private int otherStockIndex = -1;
+    [HideInInspector] public int otherStockIndex = -1;
     
 
     public System.Action<float> onBalanceUpdate;
@@ -51,12 +51,14 @@ public class ExchangeService : MonoBehaviour
             { 
                 if (otherStockIndex != -1 && otherStockIndex != _commodity.lastTarget.stockID) return;
                 otherStockIndex = _commodity.lastTarget.stockID;
+                print($"Set other stock index to {otherStockIndex}");
                 otherSelectedCommodities.Add(_commodity); 
                 onBalanceUpdate?.Invoke(GetBalance());
             };
             target.onCommodityUnloaded += (Commodity _commodity) => 
             { 
                 otherSelectedCommodities.Remove(_commodity); 
+                if (otherSelectedCommodities.Count == 0) otherStockIndex = -1;
                 onBalanceUpdate?.Invoke(GetBalance());
             };
         }
@@ -80,13 +82,13 @@ public class ExchangeService : MonoBehaviour
             
             if (mainValue == otherValue)
             {
-                stocks[0].GetCommodities(otherSelectedCommodities);
                 stocks[otherStockIndex].GetCommodities(mainSelectedCommodities);
+                stocks[0].GetCommodities(otherSelectedCommodities);
             }
             else
             {
-                stocks[0].GetCommodities(mainSelectedCommodities);
                 stocks[otherStockIndex].GetCommodities(otherSelectedCommodities);
+                stocks[0].GetCommodities(mainSelectedCommodities);
             }
         }
 
