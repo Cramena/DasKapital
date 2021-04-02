@@ -38,6 +38,14 @@ public class Stock : UIOwner
         }
     }
 
+    public int GetFreeSlotsAmount()
+    {
+        IEnumerable<UITarget> freeSlots = from slot in spawnTargets
+                                          where slot.loadedCommodity == null
+                                          select slot;
+        return freeSlots.Count();
+    }
+
     private void OnDisable()
     {
         foreach (UITarget target in spawnTargets)

@@ -51,7 +51,6 @@ public class ExchangeService : MonoBehaviour
             { 
                 if (otherStockIndex != -1 && otherStockIndex != _commodity.lastTarget.stockID) return;
                 otherStockIndex = _commodity.lastTarget.stockID;
-                print($"Set other stock index to {otherStockIndex}");
                 otherSelectedCommodities.Add(_commodity); 
                 onBalanceUpdate?.Invoke(GetBalance());
             };
@@ -82,6 +81,12 @@ public class ExchangeService : MonoBehaviour
             
             if (mainValue == otherValue)
             {
+                if (stocks[otherStockIndex].GetFreeSlotsAmount() < mainSelectedCommodities.Count ||
+                    stocks[0].GetFreeSlotsAmount() < otherSelectedCommodities.Count)
+                {
+                    print("Not enough space");
+                    return;
+                }
                 stocks[otherStockIndex].GetCommodities(mainSelectedCommodities);
                 stocks[0].GetCommodities(otherSelectedCommodities);
             }
