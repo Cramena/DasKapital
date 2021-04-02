@@ -17,7 +17,7 @@ public class Worker : MonoBehaviour
         rect = GetComponent<RectTransform>();
         ReplenishPool();
         meanOfProduction.onCommodityProduced += PopWorkForce;
-        PopWorkForce();
+        PopWorkForce(null);
     }
 
     void ReplenishPool()
@@ -31,7 +31,7 @@ public class Worker : MonoBehaviour
         }
     }
 
-    void PopWorkForce()
+    void PopWorkForce(CommoditySO _type)
     {
         Commodity spawnedWorkforce = workforces.Dequeue();
         spawnedWorkforce.gameObject.SetActive(true);

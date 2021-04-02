@@ -18,7 +18,6 @@ public class AutoSellStock : UIOwner
     private float distributionTimer;
     private bool distributing;
     private CoinType currentStep;
-    // public bool tuto;
 
     void Start()
     {
@@ -47,6 +46,7 @@ public class AutoSellStock : UIOwner
 
     void AutoSellCommodity(Commodity _commodity)
     {
+        ScenarioService.instance.OnAutoSell();
         spawnedCoins.Clear();
         available = false;
         int coinsToDistribute = _commodity.profile.exchangeValue;

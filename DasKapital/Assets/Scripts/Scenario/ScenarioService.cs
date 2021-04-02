@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
+public enum Condition
+{
+    None,
+    Button,
+    Produce,
+    Info
+}
 public class ScenarioService : MonoBehaviour
 {
     public static ScenarioService instance;
@@ -11,9 +18,13 @@ public class ScenarioService : MonoBehaviour
     public List<ScenarioNode> nodes = new List<ScenarioNode>();
     private int currentNodeIndex;
     public List<UnityEvent> scenarioEvents = new List<UnityEvent>();
+    public Condition currentCondition;
     public bool delayedDistribution;
     public bool valueJaugeActive;
     public bool inProductionPhase;
+    public System.Action<CommoditySO> onProduceRegistered;
+    public System.Action onAutoSell;
+    public System.Action<CommoditySO> onCommodityInspected;
 
     private void Awake()
     {
@@ -35,6 +46,7 @@ public class ScenarioService : MonoBehaviour
     public void OnNodeStep()
     {
         nodes[currentNodeIndex]?.OnNodeLeft();
+        currentCondition = Condition.None;
         currentNodeIndex++;
         if (currentNodeIndex < nodes.Count)
         {
@@ -65,5 +77,20 @@ public class ScenarioService : MonoBehaviour
     public void SetStockToStockMovement(bool _active)
     {
         inProductionPhase = _active;
+    }
+
+    public void RegisterProduce(CommoditySO _type)
+    {
+        onProduceRegistered?.Invoke(_type);
+    }
+
+    public void OnAutoSell()
+    {
+        onAutoSell?.Invoke();
+    }
+
+    public void OnCommodityInspected(CommoditySO _type)
+    {
+        onCommodityInspected?.Invoke(_type);
     }
 }

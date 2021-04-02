@@ -507,6 +507,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194e1d8789a86524b900d1200b9db33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &331823250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3362302117866741873, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
+  m_PrefabInstance: {fileID: 641860033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &331823251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331823250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c29ee25c1fdef14f8569f5c286a78f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commoditiesToInspect:
+  - {fileID: 11400000, guid: 2f0eff788cb378e4c8eeef8455c49896, type: 2}
 --- !u!1001 &333683217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1778,7 +1797,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
   m_PrefabInstance: {fileID: 641860033}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 331823250}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08ac1eb7ccb000f4e806bd900e53b960, type: 3}
@@ -3073,6 +3092,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881614733}
   m_CullTransparentMesh: 0
+--- !u!1 &930629782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3362302117866741873, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
+  m_PrefabInstance: {fileID: 1706611085}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &930629783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930629782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c860943ad12284c82bf1ee3470ffa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commoditiesToProduce:
+  - {fileID: 11400000, guid: 2f0eff788cb378e4c8eeef8455c49896, type: 2}
 --- !u!1001 &959455866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6158,6 +6196,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  currentCondition: 0
   delayedDistribution: 0
   valueJaugeActive: 0
   inProductionPhase: 0
@@ -6832,7 +6871,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
   m_PrefabInstance: {fileID: 576332192}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1946232431}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08ac1eb7ccb000f4e806bd900e53b960, type: 3}
@@ -7405,7 +7444,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
   m_PrefabInstance: {fileID: 1706611085}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 930629782}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08ac1eb7ccb000f4e806bd900e53b960, type: 3}
@@ -8031,6 +8070,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53344aacd7cce0148b3f112e16cc9b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1946232431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3362302117866741873, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
+  m_PrefabInstance: {fileID: 576332192}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1946232432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946232431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e761cfd3c660e4b8eb6f3815516760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1969904514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8124,7 +8180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3362302117866741873, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: m_Name
-      value: ScenarioNode (12)
+      value: ProductionNode
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeLeft.m_PersistentCalls.m_Calls.Array.size

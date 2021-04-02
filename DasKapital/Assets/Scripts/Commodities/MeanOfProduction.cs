@@ -8,7 +8,7 @@ public class MeanOfProduction : UIOwner
     public List<Commodity> loadedCommodities = new List<Commodity>();
     public List<UITarget> targets = new List<UITarget>();
     public UITarget productionTarget;
-    public System.Action onCommodityProduced;
+    public System.Action<CommoditySO> onCommodityProduced;
 
     private void Start() 
     {
@@ -23,6 +23,7 @@ public class MeanOfProduction : UIOwner
             };
             target.onCommodityUnloaded += UnloadCommodity;
         }
+        onCommodityProduced += ScenarioService.instance.RegisterProduce;
     }
 
     public void OnCommodityClicked(Commodity _commodity)
@@ -54,10 +55,10 @@ public class MeanOfProduction : UIOwner
 
     public void ProduceCommodity()
     {
-        CommoditySO producedCommodity = CommoditiesService.instance.GetCommodityByComponents(loadedCommodities);
-        if (producedCommodity != null && productionTarget.loadedCommodity == null)
+        CommoditySO producedCommoditySO = CommoditiesService.instance.GetCommodityByComponents(loadedCommodities);
+        if (producedCommoditySO != null && productionTarget.loadedCommodity == null)
         {
-            Commodity produceInstance = CommoditiesService.instance.SpawnCommodity(producedCommodity);
+            Commodity produceInstance = CommoditiesService.instance.SpawnCommodity(producedCommoditySO);
             List<CommodityProfile> profiles = (from commodity in loadedCommodities
                                                select commodity.profile).ToList();
             produceInstance.TransferComponentsValue(profiles);
@@ -71,9 +72,9 @@ public class MeanOfProduction : UIOwner
                 }
             }
             loadedCommodities = (loadedCommodities.Where(x => !toRemove.Contains(x))).ToList();
-            onCommodityProduced?.Invoke();
+            onCommodityProduced?.Invoke(producedCommoditySO);
         }
-        else if (producedCommodity == null)
+        else if (producedCommoditySO == null)
         {
             print("No produce");
         }

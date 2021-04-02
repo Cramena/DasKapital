@@ -12,6 +12,11 @@ public class ScenarioNode : MonoBehaviour
     public virtual void OnNodeEntered()
     {
         onNodeEntered.Invoke();
+        ConditionNode condition = GetComponent<ConditionNode>();
+        if (condition != null)
+        {
+            condition.Activate();
+        }
     }
 
     public virtual void OnNodeLeft()

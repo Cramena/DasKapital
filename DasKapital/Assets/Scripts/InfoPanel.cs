@@ -69,6 +69,7 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void Initialize(Commodity _commodity)
     {
         commodity = _commodity;
+        ScenarioService.instance.OnCommodityInspected(_commodity.type);
 
         //Position
         Vector3 pos = rect.position;
