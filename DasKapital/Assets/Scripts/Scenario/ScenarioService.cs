@@ -23,6 +23,7 @@ public class ScenarioService : MonoBehaviour
     public bool delayedDistribution;
     public bool valueJaugeActive;
     public bool inProductionPhase;
+    public bool allowBaseCommoditiesAutoSell;
     public System.Action<CommoditySO> onProduceRegistered;
     public System.Action onAutoSell;
     public System.Action<CommoditySO> onCommodityInspected;
@@ -85,6 +86,11 @@ public class ScenarioService : MonoBehaviour
     public void SetContinueButtonActive(bool _active)
     {
         continueButton.SetActive(_active);
+    }
+
+    public void SetBaseCommoditiesAutoSellAllowed(bool _allowed)
+    {
+        allowBaseCommoditiesAutoSell = _allowed;
     }
 
     public void RegisterProduce(CommoditySO _type)

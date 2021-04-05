@@ -10,6 +10,7 @@ public class CommoditiesService : MonoBehaviour
     public CommoditySO plusValue;
     public CommoditySO workforce;
     public List<Recipe> recipes = new List<Recipe>();
+    public Worker worker;
 
     private void Awake() 
     {
@@ -59,5 +60,14 @@ public class CommoditiesService : MonoBehaviour
         Commodity instatiatedCommodity = Instantiate(commodityPrefab, transform);
         instatiatedCommodity.InitializeProfile(_type);
         return instatiatedCommodity;
+    }
+
+    public void CheckWorkforceEmptied(CommoditySO _type)
+    {
+        if (_type == workforce)
+        {
+            print("On workforce destroyed");
+            worker.PopWorkForce();
+        }
     }
 }

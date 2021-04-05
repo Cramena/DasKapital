@@ -25,14 +25,23 @@ public class AutoSellStock : UIOwner
         foreach (UITarget target in targets)
         {
             target.onCommodityPlaced += OnCommodityPlaced;
-            target.onCommodityUnloaded += (Commodity _commodity) => 
-            { 
+            target.onCommodityUnloaded += (Commodity _commodity) =>
+            {
                 if (loadedCommodities.Contains(_commodity))
                 {
-                    loadedCommodities.Remove(_commodity); 
+                    loadedCommodities.Remove(_commodity);
                 }
             };
         }
+    }
+
+    public override bool CheckCanLoad(Commodity _commodity)
+    {
+        if (!ScenarioService.instance.allowBaseCommoditiesAutoSell && _commodity.profile.components.Count == 0 &&
+            _commodity.GetComponent<DistributionCommodity>() == null)
+            return false;
+        else
+            return true;
     }
 
     public void OnCommodityPlaced(Commodity _commodity)
@@ -50,23 +59,30 @@ public class AutoSellStock : UIOwner
         spawnedCoins.Clear();
         available = false;
         int coinsToDistribute = _commodity.profile.exchangeValue;
-        foreach (CommodityProfile profile in _commodity.profile.components)
+        if (_commodity.profile.components.Count == 0)
         {
-            int value = profile.isDurable ? profile.valuePerUse : profile.exchangeValue;
-            if (profile.type == CommoditiesService.instance.workforce)
-            {
-                SpawnCoins(CoinType.Salary, value);
-            } 
-            else if (profile.type == CommoditiesService.instance.plusValue)
-            {
-                SpawnCoins(CoinType.Profit, value);
-            } 
-            else
-            {
-                SpawnCoins(CoinType.Material, value);
-            }
+            SpawnCoins(CoinType.Material, coinsToDistribute);
         }
-        spawnedCoins = spawnedCoins.OrderBy(x => x.type).ToList();
+        else
+        {
+            foreach (CommodityProfile profile in _commodity.profile.components)
+            {
+                int value = profile.isDurable ? profile.valuePerUse : profile.exchangeValue;
+                if (profile.type == CommoditiesService.instance.workforce)
+                {
+                    SpawnCoins(CoinType.Salary, value);
+                }
+                else if (profile.type == CommoditiesService.instance.plusValue)
+                {
+                    SpawnCoins(CoinType.Profit, value);
+                }
+                else
+                {
+                    SpawnCoins(CoinType.Material, value);
+                }
+            }
+            spawnedCoins = spawnedCoins.OrderBy(x => x.type).ToList();
+        }
 
         Vector3 _spawnPos = _commodity.rect.position;
         Destroy(_commodity.gameObject);
@@ -134,24 +150,24 @@ public class AutoSellStock : UIOwner
                 {
                     if (ScenarioService.instance.delayedDistribution) distributing = false;
                     else currentStep = CoinType.Salary;
-                } 
+                }
                 break;
             case CoinType.Salary :
-                salaryQueue.Dequeue().GetDistributedTo(distributionTargets[1]);
+                if (salaryQueue.Count > 0) salaryQueue.Dequeue().GetDistributedTo(distributionTargets[1]);
                 if (salaryQueue.Count <= 0)
                 {
                     if (ScenarioService.instance.delayedDistribution) distributing = false;
                     else currentStep = CoinType.Profit;
-                } 
+                }
                 break;
             case CoinType.Profit :
-                profitQueue.Dequeue().GetDistributedTo(distributionTargets[2]);
+                if (profitQueue.Count > 0) profitQueue.Dequeue().GetDistributedTo(distributionTargets[2]);
                 if (profitQueue.Count <= 0)
                 {
                     currentStep = CoinType.None;
                     distributing = false;
                     available = true;
-                } 
+                }
                 break;
             default:
                 break;

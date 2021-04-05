@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: WorkForce
   m_EditorClassIdentifier: 
   commodityName: WorkForce
-  exchangeValue: 3
+  exchangeValue: 9
   useValue: 1
   useValueDescription: Used to transform other commodities.
-  isDurable: 0
-  usesAmount: 0
+  isDurable: 1
+  usesAmount: 3
   components: []
   icon: {fileID: 21300000, guid: 33e6267d33a3a4e4eb4624cf43fcecf4, type: 3}
   sizeModifier: 1

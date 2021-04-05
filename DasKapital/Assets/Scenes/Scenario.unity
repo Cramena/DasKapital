@@ -1347,7 +1347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3362302117866741873, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: m_Name
-      value: ScenarioNode
+      value: InitializationNode
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeLeft.m_PersistentCalls.m_Calls.Array.size
@@ -1355,7 +1355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeLeft.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1378,6 +1378,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
+      propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1474190803}
@@ -1387,6 +1391,10 @@ PrefabInstance:
       objectReference: {fileID: 1474190803}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1474190803}
+    - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
+      propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 1474190803}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
@@ -1410,6 +1418,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
+      propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetDelayedDistribution
       objectReference: {fileID: 0}
@@ -1420,6 +1432,10 @@ PrefabInstance:
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: SetStockToStockMovement
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
+      propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetBaseCommoditiesAutoSellAllowed
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeLeft.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1435,6 +1451,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ScenarioService, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
+      propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: ScenarioService, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
@@ -1459,6 +1479,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
+      propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2333,7 +2357,6 @@ GameObject:
   - component: {fileID: 730743221}
   - component: {fileID: 730743220}
   - component: {fileID: 730743219}
-  - component: {fileID: 730743218}
   m_Layer: 5
   m_Name: Owner
   m_TagString: Untagged
@@ -2341,22 +2364,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &730743218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730743217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f71bba3a76e6b348b98995d1337866f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meanOfProduction: {fileID: 153233238668828118}
-  workforcePrefab: {fileID: 6217118235959283277, guid: cc16be4d6d7b198458382629e42414cf, type: 3}
-  workforceSlot: {fileID: 881614735}
-  workforcePopSpeed: 10
 --- !u!114 &730743219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4373,7 +4380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeLeft.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.size
@@ -4381,7 +4388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeLeft.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeLeft.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4401,7 +4408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeLeft.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LaunchEvent
+      value: SetBaseCommoditiesAutoSellAllowed
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -4414,6 +4421,10 @@ PrefabInstance:
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeLeft.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ScenarioService, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
+      propertyPath: onNodeLeft.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3935822753886056592, guid: c0386ead548902b4ebc2e6f3cb0c2eef, type: 3}
       propertyPath: onNodeEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4938,6 +4949,7 @@ MonoBehaviour:
   recipes:
   - {fileID: 11400000, guid: 501ef008a151d074c8b1d5b220cd3793, type: 2}
   - {fileID: 11400000, guid: 641e000cd46817b42af6f1d946693686, type: 2}
+  worker: {fileID: 1376796615}
 --- !u!1 &1370511722
 GameObject:
   m_ObjectHideFlags: 0
@@ -6201,6 +6213,7 @@ MonoBehaviour:
   delayedDistribution: 0
   valueJaugeActive: 0
   inProductionPhase: 0
+  allowBaseCommoditiesAutoSell: 0
 --- !u!1001 &1489412361
 PrefabInstance:
   m_ObjectHideFlags: 0

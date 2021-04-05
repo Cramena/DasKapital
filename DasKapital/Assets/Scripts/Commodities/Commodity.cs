@@ -65,6 +65,11 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         if (profile.isDurable) SetUsesUI();
     }
 
+    private void OnEnable()
+    {
+        if (profile.isDurable) SetUsesUI();
+    }
+
     public void SetUsesUI()
     {
         for (var i = 0; i < profile.initialUsesAmount; i++)
@@ -218,5 +223,10 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             Destroy(gameObject);
             return false;
         }
+    }
+
+    private void OnDestroy()
+    {
+        CommoditiesService.instance.CheckWorkforceEmptied(type);
     }
 }

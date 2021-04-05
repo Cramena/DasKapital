@@ -24,7 +24,7 @@ public class UITarget : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public bool OnCommodityPlaced(Commodity _commodity, bool force = false)
     {
-        if (!force && owner != null && !owner.available) return false;
+        if (owner != null && ((!force && !owner.available) || !owner.CheckCanLoad(_commodity))) return false;
 
         if (loadedCommodity != null)
         {
