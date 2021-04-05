@@ -6,6 +6,7 @@ public class AutoSellConditionNode : ConditionNode
 {
     public override void Activate()
     {
+        base.Activate();
         ScenarioService.instance.onAutoSell += CheckAutoSell;
     }
 

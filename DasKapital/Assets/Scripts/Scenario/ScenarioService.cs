@@ -15,6 +15,7 @@ public class ScenarioService : MonoBehaviour
 {
     public static ScenarioService instance;
     public Text scenarioText;
+    public GameObject continueButton;
     public List<ScenarioNode> nodes = new List<ScenarioNode>();
     private int currentNodeIndex;
     public List<UnityEvent> scenarioEvents = new List<UnityEvent>();
@@ -41,12 +42,14 @@ public class ScenarioService : MonoBehaviour
     private void Start()
     {
         nodes[currentNodeIndex]?.OnNodeEntered();
+        SetContinueButtonActive(true);
     }
 
     public void OnNodeStep()
     {
         nodes[currentNodeIndex]?.OnNodeLeft();
         currentCondition = Condition.None;
+        SetContinueButtonActive(true);
         currentNodeIndex++;
         if (currentNodeIndex < nodes.Count)
         {
@@ -77,6 +80,11 @@ public class ScenarioService : MonoBehaviour
     public void SetStockToStockMovement(bool _active)
     {
         inProductionPhase = _active;
+    }
+
+    public void SetContinueButtonActive(bool _active)
+    {
+        continueButton.SetActive(_active);
     }
 
     public void RegisterProduce(CommoditySO _type)

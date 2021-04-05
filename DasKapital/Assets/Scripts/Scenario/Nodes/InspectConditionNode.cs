@@ -8,6 +8,7 @@ public class InspectConditionNode : ConditionNode
 
     public override void Activate()
     {
+        base.Activate();
         ScenarioService.instance.onCommodityInspected += CheckCommodityInspected;
     }
 

@@ -5,5 +5,8 @@ using UnityEngine;
 
 public class ConditionNode : MonoBehaviour
 {
-    public virtual void Activate() {}
+    public virtual void Activate()
+    {
+        ScenarioService.instance.SetContinueButtonActive(false);
+    }
 }

@@ -8,6 +8,7 @@ public class ProduceConditionNode : ConditionNode
 
     public override void Activate()
     {
+        base.Activate();
         ScenarioService.instance.onProduceRegistered += CheckCommodityProduced;
     }
 
