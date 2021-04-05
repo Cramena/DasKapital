@@ -4946,6 +4946,14 @@ MonoBehaviour:
   commodityPrefab: {fileID: 9163346892319172947, guid: bbcccc15f91fcc64287eae6dc265542f, type: 3}
   plusValue: {fileID: 11400000, guid: 3354158dbdaf51441a0316e8a881d40e, type: 2}
   workforce: {fileID: 11400000, guid: c480eb147cd452645a5221a6b997176c, type: 2}
+  spawnableCommodities:
+  - {fileID: 11400000, guid: 15dc61d523de95444bdb5bd8e0e6ef5a, type: 2}
+  - {fileID: 11400000, guid: 0270e6dd6f31bfd4990dc863322fbb70, type: 2}
+  - {fileID: 11400000, guid: d73055712decdaa449618540c5d6ef03, type: 2}
+  - {fileID: 11400000, guid: c4dc9efade43e1c469132f809a2bccb1, type: 2}
+  - {fileID: 11400000, guid: 6f91087984245d644afe09d18281b12d, type: 2}
+  - {fileID: 11400000, guid: 3b682a3481f627342a2ccd5a18cddd5f, type: 2}
+  - {fileID: 11400000, guid: 01bc12a8b4a807244be93f6d10c33722, type: 2}
   recipes:
   - {fileID: 11400000, guid: 501ef008a151d074c8b1d5b220cd3793, type: 2}
   - {fileID: 11400000, guid: 641e000cd46817b42af6f1d946693686, type: 2}
@@ -6097,6 +6105,42 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6726523861777951675}
+        m_TargetAssemblyTypeName: Stock, Assembly-CSharp
+        m_MethodName: DestroyContent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1129798669}
+        m_TargetAssemblyTypeName: Stock, Assembly-CSharp
+        m_MethodName: DestroyContent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 679984297}
+        m_TargetAssemblyTypeName: Stock, Assembly-CSharp
+        m_MethodName: DestroyContent
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

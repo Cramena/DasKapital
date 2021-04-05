@@ -16,8 +16,6 @@ public class Worker : MonoBehaviour
     {
         rect = GetComponent<RectTransform>();
         ReplenishPool();
-        // meanOfProduction.onCommodityProduced += PopWorkForce;
-        print("Start worker");
         PopWorkForce();
     }
 
@@ -34,7 +32,6 @@ public class Worker : MonoBehaviour
 
     public void PopWorkForce()
     {
-        print("Pop workforce");
         Commodity spawnedWorkforce = workforces.Dequeue();
         spawnedWorkforce.gameObject.SetActive(true);
         if (workforces.Count < 5) ReplenishPool();

@@ -26,4 +26,5 @@ public class CommoditySO : ScriptableObject
     public Sprite icon;
     public float sizeModifier = 1;
     public Color color;
+    public int probabilityWeight = 1;
 }

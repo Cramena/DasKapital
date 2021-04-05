@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.UI;
 
 public class Stock : UIOwner
 {
@@ -14,6 +13,37 @@ public class Stock : UIOwner
         SpawnCommodities();
     }
 
+    private void OnEnable()
+    {
+        if (spawnList.Count > 0) return;
+        foreach (UITarget target in spawnTargets)
+        {
+            if (target.loadedCommodity != null) 
+            {
+                SetContentEnabled(true);
+                return;
+            }
+        }
+        SpawnRandomCommodities();
+    }
+
+    void SpawnRandomCommodities()
+    {
+        int commoditiesAmount = Random.Range(1, spawnTargets.Count);
+        for (var i = 0; i < commoditiesAmount; i++)
+        {
+            Commodity commodityInstance = CommoditiesService.instance.SpawnCommodity(CommoditiesService.instance.GetRandomCommodity());
+            commodityInstance.rect.position = spawnTargets[i].rect.position;
+            spawnTargets[i].OnCommodityPlaced(commodityInstance, true);
+        }
+    }
+
+    public void RandomizeContent()
+    {
+        DestroyContent();
+        SpawnRandomCommodities();
+    }
+
     void SpawnCommodities()
     {
         for (var i = 0; i < spawnList.Count; i++)
@@ -23,6 +53,7 @@ public class Stock : UIOwner
             commodityInstance.rect.position = spawnTargets[i].rect.position;
             spawnTargets[i].OnCommodityPlaced(commodityInstance);
         }
+        spawnList.Clear();
     }
 
     public void GetCommodities(List<Commodity> _commodities)
@@ -47,6 +78,20 @@ public class Stock : UIOwner
     }
 
     private void OnDisable()
+    {
+        SetContentEnabled(false);
+    }
+
+    void SetContentEnabled(bool _enabled)
+    {
+        foreach (UITarget target in spawnTargets)
+        {
+            if (target.loadedCommodity == null) continue;
+            target.loadedCommodity.gameObject.SetActive(_enabled);
+        }
+    }
+
+    public void DestroyContent()
     {
         foreach (UITarget target in spawnTargets)
         {

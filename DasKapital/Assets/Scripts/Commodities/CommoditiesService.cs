@@ -9,8 +9,10 @@ public class CommoditiesService : MonoBehaviour
     public Commodity commodityPrefab;
     public CommoditySO plusValue;
     public CommoditySO workforce;
+    public List<CommoditySO> spawnableCommodities = new List<CommoditySO>();
     public List<Recipe> recipes = new List<Recipe>();
     public Worker worker;
+    private int totalProbabilityWeight;
 
     private void Awake() 
     {
@@ -22,6 +24,7 @@ public class CommoditiesService : MonoBehaviour
         {
             throw new System.Exception($"Too many {this} instances");
         }
+        InitializeTotalProbabilityWeight();
     }
 
     public CommoditySO GetCommodityByComponents(List<Commodity> _components)
@@ -66,8 +69,30 @@ public class CommoditiesService : MonoBehaviour
     {
         if (_type == workforce)
         {
-            print("On workforce destroyed");
             worker.PopWorkForce();
         }
+    }
+
+    void InitializeTotalProbabilityWeight()
+    {
+        foreach (CommoditySO commodity in spawnableCommodities)
+        {
+            totalProbabilityWeight += commodity.probabilityWeight;
+        }
+    }
+
+    public CommoditySO GetRandomCommodity()
+    {
+        int random = Random.Range(1, totalProbabilityWeight+1);
+        int probabilitySum = 0;
+        for (var i = 0; i < spawnableCommodities.Count; i++)
+        {
+            probabilitySum += spawnableCommodities[i].probabilityWeight;
+            if (random <= probabilitySum)
+            {
+                return spawnableCommodities[i];
+            }
+        }
+        return null;
     }
 }
