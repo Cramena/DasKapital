@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
   m_Name: Smoothie
   m_EditorClassIdentifier: 
+  index: 112
   commodityName: Smoothie
   exchangeValue: 0
   useValue: 0
@@ -22,3 +23,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 18c1b1c836f346a46a2b5e0981d81fb0, type: 3}
   sizeModifier: 1.1
   color: {r: 0, g: 0.7607844, b: 0, a: 1}
+  probabilityWeight: 1

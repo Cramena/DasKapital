@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
+  index: 100
   commodityName: Apple
   exchangeValue: 1
   useValue: 0
@@ -22,3 +23,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: ddf9437bdb282504a869a3422ff77b2b, type: 3}
   sizeModifier: 1
   color: {r: 0.882353, g: 0.29803923, b: 0.2901961, a: 1}
+  probabilityWeight: 1

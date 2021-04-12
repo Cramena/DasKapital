@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
   m_Name: PlusValue
   m_EditorClassIdentifier: 
+  index: 0
   commodityName: PlusValue
-  exchangeValue: 2
+  exchangeValue: 1
   useValue: 0
   useValueDescription: Adds value
   isDurable: 0
@@ -22,3 +23,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: fcfab63888182754fa8f4e9c7cc1a56f, type: 3}
   sizeModifier: 1
   color: {r: 0.2392157, g: 0.7019608, b: 0.61960787, a: 1}
+  probabilityWeight: 1

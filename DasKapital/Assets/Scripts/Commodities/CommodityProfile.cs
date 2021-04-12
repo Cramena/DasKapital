@@ -43,6 +43,7 @@ public class CommodityProfile
         icon = _profile.icon;
         sizeModifier = _profile.sizeModifier;
         color = _profile.color;
+        components = _profile.components;
     }
     public CommodityProfile(CommoditySO _type)
     {
@@ -58,6 +59,7 @@ public class CommodityProfile
         icon = _type.icon;
         sizeModifier = _type.sizeModifier;
         color = _type.color;
+        components = new List<CommodityProfile>();
     }
 
     public CommoditySO type;

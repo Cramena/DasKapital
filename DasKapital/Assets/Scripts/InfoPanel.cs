@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -24,6 +25,7 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public float hideDelay = 0.5f;
     private float hideTimer;
     public bool hovering;
+    public List<CommodityProfile> tempProfiles;
 
     private void Awake()
     {
@@ -119,27 +121,55 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         if (commodity.profile.components.Count == 0)
         {
             JaugeSegment segment = Instantiate(segmentPrefab, jauge);
-            segment.InitializeSegment(commodity.profile.valuePerUse * commodity.profile.usesAmount, commodity.profile.icon,
+            segment.InitializeSegment(commodity.profile.valuePerUse * commodity.profile.usesAmount, commodity.profile.icon, 1,
                                       commodity.profile.commodityName, commodity.profile.color, commodity.profile.sizeModifier);
         }
         else
         {
+            tempProfiles.Clear();
             for (var i = 0; i < commodity.profile.components.Count; i++)
             {
-                JaugeSegment segment = Instantiate(segmentPrefab, jauge);
-                CommodityProfile component = commodity.profile.components[i];
+                GetValueFromCommodity(commodity.profile.components[i]);
+            }
+            tempProfiles = tempProfiles.OrderBy(x => x.type.index).ToList();
+            int currentIndex = 0;
+            int toSpawnAmount = 0;
+            for (var i = 0; i < tempProfiles.Count; i++)
+            {
+                toSpawnAmount++;
+                if ((i+1 < tempProfiles.Count &&tempProfiles[i+1].type.index != currentIndex) || i+1 == tempProfiles.Count)
+                {
+                    if (i+1 < tempProfiles.Count) currentIndex = tempProfiles[i+1].type.index;
+                    JaugeSegment segment = Instantiate(segmentPrefab, jauge);
+                    string nameText = "";
+                    string pluralAnnex = toSpawnAmount == 1 && tempProfiles[i].type.index == 0 ? "" : "s";
+                    int value = tempProfiles[i].isDurable ? tempProfiles[i].valuePerUse * toSpawnAmount : tempProfiles[i].exchangeValue * toSpawnAmount;
+                    if (tempProfiles[i].isDurable)
+                    {
+                        nameText = $"{value} from ({toSpawnAmount}) {tempProfiles[i].commodityName} use{pluralAnnex}";
+                    }
+                    else
+                    {
+                        nameText = $"{value} from ({toSpawnAmount}) {tempProfiles[i].commodityName}{pluralAnnex}";
+                    }
+                    segment.InitializeSegment(value, tempProfiles[i].icon, toSpawnAmount, nameText, tempProfiles[i].color, tempProfiles[i].sizeModifier);
+                    toSpawnAmount = 0;
+                }
+            }
+        }
+    }
 
-                string nameText = "";
-                if (component.isDurable)
-                {
-                    nameText = $"({component.valuePerUse}) {component.commodityName} use";
-                }
-                else
-                {
-                    nameText = $"({component.exchangeValue}) {component.commodityName}";
-                }
-                int value = component.isDurable ? component.valuePerUse : component.exchangeValue;
-                segment.InitializeSegment(value, component.icon, nameText, component.color, component.sizeModifier);
+    void GetValueFromCommodity(CommodityProfile _profile)
+    {
+        if (_profile.components.Count == 0)
+        {
+            tempProfiles.Add(_profile);
+        }
+        else
+        {
+            for (var i = 0; i < _profile.components.Count; i++)
+            {
+                GetValueFromCommodity(_profile.components[i]);
             }
         }
     }

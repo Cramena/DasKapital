@@ -16,6 +16,7 @@ public enum UseValue
 [CreateAssetMenu(fileName = "CommoditySO", menuName = "DasKapital/CommoditySO")]
 public class CommoditySO : ScriptableObject
 {
+    public int index;
     public string commodityName;
     public int exchangeValue;
     public UseValue useValue;

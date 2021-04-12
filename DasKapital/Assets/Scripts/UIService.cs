@@ -11,7 +11,7 @@ public class UIService : MonoBehaviour
     [HideInInspector] public EventSystem eventSystem;
     public InfoPanel infoPanel;
     public Transform coinsPanel;
-    [HideInInspector] public bool infoPanelDisplaying;
+    public bool infoPanelDisplaying;
     [HideInInspector] public UITarget highlightedTarget;
     private PointerEventData pointerEventData;
 
@@ -43,6 +43,8 @@ public class UIService : MonoBehaviour
 
     public void DisplayInfoPanel(Commodity _commodity)
     {
+        // if (infoPanelDisplaying) return;
+        print($"Display info panel & infoPanelDisplaying = {infoPanelDisplaying}");
         infoPanel.gameObject.SetActive(true);
         infoPanel.Initialize(_commodity);
         infoPanelDisplaying = true;
@@ -50,6 +52,7 @@ public class UIService : MonoBehaviour
 
     public void HideInfoPanel()
     {
+        print("Hide info panel");
         infoPanel.gameObject.SetActive(false);
         infoPanelDisplaying = false;
     }

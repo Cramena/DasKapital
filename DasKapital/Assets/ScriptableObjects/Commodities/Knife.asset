@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: 
+  index: 10
   commodityName: Knife
-  exchangeValue: 6
+  exchangeValue: 3
   useValue: 0
   useValueDescription: Cuts things.
   isDurable: 1
@@ -22,3 +23,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f7cb53add6450bf4d829ab0fdd4d49bf, type: 3}
   sizeModifier: 1
   color: {r: 0.7411765, g: 0.4901961, b: 0.32156864, a: 1}
+  probabilityWeight: 1

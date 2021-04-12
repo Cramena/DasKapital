@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
   m_Name: Blender
   m_EditorClassIdentifier: 
+  index: 11
   commodityName: Blender
-  exchangeValue: 15
+  exchangeValue: 10
   useValue: 0
   useValueDescription: Blends food.
   isDurable: 1
@@ -22,3 +23,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 8925a9f90f093e5418cbc55d4d85ddfd, type: 3}
   sizeModifier: 1
   color: {r: 0.73333335, g: 0.8705883, b: 0.9921569, a: 1}
+  probabilityWeight: 1

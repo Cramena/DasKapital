@@ -76,11 +76,38 @@ public class MeanOfProduction : UIOwner
         }
         else if (producedCommoditySO == null)
         {
-            print("No produce");
+            print("No produce from: ");
+            for (var i = 0; i < loadedCommodities.Count; i++)
+            {
+                print(loadedCommodities[i].type);
+            }
         }
         else
         {
             print("Clear the production space");
+        }
+    }
+
+    private void OnEnable()
+    {
+        SetContentEnabled(true);
+    }
+
+    private void OnDisable()
+    {
+        SetContentEnabled(false);
+    }
+
+    void SetContentEnabled(bool _enabled)
+    {
+        foreach (UITarget target in targets)
+        {
+            if (target.loadedCommodity == null) continue;
+            target.loadedCommodity.gameObject.SetActive(_enabled);
+        }
+        if (productionTarget.loadedCommodity != null) 
+        {
+            productionTarget.loadedCommodity.gameObject.SetActive(_enabled);
         }
     }
 

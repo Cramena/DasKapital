@@ -40,4 +40,21 @@ public class Worker : MonoBehaviour
         spawnedWorkforce.StartLerp(workforcePopSpeed);
         workforceSlot.OnCommodityPlaced(spawnedWorkforce);
     }
+    private void OnEnable()
+    {
+        SetContentEnabled(true);
+    }
+
+    private void OnDisable()
+    {
+        SetContentEnabled(false);
+    }
+
+    void SetContentEnabled(bool _enabled)
+    {
+        if (workforceSlot.loadedCommodity != null) 
+        {
+            workforceSlot.loadedCommodity.gameObject.SetActive(_enabled);
+        }
+    }
 }

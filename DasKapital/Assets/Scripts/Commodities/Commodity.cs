@@ -33,7 +33,7 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public float lerpSnapThreshold = 0.2f;
     public float lerpSpeed = 0.2f;
     public float currentLerpSpeed;
-    public float infoPanelTriggerDelay = 0.5f;
+    public float infoPanelTriggerDelay = 1.0f;
     private float infoPanelTriggerTimer;
     [HideInInspector] public bool hovering;
     [HideInInspector] public bool draggable = true;
@@ -113,6 +113,10 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 UIService.instance.DisplayInfoPanel(this);
                 infoPanelTriggerTimer = 0;
             }
+        }
+        else if (infoPanelTriggerTimer != 0)
+        {
+            infoPanelTriggerTimer = 0;
         }
         if (target == null) return;
         
