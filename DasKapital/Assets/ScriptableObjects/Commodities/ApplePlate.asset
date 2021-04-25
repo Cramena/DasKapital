@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
-  m_Name: Apple
+  m_Name: ApplePlate
   m_EditorClassIdentifier: 
-  index: 100
-  commodityName: Apple
-  exchangeValue: 1
+  index: 113
+  commodityName: Apple plate
+  exchangeValue: 0
   useValue: 0
-  useValueDescription: Edible. Sweet taste.
+  useValueDescription: Edible. Sweet taste. Decorative.
   isDurable: 0
   usesAmount: 0
   components: []
-  icon: {fileID: 21300000, guid: 950086c53873a41489ca590dfe5208d1, type: 3}
-  sizeModifier: 1
-  color: {r: 0.882353, g: 0.29803923, b: 0.2901961, a: 1}
+  icon: {fileID: 21300000, guid: bcf4885b3b7252b40af4311b43d17bec, type: 3}
+  sizeModifier: 1.45
+  color: {r: 0.7686275, g: 0.07058824, b: 0.08627451, a: 1}
   probabilityWeight: 1

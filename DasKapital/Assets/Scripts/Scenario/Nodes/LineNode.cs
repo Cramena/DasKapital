@@ -8,6 +8,7 @@ public class LineNode : ScenarioNode
 
     public override void OnNodeEntered()
     {
+        base.OnNodeEntered();
         ScenarioService.instance.DisplayLine(lockey);
     }
 }

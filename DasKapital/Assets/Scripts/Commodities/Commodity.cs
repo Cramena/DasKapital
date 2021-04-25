@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public enum CommodityState
 {
@@ -68,6 +69,12 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private void OnEnable()
     {
         if (profile.isDurable) SetUsesUI();
+        CommoditiesService.instance.onCommoditiesEdition += GetEdited;
+    }
+
+    private void OnDisable()
+    {
+        CommoditiesService.instance.onCommoditiesEdition -= GetEdited;
     }
 
     public void SetUsesUI()
@@ -93,10 +100,12 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         {
             profile.components.Add(new CommodityProfile(_profile));
             profile.exchangeValue += _profile.usesAmount != 0 ? _profile.exchangeValue / _profile.usesAmount : _profile.exchangeValue;
+            // print($"{profile.commodityName}: value +{_profile.exchangeValue} from {_profile.commodityName}");
             if (_profile.useValue == UseValue.AddValue)
             {
                 profile.components.Add(new CommodityProfile(CommoditiesService.instance.plusValue));
-                profile.exchangeValue += plusValue;
+                profile.exchangeValue += CommoditiesService.instance.plusValue.exchangeValue;
+                // print($"{profile.commodityName}: value +{CommoditiesService.instance.plusValue.exchangeValue} from {CommoditiesService.instance.plusValue.commodityName}");
             }
         }
         profile.valuePerUse = profile.isDurable ? profile.exchangeValue / profile.usesAmount : 0;
@@ -232,5 +241,18 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private void OnDestroy()
     {
         CommoditiesService.instance.CheckWorkforceEmptied(type);
+        CommoditiesService.instance.onCommoditiesEdition -= GetEdited;
+    }
+
+    public void GetEdited(CommoditySO _workforce, List<int> _allowedIndices)
+    {
+        if (_allowedIndices.Contains(type.index) && profile.components.Count > 0)
+        {
+            List<CommodityProfile> tempProfiles = (from component in profile.components
+                                                  select component).ToList();
+            tempProfiles.Add(new CommodityProfile(_workforce));
+            profile.components.Clear();
+            TransferComponentsValue(tempProfiles);
+        }
     }
 }

@@ -16,6 +16,9 @@ public class ScenarioService : MonoBehaviour
     public static ScenarioService instance;
     public Text scenarioText;
     public GameObject continueButton;
+    public Button transactionButton;
+    public Button productionButton;
+    public Button distributionButton;
     public List<ScenarioNode> nodes = new List<ScenarioNode>();
     private int currentNodeIndex;
     public List<UnityEvent> scenarioEvents = new List<UnityEvent>();
@@ -25,7 +28,8 @@ public class ScenarioService : MonoBehaviour
     public bool inProductionPhase;
     public bool allowBaseCommoditiesAutoSell;
     public System.Action<CommoditySO> onProduceRegistered;
-    public System.Action onAutoSell;
+    public System.Action<CommoditySO> onAutoSell;
+    public System.Action onDistribution;
     public System.Action<CommoditySO> onCommodityInspected;
 
     private void Awake()
@@ -98,13 +102,36 @@ public class ScenarioService : MonoBehaviour
         onProduceRegistered?.Invoke(_type);
     }
 
-    public void OnAutoSell()
+    public void OnAutoSell(CommoditySO _commodity)
     {
-        onAutoSell?.Invoke();
+        onAutoSell?.Invoke(_commodity);
     }
 
     public void OnCommodityInspected(CommoditySO _type)
     {
         onCommodityInspected?.Invoke(_type);
+    }
+
+    public void LaunchCommodityEdit()
+    {
+        CommoditiesService.instance.EditCommodities();
+    }
+
+    public void SetTransactionInteractive(bool _active)
+    {
+        if (transactionButton.gameObject == null) return;
+        transactionButton.interactable = _active;
+    }
+
+    public void SetProductionInteractive(bool _active)
+    {
+        if (productionButton.gameObject == null) return;
+        productionButton.interactable = _active;
+    }
+
+    public void SetDistributionInteractive(bool _active)
+    {
+        if (distributionButton.gameObject == null) return;
+        distributionButton.interactable = _active;
     }
 }

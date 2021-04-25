@@ -13,6 +13,8 @@ public class CommoditiesService : MonoBehaviour
     public List<Recipe> recipes = new List<Recipe>();
     public Worker worker;
     private int totalProbabilityWeight;
+    public System.Action onCommodityPlacementRegistered;
+    public System.Action<CommoditySO, List<int>> onCommoditiesEdition;
 
     private void Awake() 
     {
@@ -94,5 +96,20 @@ public class CommoditiesService : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void RegisterCommodityPlacement()
+    {
+        onCommodityPlacementRegistered?.Invoke();
+    }
+
+    public void EditCommodities()
+    {
+        onCommoditiesEdition?.Invoke(workforce, new List<int>() {104, 107, 110, 113});
+    }
+
+    public void UpdateRecipesList(RecipesList _recipesList)
+    {
+        recipes =_recipesList.recipes;
     }
 }

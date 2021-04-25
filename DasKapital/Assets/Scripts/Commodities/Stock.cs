@@ -7,6 +7,21 @@ public class Stock : UIOwner
 {
     public List<UITarget> spawnTargets = new List<UITarget>();
     public List<CommoditySO> spawnList = new List<CommoditySO>();
+    private int myVar;
+    public List<CommoditySO> Commodities
+    {
+        get 
+        {
+            List<CommoditySO> commodities = new List<CommoditySO>();
+            foreach (UITarget target in spawnTargets)
+            {
+                if (target.loadedCommodity == null) continue;
+                commodities.Add(target.loadedCommodity.type);
+            } 
+            return commodities;
+        }
+    }
+    
 
     private void Start() 
     {
@@ -97,5 +112,13 @@ public class Stock : UIOwner
         {
             target.DestroyCommodity();
         }
+    }
+
+    public override bool CheckCanLoad(Commodity _commodity)
+    {
+        if (_commodity.type.index == 1)
+            return false;
+        else
+            return true;
     }
 }

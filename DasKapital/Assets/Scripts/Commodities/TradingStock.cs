@@ -12,4 +12,12 @@ public class TradingStock : UIOwner
             _commodities[i].body.LerpTo(Vector2.zero);
         }
     }
+
+    public override bool CheckCanLoad(Commodity _commodity)
+    {
+        if (_commodity.type.index == 1)
+            return false;
+        else
+            return true;
+    }
 }

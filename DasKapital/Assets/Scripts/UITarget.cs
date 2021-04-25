@@ -37,6 +37,7 @@ public class UITarget : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _commodity.target = this;
         loadedCommodity = _commodity;
         onCommodityPlaced?.Invoke(loadedCommodity);
+        CommoditiesService.instance.RegisterCommodityPlacement();
         return true;
     }
 

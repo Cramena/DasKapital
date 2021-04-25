@@ -14,7 +14,7 @@ public class ExchangeService : MonoBehaviour
     public TradingStock otherTradingStock;
     [HideInInspector] public int otherStockIndex = -1;
     
-
+    public System.Action onTransaction;
     public System.Action<float> onBalanceUpdate;
 
 
@@ -89,6 +89,7 @@ public class ExchangeService : MonoBehaviour
                 }
                 stocks[otherStockIndex].GetCommodities(mainSelectedCommodities);
                 stocks[0].GetCommodities(otherSelectedCommodities);
+                onTransaction?.Invoke();
             }
             else
             {

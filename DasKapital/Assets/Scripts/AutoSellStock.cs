@@ -37,8 +37,9 @@ public class AutoSellStock : UIOwner
 
     public override bool CheckCanLoad(Commodity _commodity)
     {
-        if (!ScenarioService.instance.allowBaseCommoditiesAutoSell && _commodity.profile.components.Count == 0 &&
-            _commodity.GetComponent<DistributionCommodity>() == null)
+        if ((!ScenarioService.instance.allowBaseCommoditiesAutoSell && _commodity.profile.components.Count == 0 &&
+            _commodity.GetComponent<DistributionCommodity>() == null) ||
+            _commodity.type.index == 1)
             return false;
         else
             return true;
@@ -55,7 +56,7 @@ public class AutoSellStock : UIOwner
 
     void AutoSellCommodity(Commodity _commodity)
     {
-        ScenarioService.instance.OnAutoSell();
+        ScenarioService.instance.OnAutoSell(_commodity.type);
         spawnedCoins.Clear();
         available = false;
         int coinsToDistribute = _commodity.profile.exchangeValue;
@@ -142,6 +143,7 @@ public class AutoSellStock : UIOwner
 
     void DistributeCoin()
     {
+        ScenarioService.instance.onDistribution?.Invoke();
         switch(currentStep)
         {
             case CoinType.Material :
