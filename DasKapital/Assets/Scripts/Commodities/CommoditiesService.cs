@@ -11,6 +11,7 @@ public class CommoditiesService : MonoBehaviour
     public CommoditySO workforce;
     public List<CommoditySO> spawnableCommodities = new List<CommoditySO>();
     public List<Recipe> recipes = new List<Recipe>();
+    public bool numerableRecipes;
     public Worker worker;
     private int totalProbabilityWeight;
     public System.Action onCommodityPlacementRegistered;
@@ -29,7 +30,7 @@ public class CommoditiesService : MonoBehaviour
         InitializeTotalProbabilityWeight();
     }
 
-    public CommoditySO GetCommodityByComponents(List<Commodity> _components)
+    public Recipe GetCommodityByComponents(List<Commodity> _components)
     {
         List<CommoditySO> tempComponents;
         foreach (Recipe recipe in recipes)
@@ -54,7 +55,7 @@ public class CommoditiesService : MonoBehaviour
             }
             else
             {
-                return recipe.result;
+                return recipe;
             }
         }
         return null;
@@ -111,5 +112,14 @@ public class CommoditiesService : MonoBehaviour
     public void UpdateRecipesList(RecipesList _recipesList)
     {
         recipes =_recipesList.recipes;
+        numerableRecipes = _recipesList.numerable;
+    }
+
+    public void CheckRecipes(Recipe _recipe)
+    {
+        if (numerableRecipes && recipes.Contains(_recipe))
+        {
+            recipes.Remove(_recipe);
+        }
     }
 }

@@ -6,4 +6,5 @@ using UnityEngine;
 public class RecipesList : ScriptableObject
 {
     public List<Recipe> recipes = new List<Recipe>();
+    public bool numerable;
 }

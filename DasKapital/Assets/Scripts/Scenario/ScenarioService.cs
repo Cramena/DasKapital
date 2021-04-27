@@ -18,7 +18,8 @@ public class ScenarioService : MonoBehaviour
     public GameObject continueButton;
     public Button transactionButton;
     public Button productionButton;
-    public Button distributionButton;
+    // public Button distributionButton;
+    public AutoSellStock autoSellStock;
     public List<ScenarioNode> nodes = new List<ScenarioNode>();
     private int currentNodeIndex;
     public List<UnityEvent> scenarioEvents = new List<UnityEvent>();
@@ -31,6 +32,9 @@ public class ScenarioService : MonoBehaviour
     public System.Action<CommoditySO> onAutoSell;
     public System.Action onDistribution;
     public System.Action<CommoditySO> onCommodityInspected;
+    public System.Action onSandboxStart;
+    private int scenarioIndex;
+    public bool sandboxActive;
 
     private void Awake()
     {
@@ -46,6 +50,7 @@ public class ScenarioService : MonoBehaviour
 
     private void Start()
     {
+        scenarioIndex = 0;
         nodes[currentNodeIndex]?.OnNodeEntered();
         SetContinueButtonActive(true);
     }
@@ -62,9 +67,17 @@ public class ScenarioService : MonoBehaviour
         }
     }
 
+    public void OnSandboxStart()
+    {
+        onSandboxStart?.Invoke();
+        sandboxActive = true;
+    }
+
     public void DisplayLine(string _key)
     {
-        scenarioText.text = LocalisationService.instance.Translate(_key);
+        scenarioIndex++;
+        string key = "SCE_" + scenarioIndex.ToString("000");
+        scenarioText.text = LocalisationService.instance.Translate(key);
     }
 
     public void LaunchEvent(int _index)
@@ -131,7 +144,6 @@ public class ScenarioService : MonoBehaviour
 
     public void SetDistributionInteractive(bool _active)
     {
-        if (distributionButton.gameObject == null) return;
-        distributionButton.interactable = _active;
+        autoSellStock.ActivateDistributionButton(_active);
     }
 }

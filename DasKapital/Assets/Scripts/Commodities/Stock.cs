@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Stock : UIOwner
 {
     public List<UITarget> spawnTargets = new List<UITarget>();
     public List<CommoditySO> spawnList = new List<CommoditySO>();
-    private int myVar;
+    public Button randomizerButton;
     public List<CommoditySO> Commodities
     {
         get 
@@ -40,6 +41,14 @@ public class Stock : UIOwner
             }
         }
         SpawnRandomCommodities();
+        if (randomizerButton != null)
+        {
+            if (ScenarioService.instance.sandboxActive)
+            {
+                ActivateRandomizerButton();
+            }
+            ScenarioService.instance.onSandboxStart += ActivateRandomizerButton;
+        }
     }
 
     void SpawnRandomCommodities()
@@ -95,6 +104,12 @@ public class Stock : UIOwner
     private void OnDisable()
     {
         SetContentEnabled(false);
+        ScenarioService.instance.onSandboxStart -= ActivateRandomizerButton;
+    }
+
+    public void ActivateRandomizerButton()
+    {
+        randomizerButton.gameObject.SetActive(true);
     }
 
     void SetContentEnabled(bool _enabled)

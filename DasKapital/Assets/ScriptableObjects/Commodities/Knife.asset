@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Knife
   m_EditorClassIdentifier: 
   index: 10
-  commodityName: Knife
+  commodityName: Couteau
   exchangeValue: 3
   useValue: 0
-  useValueDescription: Cuts things.
+  useValueDescription: Coupant.
   isDurable: 1
   usesAmount: 3
   components: []

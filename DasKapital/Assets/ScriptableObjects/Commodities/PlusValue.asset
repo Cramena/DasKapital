@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PlusValue
   m_EditorClassIdentifier: 
   index: 0
-  commodityName: PlusValue
+  commodityName: Plus-value
   exchangeValue: 1
   useValue: 0
-  useValueDescription: Adds value
+  useValueDescription: 
   isDurable: 0
   usesAmount: 0
   components: []

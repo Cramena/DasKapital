@@ -16,7 +16,7 @@ MonoBehaviour:
   commodityName: Smoothie
   exchangeValue: 0
   useValue: 0
-  useValueDescription: Edible. Sweet taste. Refreshing.
+  useValueDescription: "Comestible. Sucr\xE9. Rafraichissant."
   isDurable: 0
   usesAmount: 0
   components: []

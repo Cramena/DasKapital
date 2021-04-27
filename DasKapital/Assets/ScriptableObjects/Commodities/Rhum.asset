@@ -16,7 +16,7 @@ MonoBehaviour:
   commodityName: Rhum
   exchangeValue: 3
   useValue: 0
-  useValueDescription: Edible. Alcoholic. Flammable.
+  useValueDescription: "Potable, Alcoolis\xE9. Inflammable."
   isDurable: 0
   usesAmount: 0
   components: []

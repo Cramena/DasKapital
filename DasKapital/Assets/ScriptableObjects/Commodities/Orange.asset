@@ -16,7 +16,7 @@ MonoBehaviour:
   commodityName: Orange
   exchangeValue: 1
   useValue: 0
-  useValueDescription: Edible. Sweet taste.
+  useValueDescription: "Comestible. Sucr\xE9."
   isDurable: 0
   usesAmount: 0
   components: []

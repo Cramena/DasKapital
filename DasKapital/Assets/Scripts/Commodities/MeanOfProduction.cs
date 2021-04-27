@@ -55,7 +55,8 @@ public class MeanOfProduction : UIOwner
 
     public void ProduceCommodity()
     {
-        CommoditySO producedCommoditySO = CommoditiesService.instance.GetCommodityByComponents(loadedCommodities);
+        Recipe recipe = CommoditiesService.instance.GetCommodityByComponents(loadedCommodities);
+        CommoditySO producedCommoditySO = recipe.result;
         if (producedCommoditySO != null && productionTarget.loadedCommodity == null)
         {
             Commodity produceInstance = CommoditiesService.instance.SpawnCommodity(producedCommoditySO);
@@ -73,6 +74,7 @@ public class MeanOfProduction : UIOwner
             }
             loadedCommodities = (loadedCommodities.Where(x => !toRemove.Contains(x))).ToList();
             onCommodityProduced?.Invoke(producedCommoditySO);
+            CommoditiesService.instance.CheckRecipes(recipe);
         }
         else if (producedCommoditySO == null)
         {

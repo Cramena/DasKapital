@@ -111,7 +111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4269965114581070049
 RectTransform:
   m_ObjectHideFlags: 0
@@ -761,6 +761,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d73055712decdaa449618540c5d6ef03, type: 2}
   - {fileID: 11400000, guid: d73055712decdaa449618540c5d6ef03, type: 2}
   - {fileID: 11400000, guid: d73055712decdaa449618540c5d6ef03, type: 2}
+  randomizerButton: {fileID: 443667951222003176}
 --- !u!114 &6375548304635371969
 MonoBehaviour:
   m_ObjectHideFlags: 0

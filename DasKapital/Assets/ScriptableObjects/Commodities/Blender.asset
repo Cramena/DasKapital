@@ -16,7 +16,7 @@ MonoBehaviour:
   commodityName: Blender
   exchangeValue: 10
   useValue: 0
-  useValueDescription: Blends food.
+  useValueDescription: "Mixe des ingr\xE9dients."
   isDurable: 1
   usesAmount: 5
   components: []

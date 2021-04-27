@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Pineapple
   m_EditorClassIdentifier: 
   index: 106
-  commodityName: Pineapple
+  commodityName: Ananas
   exchangeValue: 2
   useValue: 0
-  useValueDescription: Edible. Sweet taste.
+  useValueDescription: "Comestible. Sucr\xE9."
   isDurable: 0
   usesAmount: 0
   components: []

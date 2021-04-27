@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: WorkForce
   m_EditorClassIdentifier: 
   index: 1
-  commodityName: WorkForce
+  commodityName: Force de travail
   exchangeValue: 6
   useValue: 1
-  useValueDescription: Used to transform other commodities.
+  useValueDescription: "Cr\xE9\xE9 de la valeur. Transforme des marchandises."
   isDurable: 1
   usesAmount: 3
   components: []

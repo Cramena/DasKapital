@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: WatermelonSlice
   m_EditorClassIdentifier: 
   index: 110
-  commodityName: Watermelon slice
+  commodityName: "Tranche de past\xE8que"
   exchangeValue: 6
   useValue: 0
-  useValueDescription: Edible. Watery taste.
+  useValueDescription: "Comestible. Sucr\xE9."
   isDurable: 0
   usesAmount: 0
   components: []

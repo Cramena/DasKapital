@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
 
 public class AutoSellStock : UIOwner
 {
     public DistributionCommodity distributionPrefab;
+    public Button distributionButton;
     public List<UITarget> targets = new List<UITarget>();
     public List<UITarget> distributionTargets = new List<UITarget>();
     public List<Commodity> loadedCommodities = new List<Commodity>();
@@ -16,7 +18,8 @@ public class AutoSellStock : UIOwner
     public float coinsPopSpeed = 10;
     public float distributionDelay = 0.15f;
     private float distributionTimer;
-    private bool distributing;
+    public bool distributing;
+    public bool buttonActive;
     private CoinType currentStep;
 
     void Start()
@@ -60,30 +63,9 @@ public class AutoSellStock : UIOwner
         spawnedCoins.Clear();
         available = false;
         int coinsToDistribute = _commodity.profile.exchangeValue;
-        if (_commodity.profile.components.Count == 0)
-        {
-            SpawnCoins(CoinType.Material, coinsToDistribute);
-        }
-        else
-        {
-            foreach (CommodityProfile profile in _commodity.profile.components)
-            {
-                int value = profile.isDurable ? profile.valuePerUse : profile.exchangeValue;
-                if (profile.type == CommoditiesService.instance.workforce)
-                {
-                    SpawnCoins(CoinType.Salary, value);
-                }
-                else if (profile.type == CommoditiesService.instance.plusValue)
-                {
-                    SpawnCoins(CoinType.Profit, value);
-                }
-                else
-                {
-                    SpawnCoins(CoinType.Material, value);
-                }
-            }
-            spawnedCoins = spawnedCoins.OrderBy(x => x.type).ToList();
-        }
+
+        GetTypeByProfile(_commodity.profile);
+        spawnedCoins = spawnedCoins.OrderBy(x => x.type).ToList();
 
         Vector3 _spawnPos = _commodity.rect.position;
         Destroy(_commodity.gameObject);
@@ -93,6 +75,33 @@ public class AutoSellStock : UIOwner
             spawnedCoins[i].commodity.rect.position = _spawnPos;
             spawnedCoins[i].commodity.StartLerp(coinsPopSpeed);
             targets[i].OnCommodityPlaced(spawnedCoins[i].commodity, true);
+        }
+    }
+
+    void GetTypeByProfile(CommodityProfile _profile)
+    {
+        if (_profile.components.Count > 0)
+        {
+            foreach (CommodityProfile component in _profile.components)
+            {
+                GetTypeByProfile(component);
+            }
+        }
+        else
+        {
+            int value = _profile.isDurable ? _profile.valuePerUse : _profile.exchangeValue;
+            if (_profile.type == CommoditiesService.instance.workforce)
+            {
+                SpawnCoins(CoinType.Salary, value);
+            }
+            else if (_profile.type == CommoditiesService.instance.plusValue)
+            {
+                SpawnCoins(CoinType.Profit, value);
+            }
+            else
+            {
+                SpawnCoins(CoinType.Material, value);
+            }
         }
     }
 
@@ -143,14 +152,17 @@ public class AutoSellStock : UIOwner
 
     void DistributeCoin()
     {
-        ScenarioService.instance.onDistribution?.Invoke();
         switch(currentStep)
         {
             case CoinType.Material :
                 materialQueue.Dequeue().GetDistributedTo(distributionTargets[0]);
                 if (materialQueue.Count <= 0)
                 {
-                    if (ScenarioService.instance.delayedDistribution) distributing = false;
+                    if (ScenarioService.instance.delayedDistribution)
+                    {
+                        distributing = false;
+                    distributionButton.interactable = buttonActive;
+                    }
                     else currentStep = CoinType.Salary;
                 }
                 break;
@@ -158,7 +170,11 @@ public class AutoSellStock : UIOwner
                 if (salaryQueue.Count > 0) salaryQueue.Dequeue().GetDistributedTo(distributionTargets[1]);
                 if (salaryQueue.Count <= 0)
                 {
-                    if (ScenarioService.instance.delayedDistribution) distributing = false;
+                    if (ScenarioService.instance.delayedDistribution)
+                    {
+                        distributing = false;
+                    distributionButton.interactable = buttonActive;
+                    }
                     else currentStep = CoinType.Profit;
                 }
                 break;
@@ -169,6 +185,7 @@ public class AutoSellStock : UIOwner
                     currentStep = CoinType.None;
                     distributing = false;
                     available = true;
+                    distributionButton.interactable = buttonActive;
                 }
                 break;
             default:
@@ -178,6 +195,7 @@ public class AutoSellStock : UIOwner
 
     public void ProcessDistribution()
     {
+        ScenarioService.instance.onDistribution?.Invoke();
         if (!ScenarioService.instance.delayedDistribution)
         {
             distributing = true;
@@ -200,6 +218,15 @@ public class AutoSellStock : UIOwner
                     break;
             }
             DistributeCoin();
+        }
+    }
+
+    public void ActivateDistributionButton(bool _interactable)
+    {
+        buttonActive = _interactable;
+        if (!distributing)
+        {
+            distributionButton.interactable = buttonActive;
         }
     }
 }

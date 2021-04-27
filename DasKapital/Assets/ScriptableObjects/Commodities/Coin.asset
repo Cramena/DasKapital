@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   index: 102
-  commodityName: Coin
+  commodityName: "Pi\xE8ce"
   exchangeValue: 1
   useValue: 0
-  useValueDescription: Only used to be exchanged with other commodities.
+  useValueDescription: "Permet uniquement de s'\xE9changer conter des marchandises."
   isDurable: 0
   usesAmount: 0
   components: []

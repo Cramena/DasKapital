@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Punch
   m_EditorClassIdentifier: 
   index: 108
-  commodityName: Punch
+  commodityName: Ponche
   exchangeValue: 0
   useValue: 0
-  useValueDescription: Edible. Alcoholic. Sweet taste.
+  useValueDescription: "Comestible. Sucr\xE9. Alcoolis\xE9. Inflammable."
   isDurable: 0
   usesAmount: 0
   components: []
