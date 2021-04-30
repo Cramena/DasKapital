@@ -16,7 +16,7 @@ MonoBehaviour:
   commodityName: Tarte aux pommes
   exchangeValue: 0
   useValue: 0
-  useValueDescription: "Comestible. Sucr\xE9."
+  useValueDescription: Comestible. Acide.
   isDurable: 0
   usesAmount: 0
   components: []

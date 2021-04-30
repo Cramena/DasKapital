@@ -1,20 +1,20 @@
 SCE_001,Qu'est-ce que l'exploitation ?
 SCE_002,On peut résumer l’exploitation par l'action de tirer profit de quelqu’un ou quelque chose d’autre.
-SCE_003,"Avec cette définition, on sait donc que l’exploitation existe un peu partout autour de nous, précisons alors un peu notre question :"
-SCE_004,Est-ce que notre système économique repose nécessairement sur de l’exploitation ?
-SCE_005,"Pour répondre à cette question, on va se concentrer sur deux caractéristiques majeures de notre système : l’économie de marché, et la propriété privée des moyens de production."
+SCE_003,"Suivant cette définition, il est facile de trouver de l'exploitation tout autour de nous, précisons alors un peu notre question :"
+SCE_004,Est-ce que notre système économique repose nécessairement sur l’exploitation ?
+SCE_005,"Pour répondre à cette question, on va se concentrer sur les deux points les plus caractéristiques de notre système : l’économie de marché, et la propriété privée des moyens de production."
 SCE_006,"Commençons par nous intéresser au marché. Un marché est un lieu dans lequel s’échangent des marchandises, c’est à dire des biens et services qui peuvent s’échanger entre eux."
-SCE_007,Toute marchandise a deux caractéristiques qui vont déterminer sa valeur : sa valeur d’usage (ce pour quoi elle peut être utilisée) et sa valeur d’échange (qui va déterminer combien elle vaut sur un marché).
+SCE_007,Toute marchandise a deux caractéristiques qui vont déterminer sa valeur globale : sa valeur d’usage (ce pour quoi elle peut être utilisée) et sa valeur d’échange (qui va déterminer combien elle vaut sur un marché).
 SCE_008,Prenons un exemple. Ceci est une pomme. Une pomme est une marchandise.
 SCE_009,"Pour chaque marchandise, on note les caractéristiques sur une fiche d'information."
-SCE_010,"Ici, il s'agit de la fiche d'information de la pomme. On commence par remplir son nom et son icône."
-SCE_011,"Ensuite, on remplit sa valeur d'usage : il s’agit d’un fruit, comestible, acide, riche en vitamines. Toutes les caractéristiques utiles de la pomme sont notées."
+SCE_010,"Ici, il s'agit de la fiche d'information de la pomme. On commence par remplir les infos d'identification."
+SCE_011,"Ensuite, on remplit sa valeur d'usage : il s’agit d’un fruit, comestible, acide. Toutes les caractéristiques utiles de la pomme sont notées."
 SCE_012,"Enfin, on remplit sa valeur d'échange, que l'on va placer à 1 pièce. On peut échanger une pomme contre une autre marchandise de la même valeur."
 SCE_013,"Nous avons donc notre premier exemple de marchandise, une pomme, avec une valeur d’usage et une valeur d’échange, il est maintenant temps de l’échanger contre d’autres marchandises sur un marché !"
 SCE_014,"Ceci est notre stock de marchandises, tout ce qui y est présent nous appartient (félicitations!)."
 SCE_015,Laissez la souris au-dessus d’une marchandise pour faire apparaître sa fiche d’information. Essayez !
 SCE_016,"Super ! On peut y voir les informations que nous avons vues précedemment. À présent, nous allons introduire un autre stock."
-SCE_017,"Ceci est un stock étranger, il appartient à quelqu’un d’autre de présent sur le marché, peu importe qui."
+SCE_017,"Ceci est un stock étranger, il appartient à quelqu’un d’autre sur le marché, peu importe qui."
 SCE_018,Cliquez sur une marchandise et déplacez la souris en gardant le bouton enfoncé pour la déplacer. Lâchez le bouton au-dessus d’une case pour finir de placer la marchandise. Essayez !
 SCE_019,"Vous ne pouvez pas encore échanger des marchandises d’un stock à l’autre, pour cela, il nous faut un marché !"
 SCE_020,"Voilà une interface de marché ! Dans le panier de gauche, on place les marchandises que l’on veut donner, et dans celui de droite droite celles que l’on veut prendre."
@@ -24,7 +24,7 @@ SCE_023,"Une fois que la balance indique une égalité, vous pouvez échanger le
 SCE_024,Essayez d’effectuer une transaction !
 SCE_025,Parfait ! Nous voyons maintenant comment fonctionnent les marchés : on échange des marchandises ou des groupes de marchandises de même valeur.
 SCE_026,"Mais pour continuer à explorer ce qu’est le capitalisme, nous allons devoir explorer ce qui forme la valeur des marchandises, et pour cela, nous allons nous intéresser à la production !"
-SCE_027,"Restons dans notre exemple de cuisine, pour découvrir la véritable nature de la valeur des marchandises, nous allons créer un ponche !"
+SCE_027,"Pour partir à la découverte de la nature de la valeur des marchandises, mettons nous en situation : Vous venez d'hériter d'un restaurant, félicitations ! Maintenant, il va nous falloir produire des plats !"
 SCE_028,"Avant tout nous allons avoir besoin de plus d’ingrédients et d’outils, introduisons deux nouveaux stocks."
 SCE_029,"Parfait, maintenant que vous savez comment échanger des marchandises sur un marché, essayez de récupérer les ingrédients suivants : 3 pommes, 2 oranges, 2 ananas, 2 pastèques, 1 couteau, 1 blender et 1 bouteille de rhum."
 SCE_030,"Bien joué ! Maintenant que nous avons tous nos ingrédients et outils, il ne nous manque plus que notre moyen de production !"
@@ -37,7 +37,7 @@ SCE_036,"Ici, vous pouvez voir un nouvel élément, la jauge de valeur. Elle dé
 SCE_037,"Par exemple, ici, en plaçant trois pommes ensemble, nous avons créé une assiette de fruit, la valeur de l’assiette est donc égale à la somme des valeurs de trois pommes, soit 3 x 1 = 3."
 SCE_038,"Parfait, pour continuer, nous allons devoir utiliser des outils, les outils peuvent être utilisés plusieurs fois avant de se casser. Créez une tranche d'orange en associant une orange et le couteau."
 SCE_039,"Bien joué ! Comme vous pouvez le constater, le couteau à perdu une utilisation, il ne lui en reste plus que deux, passez à présent la souris sur la tranche d'orange."
-SCE_040,"Que voit-on ici ? On retrouve la valeur de l'orange et celle d’une utilisation de couteau. Un couteau a une valeur de 6 et peut être utilisé 3 fois, chaque utilisation a donc une valeur de 6 / 3 = 2."
+SCE_040,"Que voit-on ici ? On retrouve la valeur de l'orange et celle d’une utilisation de couteau. Un couteau a une valeur de 3 et peut être utilisé 3 fois, chaque utilisation a donc une valeur de 3 / 3 = 1."
 SCE_041,"Ainsi donc, la valeur des marchandises est déterminée par la valeur de ses ingrédients, et de la maintenance des outils utilisés."
 SCE_042,"Avant de passer à la suite, créez un tranche d'ananas et un tranche de pastèque pour vous entraîner."
 SCE_043,"Parfait ! Mais il nous manque encore un élément. En effet, nous n’avons pas encore pris en compte le travail humain !"
@@ -46,23 +46,23 @@ SCE_045,"Dans les anciens systèmes esclavagistes, il est possible d’acheter d
 SCE_046,"Dans un système capitaliste, il n’est pas possible d’acheter des personnes, à la place, par le travail salarié, il est possible de louer leur force."
 SCE_047,"Cette personne reçoit une compensation pour le temps loué, et s’engage à dédier sa force de travail à une tâche durant cette période."
 SCE_048,"Dans notre exemple, on emploie une personne qui cuisine pour nous, on a donc accès à sa force de travail comme s'il s'agissait de n’importe quelle autre marchandise dans notre stock."
-SCE_049,"Cette force de travail se vide au fur et à mesure qu’elle est utilisée, et se remplit avec le repos. La force de travail est OBLIGATOIRE pour toute production de marchandise !"
-SCE_050,"À présent, avec 1 orange, 1 ananas, 1 pastèque, un blender et une force de travail, essayez de produire un smoothie !"
+SCE_049,"Cette force de travail se vide au fur et à mesure qu’elle est utilisée, comm un outil. La force de travail est OBLIGATOIRE pour toute production de marchandise !"
+SCE_050,"À présent, avec 1 orange, 1 ananas, 1 pastèque, 1 blender et 1 force de travail, essayez de produire un smoothie !"
 SCE_051,"Parfait ! Encore une fois, passe la souris sur le smoothie pour observer sa jauge de valeur."
-SCE_052,"On a les mêmes types d'ingrédients que précédemment, mais cette fois-ci, on a deux éléments en plus."
+SCE_052,"On a les mêmes types d'ingrédients que précédemment, mais également deux éléments de plus."
 SCE_053,"Le premier, sans grande surprise, c’est le prix de maintenance de la force de travail, le salaire."
-SCE_054,"Sa valeur est calculée comme précédemment pour l’utilisation de couteau. La valeur d’une journée de force de travail et de 6, on peut l’utiliser trois fois, sa valeur par utilisation est donc de 6/3 = 2."
+SCE_054,"Sa valeur est calculée comme précédemment pour l’utilisation de couteau. La valeur d’une journée de force de travail et de 6, on peut l’utiliser trois fois, sa valeur par utilisation est donc de 6 / 3 = 2."
 SCE_055,"Mais on a également un autre élément, que nous n’avions pas vu jusqu’ici. Qu’est-ce que la plus-value ?"
-SCE_056,"Très simplement, si les marchandises transmettent leur valeur lors d’une production, et si les outils transmettent une partie de leur valeur lorsqu’ils sont utilisés, selon la théorie de la valeur…"
-SCE_057,"… la force de travail est la seule marchandise capable de créer de la valeur, c’est même sa valeur d’usage."
-SCE_058,"Ainsi, quand on emploie une force de travail à la création d’une marchandise, non seulement le coût de sa maintenance est transmise à la marchandise, mais également une valeur additionnelle, appelée la plus-value."
+SCE_056,"Très simplement, la valeur d'usage de la force de travail, son utilité, est de créer de la valeur ! De ce fait, tout travail humain créé un surplus de valeur : la plus-value."
+SCE_057,"La force de travail est la seule marchandise à avoir cette propriété. Si la règle d'équivalence s'applique pour payer sa maintenance comme pour un outil, la présence de la plus-value permet la création de profit !"
+SCE_058,"En suivant la règle d'équivalence, on dépense la valeur des ingrédients, outils et de maintenance de force de travail (9) qui se transmet dans le produit fini, mais on récupère aussi un surplus ""bonus"" (1) !"
 SCE_059,"Enfin, pour boucler notre exemple, il nous faut ajouter notre dernier élément, le capitaliste."
 SCE_060,"Comme nous l’avons vu plus tôt, le système capitaliste repose sur la « propriété privée des moyens de productions »."
-SCE_061,"Cela signifie que, dans notre exemple, le restaurant est possédé par une seule personne, qui décide de ce que fait le restaurant, et de la façon dont ses revenus sont distribués."
+SCE_061,"Cela signifie que, dans notre exemple, le restaurant est possédé par une personne ou plusieurs personnes privées, qui décident de ce que fait le restaurant, et de la façon dont ses revenus sont distribués."
 SCE_062,"Comment les revenus sont-ils redistribués une fois la marchandise vendue ? Pour simuler cela, on rajoute un stock de revente automatique."
 SCE_063,"En plaçant une marchandise sur ce stock, cette marchandise est divisée en un montant de pièces égal à la valeur d’échange de la marchandise."
 SCE_064,"Ensuite, ces pièces sont redistribuées entre le matériel, la personne qui travaille, et celle qui possède le moyen de production."
-SCE_065,"Pour l'exemple suivant, combinez nos 3 tranches, 1 bouteille de rhum, le smoothie et une force de travail pour produire un ponche. Ensuite, essayez de le placer dans le stock de revente."
+SCE_065,"Pour l'exemple suivant, combinez nos 3 tranches, 1 bouteille de rhum, le smoothie et 1 force de travail pour produire un ponche. Ensuite, essayez de le placer dans le stock de revente."
 SCE_066,"Et voilà ! Le ponche a été divisé en 36 pièces ! Elles sont de 3 couleurs pour les différencier. Appuyez sur le bouton en bas du stock pour redistribuer les revenus de la vente, couleur par couleur."
 SCE_067,"Les premières pièces, vertes, sont utilisées pour rembourser l’achat de matière première, et pour payer la maintenance des outils, cette distribution est nécessaire, sans cela, la production est forcément à déficit !"
 SCE_068,Rappuyez sur le bouton pour distribuer les pièces suivantes.
@@ -73,14 +73,13 @@ SCE_072,Et ces pièces-ci vont au capitaliste… Mais pourquoi ?
 SCE_073,"Et bien, tout simplement, pour créer du profit, si la vente de marchandises ne rapporte pas plus que ce qu’investit le capitaliste dans la production, celui-ci n’a aucun intérêt à faire ces investissement."
 SCE_074,"Pourtant le cas est différent, pour les premières pièces, la valeur provenait des matières premières et des outils, et a été redistribué aux matières premières et aux outils."
 SCE_075,"La valeurs des secondes provenait du travail de la personne employée, et lui a été restituée."
-SCE_076,"Mais, pour les dernières, sa source provient toujours de la force de travail de la personne employée, mais a été redirigée vers le capitaliste, qui n’a pas participé à la production de valeur."
-SCE_077,"Ici, la plus-value produite par la personne en question est accaparée par celle qui l’emploie. C’est ce qu’on appelle l’exploitation : la création de profit à partir du travail d’autrui."
+SCE_076,"Toutefois, pour les dernières, bien que la valeur provienne toujours de la force de travail de la personne employée, elle a été redirigée vers le capitaliste, qui n’a pas participé à la production de valeur."
+SCE_077,"Ici, la plus-value produite par la personne productrice est accaparée par celle qui l’emploie. C’est ce qu’on appelle l’exploitation : la création de profit à partir du travail d’autrui."
 SCE_078,"Revenons sur nos pas, nous avons défini le capitalisme par la propriété privée des moyens de production et l’économie de marché."
 SCE_079,Nous avons vu comment les marchandises s’échangent selon la règle d’équivalence de valeur sur des marchés.
 SCE_080,"Nous avons analysé la composition de la valeur des marchandises, par leur production."
 SCE_081,"Nous avons remarqué que tout en respectant la loi de l’équivalence en payant aux personnes employées la valeur d’entretien de leur force de travail, les capitalistes, récupèrent un profit sans pour autant produire de valeur."
 SCE_082,"Ce résultat, de création de profit et d’exploitation, découle nécessaire des deux premières caractéristiques du capitalisme, la règle d’équivalence et la propriété privée des moyens de production."
-SCE_083,"C’est ainsi dans ce sens que le système capitaliste est considéré comme étant nécessairement une système d’exploitation (comme Windows, lol)."
+SCE_083,C’est ainsi dans ce sens que le système capitaliste est considéré comme étant nécessairement exploitatif.
 SCE_084,"Si vous le souhaitez, vous pouvez continuer à expérimenter différentes recettes, n‘oubliez pas que la force de travail est toujours nécessaire pour produire une marchandise !"
 SCE_085,"En appuyant sur le bouton en haut à gauche, vous pouvez passer de l’écran de production à l’écran de marché pour refaire votre stock, et vice versa."
-SCE_086,"Essayez par exemple de faire un ponche ! Pour cela, vous avez besoin d’associer 1 tranche d’orange, d’ananas et de pastèque, 1 smoothie, 1 bouteille de rhum et une force de travail. Bonne chance !"

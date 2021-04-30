@@ -22,6 +22,7 @@ public class JaugeSegment : MonoBehaviour
         {
             Image spawnedImage = Instantiate(iconPrefab, iconsParent);
             spawnedImage.sprite = _icon;
+            spawnedImage.preserveAspect = true;
             spawnedImage.transform.localScale = Vector3.one * _iconSizeModifier;
         }
         title.text = _title;

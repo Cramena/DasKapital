@@ -16,11 +16,11 @@ MonoBehaviour:
   commodityName: Assiette de pommes
   exchangeValue: 0
   useValue: 0
-  useValueDescription: "Comestible. Sucr\xE9."
+  useValueDescription: Comestible. Acide.
   isDurable: 0
   usesAmount: 0
   components: []
   icon: {fileID: 21300000, guid: 024520ab6839b784384426262f6e57f9, type: 3}
-  sizeModifier: 1
+  sizeModifier: 1.1
   color: {r: 0.7686275, g: 0.07058824, b: 0.08627451, a: 1}
   probabilityWeight: 1

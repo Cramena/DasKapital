@@ -16,12 +16,8 @@ public class InspectConditionNode : ConditionNode
     {
         if (commoditiesToInspect.Contains(_commodity))
         {
-            commoditiesToInspect.Remove(_commodity);
-            if (commoditiesToInspect.Count == 0)
-            {
-                ScenarioService.instance.OnNodeStep();
-                ScenarioService.instance.onCommodityInspected -= CheckCommodityInspected;
-            }
+            ScenarioService.instance.OnNodeStep();
+            ScenarioService.instance.onCommodityInspected -= CheckCommodityInspected;
         }
     }
 }

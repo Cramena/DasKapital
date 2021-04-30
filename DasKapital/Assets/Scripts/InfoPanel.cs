@@ -91,7 +91,8 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         if (commodity.profile.isDurable)
         {
             durablePanel.SetActive(true);
-            usesText.text = commodity.profile.usesAmount == 1 ? "1 dose restante:" : $"{commodity.profile.usesAmount} doses restantes:";
+            usesText.text = "Nb d'emplois";
+            // usesText.text = commodity.profile.usesAmount == 1 ? "1 emploi restant:" : $"{commodity.profile.usesAmount} emplois restants:";
             foreach (UseWidget use in uses)
             {
                 use.gameObject.SetActive(false);
@@ -147,11 +148,11 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
                     JaugeSegment segment = Instantiate(segmentPrefab, jauge);
                     string nameText = "";
-                    string pluralAnnex = toSpawnAmount == 1 || tempProfiles[i].type.index == 0 ? "" : "s";
+                    string pluralAnnex = toSpawnAmount == 1 || (tempProfiles[i].type.index == 0 || tempProfiles[i].type.index == 106) ? "" : "s";
                     int value = tempProfiles[i].isDurable ? tempProfiles[i].valuePerUse * toSpawnAmount : tempProfiles[i].exchangeValue * toSpawnAmount;
                     if (tempProfiles[i].isDurable)
                     {
-                        nameText = $"{value} de ({toSpawnAmount}) dose{pluralAnnex} de {tempProfiles[i].commodityName}";
+                        nameText = $"{value} de ({toSpawnAmount}) emploi{pluralAnnex} de {tempProfiles[i].commodityName}";
                     }
                     else
                     {

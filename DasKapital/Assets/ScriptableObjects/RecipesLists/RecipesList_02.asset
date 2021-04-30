@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f893a0c9645e8ab44a4818e0b93cd29b, type: 3}
   m_Name: RecipesList_02
   m_EditorClassIdentifier: 
-  recipes: []
+  recipes:
+  - {fileID: 11400000, guid: 092a6d254b3c0554c9f75f4acbffddfc, type: 2}
+  - {fileID: 11400000, guid: 48e5218129ddf7d44a3894ae6c41fbc7, type: 2}
   numerable: 1

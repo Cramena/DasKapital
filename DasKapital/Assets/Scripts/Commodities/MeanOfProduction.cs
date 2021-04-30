@@ -6,6 +6,7 @@ using System.Linq;
 public class MeanOfProduction : UIOwner
 {
     public List<Commodity> loadedCommodities = new List<Commodity>();
+    public ProductionErrorMessage errorMessage;
     public List<UITarget> targets = new List<UITarget>();
     public UITarget productionTarget;
     public System.Action<CommoditySO> onCommodityProduced;
@@ -56,9 +57,9 @@ public class MeanOfProduction : UIOwner
     public void ProduceCommodity()
     {
         Recipe recipe = CommoditiesService.instance.GetCommodityByComponents(loadedCommodities);
-        CommoditySO producedCommoditySO = recipe.result;
-        if (producedCommoditySO != null && productionTarget.loadedCommodity == null)
+        if (recipe != null && productionTarget.loadedCommodity == null)
         {
+            CommoditySO producedCommoditySO = recipe.result;
             Commodity produceInstance = CommoditiesService.instance.SpawnCommodity(producedCommoditySO);
             List<CommodityProfile> profiles = (from commodity in loadedCommodities
                                                select commodity.profile).ToList();
@@ -76,16 +77,18 @@ public class MeanOfProduction : UIOwner
             onCommodityProduced?.Invoke(producedCommoditySO);
             CommoditiesService.instance.CheckRecipes(recipe);
         }
-        else if (producedCommoditySO == null)
+        else if (recipe == null)
         {
             print("No produce from: ");
             for (var i = 0; i < loadedCommodities.Count; i++)
             {
                 print(loadedCommodities[i].type);
             }
+            errorMessage.LaunchError("Ingrédients incorrects !");
         }
         else
         {
+            errorMessage.LaunchError("Retirez le produit précédent !");
             print("Clear the production space");
         }
     }

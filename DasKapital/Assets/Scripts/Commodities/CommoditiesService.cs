@@ -111,7 +111,8 @@ public class CommoditiesService : MonoBehaviour
 
     public void UpdateRecipesList(RecipesList _recipesList)
     {
-        recipes =_recipesList.recipes;
+        recipes = (from recipe in _recipesList.recipes
+                  select recipe).ToList();
         numerableRecipes = _recipesList.numerable;
     }
 

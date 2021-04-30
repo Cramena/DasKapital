@@ -18,7 +18,6 @@ public class ScenarioService : MonoBehaviour
     public GameObject continueButton;
     public Button transactionButton;
     public Button productionButton;
-    // public Button distributionButton;
     public AutoSellStock autoSellStock;
     public List<ScenarioNode> nodes = new List<ScenarioNode>();
     private int currentNodeIndex;
@@ -35,6 +34,7 @@ public class ScenarioService : MonoBehaviour
     public System.Action onSandboxStart;
     private int scenarioIndex;
     public bool sandboxActive;
+    public bool manualProgress;
 
     private void Awake()
     {
@@ -53,6 +53,14 @@ public class ScenarioService : MonoBehaviour
         scenarioIndex = 0;
         nodes[currentNodeIndex]?.OnNodeEntered();
         SetContinueButtonActive(true);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && manualProgress)
+        {
+            OnNodeStep();
+        }
     }
 
     public void OnNodeStep()
@@ -103,6 +111,7 @@ public class ScenarioService : MonoBehaviour
     public void SetContinueButtonActive(bool _active)
     {
         continueButton.SetActive(_active);
+        manualProgress = _active;
     }
 
     public void SetBaseCommoditiesAutoSellAllowed(bool _allowed)

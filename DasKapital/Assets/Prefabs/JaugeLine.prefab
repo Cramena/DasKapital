@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 16.250664, y: 0}
+  m_SizeDelta: {x: -32.558674, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2917309795922147550
 CanvasRenderer:
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_StartCorner: 1
   m_StartAxis: 0
   m_CellSize: {x: 20, y: 20}
-  m_Spacing: {x: 2.5, y: 2.5}
+  m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 3
 --- !u!1 &5159948688653212739
@@ -336,7 +336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7336382792897854434, guid: 985ca62ddbef04141bfa5193aab91878, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7336382792897854434, guid: 985ca62ddbef04141bfa5193aab91878, type: 3}
       propertyPath: m_SizeDelta.y
@@ -372,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7336382792897854434, guid: 985ca62ddbef04141bfa5193aab91878, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -7.9999847
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7336382792897854434, guid: 985ca62ddbef04141bfa5193aab91878, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -445,7 +445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3847295108187610608, guid: 3de2aebf5a7aaf84ba2cc1fd0bd63a86, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 151.60422
+      value: 176.48953
       objectReference: {fileID: 0}
     - target: {fileID: 3847295108187610608, guid: 3de2aebf5a7aaf84ba2cc1fd0bd63a86, type: 3}
       propertyPath: m_SizeDelta.y
@@ -481,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3847295108187610608, guid: 3de2aebf5a7aaf84ba2cc1fd0bd63a86, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 70.048
+      value: 82.48
       objectReference: {fileID: 0}
     - target: {fileID: 3847295108187610608, guid: 3de2aebf5a7aaf84ba2cc1fd0bd63a86, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -505,7 +505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8554760097755217537, guid: 3de2aebf5a7aaf84ba2cc1fd0bd63a86, type: 3}
       propertyPath: m_Text
-      value: Commodity name
+      value: 3 de (3) emplois de Couteau
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3de2aebf5a7aaf84ba2cc1fd0bd63a86, type: 3}
