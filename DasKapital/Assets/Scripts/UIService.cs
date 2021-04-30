@@ -35,7 +35,7 @@ public class UIService : MonoBehaviour
 
     private void Update()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && !infoPanel.hovering)
+        if (infoPanelDisplaying && ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && !infoPanel.hovering))
         {
             HideInfoPanel();
         }
@@ -51,7 +51,8 @@ public class UIService : MonoBehaviour
 
     public void HideInfoPanel()
     {
-        infoPanel.gameObject.SetActive(false);
+        infoPanel.LaunchDisable();
+        // infoPanel.gameObject.SetActive(false);
         infoPanelDisplaying = false;
     }
 

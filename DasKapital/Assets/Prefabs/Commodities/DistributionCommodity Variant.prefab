@@ -119,6 +119,10 @@ PrefabInstance:
       propertyPath: profile.type
       value: 
       objectReference: {fileID: 11400000, guid: d354bf7caf917d546aeda69e0eb5c298, type: 2}
+    - target: {fileID: 9163346892319172947, guid: bbcccc15f91fcc64287eae6dc265542f, type: 3}
+      propertyPath: lerpSnapThreshold
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbcccc15f91fcc64287eae6dc265542f, type: 3}
 --- !u!1 &5192350982930033268 stripped

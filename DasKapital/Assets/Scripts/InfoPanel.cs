@@ -19,6 +19,7 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public Text usesText;
     public List<UseWidget> uses = new List<UseWidget>();
     public RectTransform jauge;
+    public Appearable appearable;
 
     public List<Color> jaugeColors = new List<Color>();
     public float horizontalOffset = 50;
@@ -26,10 +27,12 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     private float hideTimer;
     public bool hovering;
     public List<CommodityProfile> tempProfiles;
+    private bool disablePending;
 
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
+        appearable = GetComponent<Appearable>();
     }
 
     private void Update()
@@ -40,10 +43,13 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     private void OnDisable()
     {
         hideTimer = 0;
+        disablePending = false;
     }
 
     void CheckHover()
     {
+        if (disablePending) return;
+
         if (!hovering && !commodity.hovering)
         {
             hideTimer += Time.deltaTime;
@@ -68,9 +74,16 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         hovering = false;
     }
 
+    public void LaunchDisable()
+    {
+        appearable.LaunchDisappear();
+        disablePending = true;
+    }
+
     public void Initialize(Commodity _commodity)
     {
         commodity = _commodity;
+        // GetComponent<Animator>().SetTrigger("OnEnable");
         ScenarioService.instance.OnCommodityInspected(_commodity.type);
 
         //Position

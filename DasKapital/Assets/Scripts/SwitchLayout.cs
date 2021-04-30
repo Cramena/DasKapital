@@ -19,7 +19,15 @@ public class SwitchLayout : MonoBehaviour
             }
             foreach (GameObject go in exchangeObjects)
             {
-                go.SetActive(false);
+                Appearable appearable = go.GetComponent<Appearable>();
+                if (appearable == null)
+                {
+                    go.SetActive(false);
+                }
+                else
+                {
+                    appearable.LaunchDisappear();
+                }
             }
         }
         else
@@ -30,7 +38,15 @@ public class SwitchLayout : MonoBehaviour
             }
             foreach (GameObject go in productionObjects)
             {
-                go.SetActive(false);
+                Appearable appearable = go.GetComponent<Appearable>();
+                if (appearable == null)
+                {
+                    go.SetActive(false);
+                }
+                else
+                {
+                    appearable.LaunchDisappear();
+                }
             }
         }
     }

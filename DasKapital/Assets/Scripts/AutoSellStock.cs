@@ -68,7 +68,8 @@ public class AutoSellStock : UIOwner
         spawnedCoins = spawnedCoins.OrderBy(x => x.type).ToList();
 
         Vector3 _spawnPos = _commodity.rect.position;
-        Destroy(_commodity.gameObject);
+        _commodity.animator.SetTrigger("Disappear");
+        // Destroy(_commodity.gameObject);
 
         for (var i = 0; i < spawnedCoins.Count; i++)
         {

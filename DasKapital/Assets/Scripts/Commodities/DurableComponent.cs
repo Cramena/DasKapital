@@ -15,14 +15,14 @@ public class DurableComponent : MonoBehaviour
     public bool OnUsed()
     {
         commodity.profile.usesAmount--;
-        if (commodity.profile.usesAmount <= 0)
-        {
-            Destroy(gameObject);
-            return false;
-        }
         commodity.profile.exchangeValue -= commodity.profile.valuePerUse;
         commodity.value = commodity.profile.exchangeValue;
         commodity.SetUsesUI();
+        if (commodity.profile.usesAmount <= 0)
+        {
+            commodity.animator.SetTrigger("Disappear");
+            return false;
+        }
         return true;
     }
 }

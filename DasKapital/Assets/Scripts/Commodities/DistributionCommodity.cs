@@ -52,7 +52,8 @@ public class DistributionCommodity : MonoBehaviour
     {
         if (selfDestructPending && commodity.state != CommodityState.Lerp)
         {
-            Destroy(gameObject);
+            commodity.animator.SetTrigger("Disappear");
+            // Destroy(gameObject);
         }
     }
 }

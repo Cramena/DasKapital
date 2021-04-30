@@ -2921,6 +2921,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd46e62bc4f5ec64ba9060816c9f74c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &442848539 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8851564215909695055, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
+  m_PrefabInstance: {fileID: 1096367176779066898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dfac481d0ed06a4db8b597e66335ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &443383471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23016,15 +23027,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exchangeObjects:
-  - {fileID: 31106441888099921}
-  - {fileID: 1748651637}
+  - {fileID: 2064370146}
+  - {fileID: 903706612}
   - {fileID: 6958681748008083915}
   - {fileID: 1129798664}
   - {fileID: 679984292}
   - {fileID: 31106440725919948}
   - {fileID: 31106441777314745}
-  - {fileID: 2064370146}
-  - {fileID: 903706612}
   productionObjects:
   - {fileID: 3209029389984446151}
   - {fileID: 1295571755}
@@ -24206,6 +24215,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1133386904}
     m_Modifications:
+    - target: {fileID: 1096367174848451784, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
+      propertyPath: appearable
+      value: 
+      objectReference: {fileID: 442848539}
     - target: {fileID: 1096367174848451786, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
       propertyPath: m_Name
       value: InfoPanel
@@ -24420,6 +24433,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1096367176370645510, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
       propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227589336590771129, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227589336590771129, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 42f1ef5e61928ce439042c6623b79504, type: 2}
+    - target: {fileID: 8851564215909695055, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

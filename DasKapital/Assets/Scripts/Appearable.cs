@@ -20,6 +20,5 @@ public class Appearable : MonoBehaviour
     public void LaunchDisappear()
     {
         animator.SetTrigger("Disappear");
-        print("Launching disappear");
     }
 }
