@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WindowsScript : MonoBehaviour
 {
+    #if !UNITY_WEBGL
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -11,4 +12,5 @@ public class WindowsScript : MonoBehaviour
             Application.Quit();
         }
     }
+    #endif
 }

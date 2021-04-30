@@ -694,6 +694,8 @@ GameObject:
   - component: {fileID: 3275230663836230549}
   - component: {fileID: 1474445584540634133}
   - component: {fileID: 7401716858308882466}
+  - component: {fileID: 1138407663553975093}
+  - component: {fileID: 6896173764795990851}
   m_Layer: 0
   m_Name: AutoSellStock
   m_TagString: Untagged
@@ -738,6 +740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   available: 1
   distributionPrefab: {fileID: 9212328235475556707, guid: b05f899ce15f6b84b9d644a9f0a9c934, type: 3}
+  distributionButton: {fileID: 0}
   targets:
   - {fileID: 6998676248335069000}
   - {fileID: 8190605064502391211}
@@ -770,6 +773,8 @@ MonoBehaviour:
   loadedCommodities: []
   coinsPopSpeed: 10
   distributionDelay: 0.1
+  distributing: 0
+  buttonActive: 0
 --- !u!222 &1474445584540634133
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -808,6 +813,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1138407663553975093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026551765152480018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dfac481d0ed06a4db8b597e66335ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &6896173764795990851
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026551765152480018}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae7989d689e0d274db6b065b56b42afb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1482417277431975144
 GameObject:
   m_ObjectHideFlags: 0

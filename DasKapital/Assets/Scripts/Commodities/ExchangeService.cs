@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExchangeService : MonoBehaviour
 {
     public static ExchangeService instance;
+    public ProductionErrorMessage errorMessage;
     public List<Stock> stocks = new List<Stock>();
     public List<UITarget> homeTargets = new List<UITarget>();
     public List<UITarget> otherTargets = new List<UITarget>();
@@ -85,6 +86,7 @@ public class ExchangeService : MonoBehaviour
                     stocks[0].GetFreeSlotsAmount() < otherSelectedCommodities.Count)
                 {
                     print("Not enough space");
+                    errorMessage.LaunchError("Pas assez d'espace dans le stock !");
                     return;
                 }
                 stocks[otherStockIndex].GetCommodities(mainSelectedCommodities);
@@ -93,6 +95,7 @@ public class ExchangeService : MonoBehaviour
             }
             else
             {
+                errorMessage.LaunchError("Les deux paniers n'ont pas la même valeur !");
                 stocks[otherStockIndex].GetCommodities(otherSelectedCommodities);
                 stocks[0].GetCommodities(mainSelectedCommodities);
             }

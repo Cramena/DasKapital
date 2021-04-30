@@ -16,6 +16,7 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 {
     public Sprite plusValueIcon;
     public Image icon;
+    private Animator animator;
     public List<UseWidget> usesIcons = new List<UseWidget>();
     public RectTransform rect;
     public UITarget lastTarget;
@@ -43,6 +44,7 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         canClick = true;
         InitializeProfile(type);
+        animator = GetComponent<Animator>();
     }
 
     public void InitializeProfile(CommoditySO _type)
@@ -191,6 +193,7 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
         foreach (RaycastResult result in results)
         {
+            print($"Target hit is: {result}");
             if (result.gameObject.CompareTag("Target"))
             {
                 UITarget targetScript = result.gameObject.GetComponent<UITarget>();
@@ -233,13 +236,15 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
         else
         {
-            Destroy(gameObject);
+            animator.SetTrigger("Disappear");
+            // Destroy(gameObject);
             return false;
         }
     }
 
     private void OnDestroy()
     {
+        // target.UnloadCommodity();
         CommoditiesService.instance.CheckWorkforceEmptied(type);
         CommoditiesService.instance.onCommoditiesEdition -= GetEdited;
     }
