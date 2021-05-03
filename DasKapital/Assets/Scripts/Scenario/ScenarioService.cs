@@ -17,7 +17,7 @@ public class ScenarioService : MonoBehaviour
     public static ScenarioService instance;
     private Animator animator;
     public List<TMP_Text> scenarioTexts = new List<TMP_Text>();
-    public GameObject continueButton;
+    public Appearable continueButton;
     public Button transactionButton;
     public Button productionButton;
     public AutoSellStock autoSellStock;
@@ -73,7 +73,7 @@ public class ScenarioService : MonoBehaviour
     {
         nodes[currentNodeIndex]?.OnNodeLeft();
         currentCondition = Condition.None;
-        SetContinueButtonActive(true);
+        // SetContinueButtonActive(true);
         currentNodeIndex++;
         if (currentNodeIndex < nodes.Count)
         {
@@ -101,11 +101,12 @@ public class ScenarioService : MonoBehaviour
                     asteriskPanel.gameObject.SetActive(true);
                     asteriskPanel.InitializePanel(key);
                 }
+                return;
             }
-            else if (asteriskPanel.gameObject.activeSelf)
-            {
-                asteriskPanel.gameObject.SetActive(false);
-            }
+        }
+        if (asteriskPanel.appearable.displayed)
+        {
+            asteriskPanel.appearable.LaunchDisappear();
         }
     }
 
@@ -147,7 +148,16 @@ public class ScenarioService : MonoBehaviour
 
     public void SetContinueButtonActive(bool _active)
     {
-        continueButton.SetActive(_active);
+        if (_active)
+        {
+            continueButton.gameObject.SetActive(_active);
+            continueButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            continueButton.GetComponent<Button>().interactable = false;
+            continueButton.LaunchDisappear();
+        }
         manualProgress = _active;
     }
 
@@ -196,5 +206,15 @@ public class ScenarioService : MonoBehaviour
     public void IntroduceWorkforce()
     {
         workforceIntroduced = true;
+    }
+
+    public void HideSelf()
+    {
+        GetComponent<Image>().enabled = false;
+        foreach (TMP_Text text in scenarioTexts)
+        {
+            text.enabled = false;
+        }
+        SetContinueButtonActive(false);
     }
 }

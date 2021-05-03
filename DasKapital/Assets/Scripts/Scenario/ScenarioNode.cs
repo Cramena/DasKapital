@@ -17,6 +17,10 @@ public class ScenarioNode : MonoBehaviour
         {
             condition.Activate();
         }
+        else
+        {
+            ScenarioService.instance.SetContinueButtonActive(true);
+        }
     }
 
     public virtual void OnNodeLeft()

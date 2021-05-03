@@ -8,6 +8,7 @@ public class AsteriskPanel : MonoBehaviour
     public Text text;
     public string currentKey;
     public RectTransform rect;
+    public Appearable appearable;
 
     public void InitializePanel(string _text)
     {

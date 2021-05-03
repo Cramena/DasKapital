@@ -62,6 +62,7 @@ public class AutoSellStock : UIOwner
 
     void AutoSellCommodity(Commodity _commodity)
     {
+        ActivateDistributionButton(true);
         ScenarioService.instance.OnAutoSell(_commodity.type);
         spawnedCoins.Clear();
         available = false;
@@ -72,7 +73,6 @@ public class AutoSellStock : UIOwner
 
         Vector3 _spawnPos = _commodity.rect.position;
         _commodity.animator.SetTrigger("Disappear");
-        // Destroy(_commodity.gameObject);
 
         for (var i = 0; i < spawnedCoins.Count; i++)
         {
@@ -191,11 +191,12 @@ public class AutoSellStock : UIOwner
                     currentStep = CoinType.None;
                     distributing = false;
                     available = true;
-                    distributionButton.interactable = buttonActive;
                     if (!ScenarioService.instance.delayedDistribution)
                     {
                         StartCoroutine(SpawnStockCoins());
                     }
+                    ActivateDistributionButton(false);
+                    distributionButton.interactable = buttonActive;
                 }
                 break;
             default:

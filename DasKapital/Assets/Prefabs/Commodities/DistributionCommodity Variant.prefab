@@ -20,6 +20,39 @@ MonoBehaviour:
   - {r: 0, g: 0.39215687, b: 0.6862745, a: 1}
   type: 0
   coinSO: {fileID: 11400000, guid: d354bf7caf917d546aeda69e0eb5c298, type: 2}
+  reduceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4
+      value: 1
+      inSlope: 0.023502452
+      outSlope: 0.023502452
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5294335
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &5182971463932745175
 PrefabInstance:
   m_ObjectHideFlags: 0

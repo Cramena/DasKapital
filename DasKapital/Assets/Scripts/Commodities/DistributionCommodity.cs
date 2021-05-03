@@ -18,6 +18,9 @@ public class DistributionCommodity : MonoBehaviour
     public List<Color> typeColors = new List<Color>();
     public CoinType type;
     public CommoditySO coinSO;
+    public AnimationCurve reduceCurve;
+    private float startDistance;
+    private Vector2 startSize;
     private bool selfDestructPending;
 
     public void Initialize(CoinType _coinType)
@@ -43,17 +46,25 @@ public class DistributionCommodity : MonoBehaviour
 
     public void GetDistributedTo(UITarget _target)
     {
+        startDistance = Vector2.Distance(_target.rect.position, commodity.rect.position);
+        startSize = commodity.rect.sizeDelta;
         commodity.target = _target;
         commodity.StartLerp();
         selfDestructPending = true;
     }
 
-    private void Update() 
+    private void FixedUpdate() 
     {
-        if (selfDestructPending && commodity.state != CommodityState.Lerp)
+        if (selfDestructPending)
         {
-            commodity.animator.SetTrigger("Disappear");
-            // Destroy(gameObject);
+            float currentDistance = Vector2.Distance(commodity.rect.position, commodity.target.rect.position);
+            commodity.rect.sizeDelta = startSize * reduceCurve.Evaluate(1 - (currentDistance/startDistance));
+            // commodity.rect.sizeDelta = Vector2.Lerp(startSize, Vector2.zero, lerpIndex);
+            if (commodity.state != CommodityState.Lerp)
+            {
+                // commodity.animator.SetTrigger("Disappear");
+                Destroy(gameObject);
+            }
         }
     }
 }

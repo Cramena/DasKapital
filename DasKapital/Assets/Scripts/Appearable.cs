@@ -5,6 +5,7 @@ using UnityEngine;
 public class Appearable : MonoBehaviour
 {
     private Animator animator;
+    public bool displayed = false;
 
     private void Awake()
     {
@@ -13,12 +14,15 @@ public class Appearable : MonoBehaviour
 
     private void OnEnable()
     {
+        displayed = true;
         if (animator == null) return;
         animator.SetTrigger("OnEnable");
     }
 
     public void LaunchDisappear()
     {
+        displayed = false;
+        print("Disappearing");
         animator.SetTrigger("Disappear");
     }
 }

@@ -96,6 +96,7 @@ public class UIService : MonoBehaviour
 
     public void HideRecipe()
     {
-        recipesPanel.gameObject.SetActive(false);
+        recipesPanel.appearable.LaunchDisappear();
+        // recipesPanel.gameObject.SetActive(false);
     }
 }
