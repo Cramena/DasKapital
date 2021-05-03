@@ -11,6 +11,7 @@ public class UIService : MonoBehaviour
     [HideInInspector] public EventSystem eventSystem;
     public InfoPanel infoPanel;
     public Transform coinsPanel;
+    public RecipesPanel recipesPanel;
     public bool infoPanelDisplaying;
     [HideInInspector] public UITarget highlightedTarget;
     private PointerEventData pointerEventData;
@@ -84,5 +85,17 @@ public class UIService : MonoBehaviour
             highlightedTarget.SetHighlight(false);
             highlightedTarget = null;
         }
+    }
+
+    public void ShowRecipe(Recipe _recipe)
+    {
+        recipesPanel.gameObject.SetActive(true);
+        recipesPanel.InitializePanel(_recipe);
+        Canvas.ForceUpdateCanvases();
+    }
+
+    public void HideRecipe()
+    {
+        recipesPanel.gameObject.SetActive(false);
     }
 }

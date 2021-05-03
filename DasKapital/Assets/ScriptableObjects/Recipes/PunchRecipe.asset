@@ -20,3 +20,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 23aed0f88863e7841bb8d48d0562daac, type: 2}
   - {fileID: 11400000, guid: c480eb147cd452645a5221a6b997176c, type: 2}
   result: {fileID: 11400000, guid: 205e41909f9fa13408cf440015b7cc69, type: 2}
+  description: "M\xE9langer un smoothie et une bouteille de rhum. Rajouter une tranche
+    d'orange, de past\xE8que et d'ananas."

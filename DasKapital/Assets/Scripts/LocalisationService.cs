@@ -35,6 +35,12 @@ public class LocalisationService : MonoBehaviour
             string[] line = texts[i].Split(new string[] {","}, 2, System.StringSplitOptions.None);
             line[1] = line[1].Remove(line[1].Length - 1);
             line[1] = line[1].Trim(new System.Char[] {'"', ' '});
+            if (line[1].Contains("*"))
+            {
+                string[] segmentedLine = line[1].Split(new string[] {"*"}, 3, System.StringSplitOptions.None);
+                string key = line[0].Replace("SCE", "AST");
+                line[1] = $"{segmentedLine[0]}<link=\"{key}\"><b><color=#1F6EBA>{segmentedLine[1]}</color></b></link>{segmentedLine[2]}";
+            }
             localisationLines.Add(line[0], line[1]);
         }
     }

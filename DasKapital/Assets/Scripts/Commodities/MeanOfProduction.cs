@@ -84,7 +84,17 @@ public class MeanOfProduction : UIOwner
             {
                 print(loadedCommodities[i].type);
             }
-            errorMessage.LaunchError("Ingrédients incorrects !");
+            List<Commodity> workforces = (from commodity in loadedCommodities
+                                          where commodity.type.index == 1
+                                          select commodity).ToList();
+            if (ScenarioService.instance.workforceIntroduced && workforces.Count == 0)
+            {
+                errorMessage.LaunchError("Nécessite une force de travail !");
+            }
+            else
+            {
+                errorMessage.LaunchError("Ingrédients incorrects !");
+            }
         }
         else
         {

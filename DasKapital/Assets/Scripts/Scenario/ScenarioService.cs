@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using TMPro;
 
 public enum Condition
 {
@@ -14,11 +15,13 @@ public enum Condition
 public class ScenarioService : MonoBehaviour
 {
     public static ScenarioService instance;
-    public Text scenarioText;
+    // public Text scenarioText;
+    public TMP_Text scenarioText;
     public GameObject continueButton;
     public Button transactionButton;
     public Button productionButton;
     public AutoSellStock autoSellStock;
+    public AsteriskPanel asteriskPanel;
     public List<ScenarioNode> nodes = new List<ScenarioNode>();
     private int currentNodeIndex;
     public List<UnityEvent> scenarioEvents = new List<UnityEvent>();
@@ -35,6 +38,7 @@ public class ScenarioService : MonoBehaviour
     private int scenarioIndex;
     public bool sandboxActive;
     public bool manualProgress;
+    public bool workforceIntroduced;
 
     private void Awake()
     {
@@ -57,9 +61,29 @@ public class ScenarioService : MonoBehaviour
 
     private void Update()
     {
+        CheckAsterisk();
         if (Input.GetKeyDown(KeyCode.Space) && manualProgress)
         {
             OnNodeStep();
+        }
+    }
+
+    void CheckAsterisk()
+    {
+        int linkIndex = TMP_TextUtilities.FindIntersectingLink(scenarioText, Input.mousePosition, Camera.main);
+        if (linkIndex != -1)
+        {
+            TMP_LinkInfo linkInfo = scenarioText.textInfo.linkInfo[linkIndex];
+            string key = linkInfo.GetLinkID();
+            if (!asteriskPanel.gameObject.activeSelf || key != asteriskPanel.currentKey)
+            {
+                asteriskPanel.gameObject.SetActive(true);
+                asteriskPanel.InitializePanel(key);
+            }
+        }
+        else if (asteriskPanel.gameObject.activeSelf)
+        {
+            asteriskPanel.gameObject.SetActive(false);
         }
     }
 
@@ -154,5 +178,10 @@ public class ScenarioService : MonoBehaviour
     public void SetDistributionInteractive(bool _active)
     {
         autoSellStock.ActivateDistributionButton(_active);
+    }
+
+    public void IntroduceWorkforce()
+    {
+        workforceIntroduced = true;
     }
 }

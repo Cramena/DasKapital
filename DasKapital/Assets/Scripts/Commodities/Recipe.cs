@@ -7,4 +7,5 @@ public class Recipe : ScriptableObject
 {
     public List<CommoditySO> components;
     public CommoditySO result;
+    public string description;
 }
