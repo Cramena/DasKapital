@@ -8,6 +8,8 @@ public class AutoSellStock : UIOwner
 {
     public DistributionCommodity distributionPrefab;
     public Button distributionButton;
+    public Stock personalStock;
+    public List<CommoditySO> coinTypes = new List<CommoditySO>();
     public List<UITarget> targets = new List<UITarget>();
     public List<UITarget> distributionTargets = new List<UITarget>();
     public List<Commodity> loadedCommodities = new List<Commodity>();
@@ -21,6 +23,7 @@ public class AutoSellStock : UIOwner
     public bool distributing;
     public bool buttonActive;
     private CoinType currentStep;
+    private int stockValue;
 
     void Start()
     {
@@ -116,6 +119,7 @@ public class AutoSellStock : UIOwner
             switch(_type)
             {
                 case CoinType.Material :
+                    stockValue++;
                     materialQueue.Enqueue(instance);
                     break;
                 case CoinType.Salary :
@@ -161,8 +165,9 @@ public class AutoSellStock : UIOwner
                 {
                     if (ScenarioService.instance.delayedDistribution)
                     {
+                        StartCoroutine(SpawnStockCoins());
                         distributing = false;
-                    distributionButton.interactable = buttonActive;
+                        distributionButton.interactable = buttonActive;
                     }
                     else currentStep = CoinType.Salary;
                 }
@@ -174,7 +179,7 @@ public class AutoSellStock : UIOwner
                     if (ScenarioService.instance.delayedDistribution)
                     {
                         distributing = false;
-                    distributionButton.interactable = buttonActive;
+                        distributionButton.interactable = buttonActive;
                     }
                     else currentStep = CoinType.Profit;
                 }
@@ -187,10 +192,56 @@ public class AutoSellStock : UIOwner
                     distributing = false;
                     available = true;
                     distributionButton.interactable = buttonActive;
+                    if (!ScenarioService.instance.delayedDistribution)
+                    {
+                        StartCoroutine(SpawnStockCoins());
+                    }
                 }
                 break;
             default:
                 break;
+        }
+    }
+
+    IEnumerator SpawnStockCoins()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        while (stockValue >= 50)
+        {
+            stockValue -= 50;
+            personalStock.AddCommodity(coinTypes[5]);
+            yield return new WaitForSeconds(0.05f);
+        }
+        while (stockValue >= 20)
+        {
+            stockValue -= 20;
+            personalStock.AddCommodity(coinTypes[4]);
+            yield return new WaitForSeconds(0.05f);
+        }
+        while (stockValue >= 10)
+        {
+            stockValue -= 10;
+            personalStock.AddCommodity(coinTypes[3]);
+            yield return new WaitForSeconds(0.05f);
+        }
+        while (stockValue >= 5)
+        {
+            stockValue -= 5;
+            personalStock.AddCommodity(coinTypes[2]);
+            yield return new WaitForSeconds(0.05f);
+        }
+        while (stockValue >= 2)
+        {
+            stockValue -= 2;
+            personalStock.AddCommodity(coinTypes[1]);
+            yield return new WaitForSeconds(0.05f);
+        }
+        while (stockValue >= 1)
+        {
+            stockValue -= 1;
+            personalStock.AddCommodity(coinTypes[0]);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 

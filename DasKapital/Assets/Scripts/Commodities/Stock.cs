@@ -62,6 +62,21 @@ public class Stock : UIOwner
         }
     }
 
+    public void AddCommodity(CommoditySO _commodityType)
+    {
+        for (var i = 0; i < spawnTargets.Count; i++)
+        {
+            if (spawnTargets[i].loadedCommodity != null) continue;
+            else
+            {
+                Commodity commodityInstance = CommoditiesService.instance.SpawnCommodity(_commodityType);
+                commodityInstance.rect.position = spawnTargets[i].rect.position;
+                spawnTargets[i].OnCommodityPlaced(commodityInstance, true);
+                return;
+            }
+        }
+    }
+
     public void RandomizeContent()
     {
         DestroyContent();
