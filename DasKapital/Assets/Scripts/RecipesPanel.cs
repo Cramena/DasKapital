@@ -15,7 +15,7 @@ public class RecipesPanel : MonoBehaviour
         title.text = _recipe.result.commodityName;
         GetComponent<Animator>().SetTrigger("OnEnable");
         description.text = _recipe.description;
-        UnityEditorInternal.InternalEditorUtility.RepaintAllViews();
+        // UnityEditorInternal.InternalEditorUtility.RepaintAllViews();
         LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
      }
 }
