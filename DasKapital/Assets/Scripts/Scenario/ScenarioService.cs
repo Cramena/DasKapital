@@ -15,8 +15,8 @@ public enum Condition
 public class ScenarioService : MonoBehaviour
 {
     public static ScenarioService instance;
-    // public Text scenarioText;
-    public TMP_Text scenarioText;
+    private Animator animator;
+    public List<TMP_Text> scenarioTexts = new List<TMP_Text>();
     public GameObject continueButton;
     public Button transactionButton;
     public Button productionButton;
@@ -55,6 +55,7 @@ public class ScenarioService : MonoBehaviour
     private void Start()
     {
         scenarioIndex = 0;
+        animator = GetComponent<Animator>();
         nodes[currentNodeIndex]?.OnNodeEntered();
         SetContinueButtonActive(true);
     }
@@ -65,25 +66,6 @@ public class ScenarioService : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && manualProgress)
         {
             OnNodeStep();
-        }
-    }
-
-    void CheckAsterisk()
-    {
-        int linkIndex = TMP_TextUtilities.FindIntersectingLink(scenarioText, Input.mousePosition, Camera.main);
-        if (linkIndex != -1)
-        {
-            TMP_LinkInfo linkInfo = scenarioText.textInfo.linkInfo[linkIndex];
-            string key = linkInfo.GetLinkID();
-            if (!asteriskPanel.gameObject.activeSelf || key != asteriskPanel.currentKey)
-            {
-                asteriskPanel.gameObject.SetActive(true);
-                asteriskPanel.InitializePanel(key);
-            }
-        }
-        else if (asteriskPanel.gameObject.activeSelf)
-        {
-            asteriskPanel.gameObject.SetActive(false);
         }
     }
 
@@ -105,11 +87,42 @@ public class ScenarioService : MonoBehaviour
         sandboxActive = true;
     }
 
+    void CheckAsterisk()
+    {
+        foreach (TMP_Text scenarioText in scenarioTexts)
+        {
+            int linkIndex = TMP_TextUtilities.FindIntersectingLink(scenarioText, Input.mousePosition, Camera.main);
+            if (linkIndex != -1)
+            {
+                TMP_LinkInfo linkInfo = scenarioText.textInfo.linkInfo[linkIndex];
+                string key = linkInfo.GetLinkID();
+                if (!asteriskPanel.gameObject.activeSelf || key != asteriskPanel.currentKey)
+                {
+                    asteriskPanel.gameObject.SetActive(true);
+                    asteriskPanel.InitializePanel(key);
+                }
+            }
+            else if (asteriskPanel.gameObject.activeSelf)
+            {
+                asteriskPanel.gameObject.SetActive(false);
+            }
+        }
+    }
+
     public void DisplayLine(string _key)
     {
         scenarioIndex++;
         string key = "SCE_" + scenarioIndex.ToString("000");
-        scenarioText.text = LocalisationService.instance.Translate(key);
+        if (scenarioIndex % 2 == 0)
+        {
+            scenarioTexts[0].text = LocalisationService.instance.Translate(key);
+            animator.SetTrigger("OneSwipeDown");
+        }
+        else
+        {
+            scenarioTexts[1].text = LocalisationService.instance.Translate(key);
+            animator.SetTrigger("TwoSwipeDown");
+        }
     }
 
     public void LaunchEvent(int _index)
