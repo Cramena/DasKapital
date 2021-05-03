@@ -71,6 +71,7 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private void OnEnable()
     {
         if (profile.isDurable) SetUsesUI();
+        if (animator != null) animator.SetTrigger("OnEnable");
         CommoditiesService.instance.onCommoditiesEdition += GetEdited;
     }
 
@@ -244,6 +245,7 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
         else
         {
+            animator.SetBool("Deadly", true);
             animator.SetTrigger("Disappear");
             return false;
         }

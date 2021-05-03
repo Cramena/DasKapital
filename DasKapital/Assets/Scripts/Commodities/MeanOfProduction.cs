@@ -13,6 +13,10 @@ public class MeanOfProduction : UIOwner
 
     private void Start() 
     {
+        GetComponent<Appearable>().onDisappearing += () =>
+        {
+            SetContentEnabled(false);
+        };
         foreach (UITarget target in targets)
         {
             target.onCommodityPlaced += (Commodity _commodity) => 
@@ -108,21 +112,38 @@ public class MeanOfProduction : UIOwner
         SetContentEnabled(true);
     }
 
-    private void OnDisable()
-    {
-        SetContentEnabled(false);
-    }
+    // private void OnDisable()
+    // {
+    //     SetContentEnabled(false);
+    // }
 
     void SetContentEnabled(bool _enabled)
     {
         foreach (UITarget target in targets)
         {
             if (target.loadedCommodity == null) continue;
-            target.loadedCommodity.gameObject.SetActive(_enabled);
+            if (!_enabled)
+            {
+                target.loadedCommodity.animator.SetBool("Deadly", false);
+                target.loadedCommodity.animator.SetTrigger("Disappear");
+            }
+            else
+            {
+                target.loadedCommodity.gameObject.SetActive(_enabled);
+            }
         }
         if (productionTarget.loadedCommodity != null) 
         {
-            productionTarget.loadedCommodity.gameObject.SetActive(_enabled);
+            
+            if (!_enabled)
+            {
+                productionTarget.loadedCommodity.animator.SetBool("Deadly", false);
+                productionTarget.loadedCommodity.animator.SetTrigger("Disappear");
+            }
+            else
+            {
+                productionTarget.loadedCommodity.gameObject.SetActive(_enabled);
+            }
         }
     }
 

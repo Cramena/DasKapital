@@ -26,6 +26,10 @@ public class Stock : UIOwner
 
     private void Start() 
     {
+        GetComponent<Appearable>().onDisappearing += () =>
+        {
+            SetContentEnabled(false);
+        };
         SpawnCommodities();
     }
 
@@ -118,7 +122,7 @@ public class Stock : UIOwner
 
     private void OnDisable()
     {
-        SetContentEnabled(false);
+        // SetContentEnabled(false);
         ScenarioService.instance.onSandboxStart -= ActivateRandomizerButton;
     }
 
@@ -132,7 +136,15 @@ public class Stock : UIOwner
         foreach (UITarget target in spawnTargets)
         {
             if (target.loadedCommodity == null) continue;
-            target.loadedCommodity.gameObject.SetActive(_enabled);
+            if (!_enabled)
+            {
+                target.loadedCommodity.animator.SetBool("Deadly", false);
+                target.loadedCommodity.animator.SetTrigger("Disappear");
+            }
+            else
+            {
+                target.loadedCommodity.gameObject.SetActive(_enabled);
+            }
         }
     }
 

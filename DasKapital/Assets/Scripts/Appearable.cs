@@ -6,6 +6,7 @@ public class Appearable : MonoBehaviour
 {
     private Animator animator;
     public bool displayed = false;
+    public System.Action onDisappearing;
 
     private void Awake()
     {
@@ -24,5 +25,6 @@ public class Appearable : MonoBehaviour
         displayed = false;
         print("Disappearing");
         animator.SetTrigger("Disappear");
+        onDisappearing?.Invoke();
     }
 }

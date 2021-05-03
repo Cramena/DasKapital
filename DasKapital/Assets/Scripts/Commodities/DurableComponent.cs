@@ -20,6 +20,7 @@ public class DurableComponent : MonoBehaviour
         commodity.SetUsesUI();
         if (commodity.profile.usesAmount <= 0)
         {
+            commodity.animator.SetBool("Deadly", true);
             commodity.animator.SetTrigger("Disappear");
             return false;
         }
