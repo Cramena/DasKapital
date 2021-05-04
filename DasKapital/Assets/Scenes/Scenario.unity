@@ -23281,7 +23281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9787a0134e233c64099516d0da1c757f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: Assets/Texts/DK_Scenario - Main.csv
+  filePath: DK_Scenario - Main
 --- !u!1001 &1282532046
 PrefabInstance:
   m_ObjectHideFlags: 0

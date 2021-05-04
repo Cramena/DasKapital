@@ -94,7 +94,6 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             else if (!animDone)
             {
                 animDone = true;
-                //Insert anim
                 // usesIcons[i].InitializeUse(true, profile.valuePerUse);
                 usesIcons[i].LaunchDepleteAnim();
             }

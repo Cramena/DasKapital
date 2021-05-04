@@ -26,8 +26,8 @@ public class LocalisationService : MonoBehaviour
 
     void LoadFile(string _path)
     {
-        StreamReader reader = new StreamReader(_path);
-        string baseText = reader.ReadToEnd();
+        TextAsset asset = (TextAsset)Resources.Load(filePath, typeof(TextAsset));
+        string baseText = asset.text;
         string[] texts = baseText.Split("\n" [0]);
 
         for (var i = 0; i < texts.Length; i++)
