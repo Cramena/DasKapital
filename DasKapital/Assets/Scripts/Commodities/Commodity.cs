@@ -207,7 +207,7 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 UITarget targetScript = result.gameObject.GetComponent<UITarget>();
                 Stock stockCast = targetScript.owner as Stock;
                 Stock currentStockCast = target.owner as Stock;
-                if (!ScenarioService.instance.inProductionPhase &&
+                if ((!ScenarioService.instance.inProductionPhase &&
                     //No direct movement from one base stock to another base stock
                     ((targetScript.stockID != target.stockID && stockCast != null && currentStockCast != null) || 
                     //No direct movement from left to right or from right to left
@@ -217,7 +217,7 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                     //No direct movement from base stock to trade stock if another base stock
                     //already has at least one commodity of its own inside
                     (currentStockCast != null && stockCast == null && target.stockID >= 0 &&
-                    target.stockID != ExchangeService.instance.otherStockIndex && ExchangeService.instance.otherStockIndex != -1)))
+                    target.stockID != ExchangeService.instance.otherStockIndex && ExchangeService.instance.otherStockIndex != -1))))
                     break;
                 if (targetScript.OnCommodityPlaced(this)) break;
             }

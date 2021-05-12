@@ -57,6 +57,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plusValueIcon: {fileID: 21300000, guid: fcfab63888182754fa8f4e9c7cc1a56f, type: 3}
   icon: {fileID: 2968010046997109802}
+  animator: {fileID: 0}
   usesIcons:
   - {fileID: 1156990815380122832}
   - {fileID: 4367406890553260991}
@@ -95,7 +96,7 @@ MonoBehaviour:
   lerpSnapThreshold: 0.001
   lerpSpeed: 20
   currentLerpSpeed: 0
-  infoPanelTriggerDelay: 1
+  infoPanelTriggerDelay: 0.5
   hovering: 0
   draggable: 1
 --- !u!114 &2718469670666233864

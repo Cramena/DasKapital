@@ -25558,6 +25558,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6f91087984245d644afe09d18281b12d, type: 2}
   - {fileID: 11400000, guid: 3b682a3481f627342a2ccd5a18cddd5f, type: 2}
   - {fileID: 11400000, guid: 01bc12a8b4a807244be93f6d10c33722, type: 2}
+  - {fileID: 11400000, guid: 23aed0f88863e7841bb8d48d0562daac, type: 2}
   recipes:
   - {fileID: 11400000, guid: 501ef008a151d074c8b1d5b220cd3793, type: 2}
   - {fileID: 11400000, guid: 641e000cd46817b42af6f1d946693686, type: 2}
@@ -33527,7 +33528,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Produce
+  m_Text: Produire
 --- !u!222 &1738427548
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -42101,7 +42102,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: EXCHANGE
+  m_Text: "\xC9changer"
 --- !u!114 &153233238668828118 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3095094844489074421, guid: fafae3e404e0b034fa1d1bcfe882ed7b, type: 3}
@@ -42171,6 +42172,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1133386904}
     m_Modifications:
+    - target: {fileID: 1096367174848451784, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
+      propertyPath: hideDelay
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1096367174848451784, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
       propertyPath: appearable
       value: 
@@ -42378,6 +42383,14 @@ PrefabInstance:
     - target: {fileID: 1096367176316714233, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 87.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096367176316714238, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
+      propertyPath: m_Text
+      value: 'Valeur d''usage :'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096367176316714238, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1096367176370645510, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
       propertyPath: m_Sprite

@@ -11,6 +11,7 @@ public class SwitchLayout : MonoBehaviour
     public void OnSwitch()
     {
         onProductionLayout = !onProductionLayout;
+        ScenarioService.instance.inProductionPhase = onProductionLayout;
         if (onProductionLayout)
         {
             foreach (GameObject go in productionObjects)
