@@ -13,6 +13,7 @@ public class UIService : MonoBehaviour
     public Transform coinsPanel;
     public RecipesPanel recipesPanel;
     public bool infoPanelDisplaying;
+    public bool recipePanelDisplaying;
     [HideInInspector] public UITarget highlightedTarget;
     private PointerEventData pointerEventData;
     public bool infoPanelLocked;
@@ -94,12 +95,14 @@ public class UIService : MonoBehaviour
         recipesPanel.gameObject.SetActive(true);
         recipesPanel.InitializePanel(_recipe);
         Canvas.ForceUpdateCanvases();
+        recipePanelDisplaying = true;
     }
 
     public void HideRecipe()
     {
         recipesPanel.appearable.LaunchDisappear();
         // recipesPanel.gameObject.SetActive(false);
+        recipePanelDisplaying = false;
     }
 
     public void SetInfoPanelLocked(bool _lock)
