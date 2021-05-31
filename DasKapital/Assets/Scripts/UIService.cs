@@ -15,6 +15,7 @@ public class UIService : MonoBehaviour
     public bool infoPanelDisplaying;
     [HideInInspector] public UITarget highlightedTarget;
     private PointerEventData pointerEventData;
+    public bool infoPanelLocked;
 
     private void Awake()
     {
@@ -36,7 +37,8 @@ public class UIService : MonoBehaviour
 
     private void Update()
     {
-        if (infoPanelDisplaying && ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && !infoPanel.hovering))
+        if (infoPanelDisplaying &&
+            ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))&& !infoPanel.hovering && !infoPanelLocked))
         {
             HideInfoPanel();
         }
@@ -98,5 +100,10 @@ public class UIService : MonoBehaviour
     {
         recipesPanel.appearable.LaunchDisappear();
         // recipesPanel.gameObject.SetActive(false);
+    }
+
+    public void SetInfoPanelLocked(bool _lock)
+    {
+        infoPanelLocked = _lock;
     }
 }

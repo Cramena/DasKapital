@@ -48,7 +48,7 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     void CheckHover()
     {
-        if (disablePending) return;
+        if (disablePending || UIService.instance.infoPanelLocked) return;
 
         if (!hovering && !commodity.hovering)
         {

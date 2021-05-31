@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExchangeService : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class ExchangeService : MonoBehaviour
     public List<Stock> stocks = new List<Stock>();
     public List<UITarget> homeTargets = new List<UITarget>();
     public List<UITarget> otherTargets = new List<UITarget>();
+    public Text homeCounter;
+    public Text otherCounter;
     public List<Commodity> mainSelectedCommodities = new List<Commodity>();
     public List<Commodity> otherSelectedCommodities = new List<Commodity>();
     public TradingStock homeTradingStock;
@@ -114,11 +117,13 @@ public class ExchangeService : MonoBehaviour
         foreach (Commodity commodity in mainSelectedCommodities)
         {
             mainValue += commodity.profile.exchangeValue;
-        }
+        }   
         foreach (Commodity commodity in otherSelectedCommodities)
         {
             otherValue += commodity.profile.exchangeValue;
         }
+        homeCounter.text = mainValue.ToString();        
+        otherCounter.text = otherValue.ToString();
         if (mainValue == 0 && otherValue == 0)
         {
             return 0;
