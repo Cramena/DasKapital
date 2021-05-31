@@ -150,7 +150,7 @@ public class ExchangeService : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    public void DisableTradingStocksContent()
     {
         foreach (UITarget target in otherTargets)
         {
