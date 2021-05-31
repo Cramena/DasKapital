@@ -38,36 +38,7 @@ public class RecipeIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             recipeDisplayTimer = 0;
         }
-        CheckHover();
     }
-
-    private void CheckHover()
-    {
-        // print("Check Hover");
-        // if (disablePending) return;
-        // print("No disable pending");
-
-        // if (!hovering)
-        // {
-        
-        //     recipeHideTimer += Time.deltaTime;
-        //     if (recipeHideTimer >= recipeHideDelay)
-        //     {
-        //         print("No disable pending");
-        //         UIService.instance.HideRecipe();
-        //         disablePending = true;
-        //     }
-        // }
-        // else if (recipeHideTimer != 0)
-        // {
-        //     recipeHideTimer = 0;
-        // }
-    }
-
-    // private void OnDisable()
-    // {
-    //     disablePending = false;
-    // }
 
     public void OnPointerEnter(PointerEventData pointerEventData)
     {

@@ -23,7 +23,7 @@ public class Appearable : MonoBehaviour
     public void LaunchDisappear()
     {
         displayed = false;
-        print("Disappearing");
+        // print("Disappearing");
         animator.SetTrigger("Disappear");
         onDisappearing?.Invoke();
     }

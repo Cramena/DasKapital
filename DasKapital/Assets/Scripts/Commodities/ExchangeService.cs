@@ -10,8 +10,8 @@ public class ExchangeService : MonoBehaviour
     public List<Stock> stocks = new List<Stock>();
     public List<UITarget> homeTargets = new List<UITarget>();
     public List<UITarget> otherTargets = new List<UITarget>();
-    public Text homeCounter;
-    public Text otherCounter;
+    public ValueCounter homeCounter;
+    public ValueCounter otherCounter;
     public List<Commodity> mainSelectedCommodities = new List<Commodity>();
     public List<Commodity> otherSelectedCommodities = new List<Commodity>();
     public TradingStock homeTradingStock;
@@ -122,8 +122,8 @@ public class ExchangeService : MonoBehaviour
         {
             otherValue += commodity.profile.exchangeValue;
         }
-        homeCounter.text = mainValue.ToString();        
-        otherCounter.text = otherValue.ToString();
+        homeCounter.SetTargetValue(mainValue);        
+        otherCounter.SetTargetValue(otherValue);        
         if (mainValue == 0 && otherValue == 0)
         {
             return 0;

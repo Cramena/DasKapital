@@ -19969,6 +19969,7 @@ MonoBehaviour:
   coinsPanel: {fileID: 2042069870}
   recipesPanel: {fileID: 44234535}
   infoPanelDisplaying: 0
+  recipePanelDisplaying: 0
   highlightedTarget: {fileID: 0}
   infoPanelLocked: 0
 --- !u!1 &1142069062
@@ -28325,6 +28326,7 @@ GameObject:
   - component: {fileID: 1415677388}
   - component: {fileID: 1415677390}
   - component: {fileID: 1415677389}
+  - component: {fileID: 1415677391}
   m_Layer: 5
   m_Name: HomeCounter
   m_TagString: Untagged
@@ -28390,6 +28392,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415677387}
   m_CullTransparentMesh: 0
+--- !u!114 &1415677391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415677387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78f6b0959f6cdd44a5637a52b89d5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueText: {fileID: 330687516}
+  valueLerpThreshold: 0.1
+  valueLerpSpeed: 10
 --- !u!1001 &1416050845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40127,6 +40144,7 @@ GameObject:
   - component: {fileID: 2035364854}
   - component: {fileID: 2035364856}
   - component: {fileID: 2035364855}
+  - component: {fileID: 2035364857}
   m_Layer: 5
   m_Name: OtherCounter (1)
   m_TagString: Untagged
@@ -40192,6 +40210,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035364853}
   m_CullTransparentMesh: 0
+--- !u!114 &2035364857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035364853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78f6b0959f6cdd44a5637a52b89d5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueText: {fileID: 1870594918}
+  valueLerpThreshold: 0.1
+  valueLerpSpeed: 10
 --- !u!114 &2037189422 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -462376220288859947, guid: c29f484d395af5e46a2fd62654046bc8, type: 3}
@@ -43174,8 +43207,8 @@ MonoBehaviour:
   - {fileID: 1983408210}
   - {fileID: 296300521}
   - {fileID: 2099574152}
-  homeCounter: {fileID: 330687516}
-  otherCounter: {fileID: 1870594918}
+  homeCounter: {fileID: 1415677391}
+  otherCounter: {fileID: 2035364857}
   mainSelectedCommodities: []
   otherSelectedCommodities: []
   homeTradingStock: {fileID: 0}
