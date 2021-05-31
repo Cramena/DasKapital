@@ -15,6 +15,7 @@ public class Worker : MonoBehaviour
     private void Start() 
     {
         rect = GetComponent<RectTransform>();
+        GetComponent<Appearable>().onDisappearing += DisableSlotWorkForce;
         ReplenishPool();
         PopWorkForce();
     }
@@ -56,5 +57,11 @@ public class Worker : MonoBehaviour
         {
             workforceSlot.loadedCommodity.gameObject.SetActive(_enabled);
         }
+    }
+
+    void DisableSlotWorkForce()
+    {
+        workforceSlot.loadedCommodity.animator.SetBool("Deadly", false);
+        workforceSlot.loadedCommodity.animator.SetTrigger("Disappear");
     }
 }
