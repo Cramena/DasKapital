@@ -16,7 +16,7 @@ MonoBehaviour:
   commodityName: Force de travail
   exchangeValue: 6
   useValue: 1
-  useValueDescription: "Cr\xE9\xE9 de la valeur. Transforme des marchandises."
+  useValueDescription: "Transforme des marchandises. Cr\xE9\xE9 de la valeur."
   isDurable: 1
   usesAmount: 3
   components: []

@@ -97,7 +97,7 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         title.text = commodity.profile.commodityName;
         icon.sprite = commodity.profile.icon;
         icon.preserveAspect = true;
-        exchangeValueText.text = $"Valeur: {commodity.profile.exchangeValue.ToString()}";
+        exchangeValueText.text = $"Valeur d'échange: {commodity.profile.exchangeValue.ToString()}";
         useValueText.text = commodity.profile.useValueDescription;
 
         //Durable panel
