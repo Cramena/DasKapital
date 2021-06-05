@@ -45,6 +45,7 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         canClick = true;
         InitializeProfile(type);
         animator = GetComponent<Animator>();
+        GetComponent<DoubleClickHandler>().onDoubleClicked += AutomaticMove;
     }
 
     public void InitializeProfile(CommoditySO _type)
@@ -266,5 +267,73 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             profile.components.Clear();
             TransferComponentsValue(tempProfiles);
         }
+    }
+
+    public void AutomaticMove()
+    {
+        if (ScenarioService.instance.inProductionPhase)
+        {
+            if ((target.owner == null && target.stockID == 1) || target.owner as Stock != null)
+            {
+                //Is in workslot or in stock
+                CommoditiesService.instance.meanOfProduction.GetCommodities(this);
+                print("Go to mean of production");
+            }
+            else
+            {
+                //Is in MoP
+                if (lastTarget == null)
+                {
+                    //New produced commodity
+                    CommoditiesService.instance.homeStock.GetCommodities(this);
+                print("Go to stock");
+                }
+                else if (lastTarget.owner != null)
+                {
+                    //Was in stock, then go to stock
+                    Stock stock = lastTarget.owner as Stock;
+                    stock.GetCommodities(this);
+                print("Go to stock");
+                }
+                else
+                {
+                    //Was in worlslot, then go to worlslot
+                    StartLerp();
+                    lastTarget.OnCommodityPlaced(this);
+                print("Go to workslot");
+                }
+            }
+        }
+        else
+        {
+            if (target.owner as TradingStock != null)
+            {
+                //Is in trading stock
+                Stock stock = lastTarget.owner as Stock;
+                stock.GetCommodities(this);
+                print("Go to stock");
+            }
+            else
+            {
+                //Is in stock
+                if (target.stockID == -1)
+                {
+                    //Move to home trading stock
+                    ExchangeService.instance.GetCommodities(this, true);
+                print("Go to home trading stock");
+                }
+                else if (target.stockID == ExchangeService.instance.otherStockIndex || ExchangeService.instance.otherStockIndex == -1)
+                {
+                    //Move to other trading stock
+                    ExchangeService.instance.GetCommodities(this, false);
+                print("Go to other trading stock");
+                }
+            }
+        }
+    }
+
+    public void ResetInfoPanelTimer()
+    {
+        infoPanelTriggerTimer = 0;
     }
 }

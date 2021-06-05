@@ -16,7 +16,7 @@ MonoBehaviour:
   commodityName: Pomme
   exchangeValue: 1
   useValue: 0
-  useValueDescription: Comestible. Acide.
+  useValueDescription: "Comestible. Sucr\xE9e."
   isDurable: 0
   usesAmount: 0
   components: []

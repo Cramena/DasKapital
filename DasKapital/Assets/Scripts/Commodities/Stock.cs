@@ -99,6 +99,15 @@ public class Stock : UIOwner
         spawnList.Clear();
     }
 
+    public void GetCommodities(Commodity _commodity)
+    {
+        List<UITarget> freeSlots = (from slot in spawnTargets
+                                where slot.loadedCommodity == null
+                                select slot).ToList();
+        _commodity.StartLerp();
+        freeSlots[0].OnCommodityPlaced(_commodity);
+    }
+
     public void GetCommodities(List<Commodity> _commodities)
     {
         List<Commodity> copies = new List<Commodity>(_commodities);

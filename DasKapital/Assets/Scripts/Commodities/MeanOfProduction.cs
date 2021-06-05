@@ -146,5 +146,14 @@ public class MeanOfProduction : UIOwner
             }
         }
     }
+    
+    public void GetCommodities(Commodity _commodity)
+    {
+        List<UITarget> freeSlots = (from slot in targets
+                                where slot.loadedCommodity == null
+                                select slot).ToList();
+        _commodity.StartLerp();
+        freeSlots[0].OnCommodityPlaced(_commodity);
+    }
 
 }

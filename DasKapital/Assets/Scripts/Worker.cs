@@ -44,6 +44,7 @@ public class Worker : MonoBehaviour
     private void OnEnable()
     {
         SetContentEnabled(true);
+        workforceSlot.gameObject.SetActive(true);
     }
 
     private void OnDisable()
@@ -61,7 +62,11 @@ public class Worker : MonoBehaviour
 
     void DisableSlotWorkForce()
     {
-        workforceSlot.loadedCommodity.animator.SetBool("Deadly", false);
-        workforceSlot.loadedCommodity.animator.SetTrigger("Disappear");
+        if (workforceSlot.loadedCommodity != null)
+        {
+            workforceSlot.loadedCommodity.animator.SetBool("Deadly", false);
+            workforceSlot.loadedCommodity.animator.SetTrigger("Disappear");
+        }
+        workforceSlot.GetComponent<Appearable>().LaunchDisappear();
     }
 }

@@ -24,16 +24,21 @@ public class UITarget : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public bool OnCommodityPlaced(Commodity _commodity, bool force = false)
     {
-        if (owner != null && ((!force && !owner.available) || !owner.CheckCanLoad(_commodity))) return false;
+        if (owner != null && (/*(!force && !owner.available) || */!owner.CheckCanLoad(_commodity))) return false;
 
+        UITarget otherTarget = _commodity.target;
+        if (otherTarget != null) otherTarget.UnloadCommodity();
         if (loadedCommodity != null)
         {
-            if (!force) return false;
+            Commodity lastLoadedCommodity = loadedCommodity;
             UnloadCommodity();
+            if (!force && otherTarget != null)
+            {
+                otherTarget.OnCommodityPlaced(lastLoadedCommodity);
+            }
         }
-        if (_commodity.target != null) _commodity.target.UnloadCommodity();
         if (_commodity.lastTarget == null || stockID != _commodity.target.stockID)
-            _commodity.lastTarget = _commodity.target;
+            _commodity.lastTarget = otherTarget;
         _commodity.target = this;
         loadedCommodity = _commodity;
         onCommodityPlaced?.Invoke(loadedCommodity);

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using System.Linq;
 
 public class ExchangeService : MonoBehaviour
 {
@@ -76,11 +76,11 @@ public class ExchangeService : MonoBehaviour
 
             foreach (Commodity commodity in mainSelectedCommodities)
             {
-                mainValue += commodity.type.exchangeValue;
+                mainValue += commodity.profile.exchangeValue;
             }
             foreach (Commodity commodity in otherSelectedCommodities)
             {
-                otherValue += commodity.type.exchangeValue;
+                otherValue += commodity.profile.exchangeValue;
             }
             
             if (mainValue == otherValue)
@@ -160,5 +160,15 @@ public class ExchangeService : MonoBehaviour
         {
             stocks[0].GetCommodities(mainSelectedCommodities);
         }
+    }
+
+    public void GetCommodities(Commodity _commodity, bool _targetsHome)
+    {
+        List<UITarget> targets = _targetsHome ? homeTargets : otherTargets;
+        List<UITarget> freeSlots = (from slot in targets
+                                where slot.loadedCommodity == null
+                                select slot).ToList();
+        _commodity.StartLerp();
+        freeSlots[0].OnCommodityPlaced(_commodity);
     }
 }

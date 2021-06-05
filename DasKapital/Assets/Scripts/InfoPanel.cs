@@ -77,6 +77,10 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void LaunchDisable()
     {
         appearable.LaunchDisappear();
+        if (commodity != null)
+        {
+            commodity.ResetInfoPanelTimer();
+        }
         disablePending = true;
     }
 

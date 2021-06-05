@@ -39,7 +39,8 @@ public class UIService : MonoBehaviour
     private void Update()
     {
         if (infoPanelDisplaying &&
-            ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))&& !infoPanel.hovering && !infoPanelLocked))
+            ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)) 
+            && !infoPanel.hovering && !infoPanelLocked))
         {
             HideInfoPanel();
         }

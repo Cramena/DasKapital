@@ -13,6 +13,8 @@ public class CommoditiesService : MonoBehaviour
     public List<Recipe> recipes = new List<Recipe>();
     public bool numerableRecipes;
     public Worker worker;
+    public MeanOfProduction meanOfProduction;
+    public Stock homeStock;
     private int totalProbabilityWeight;
     public System.Action onCommodityPlacementRegistered;
     public System.Action<CommoditySO, List<int>> onCommoditiesEdition;
