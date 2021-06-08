@@ -108,7 +108,7 @@ public class CommoditiesService : MonoBehaviour
 
     public void EditCommodities()
     {
-        onCommoditiesEdition?.Invoke(workforce, new List<int>() {104, 107, 110, 113});
+        onCommoditiesEdition?.Invoke(workforce, new List<int>() {102, 121, 141, 181});
     }
 
     public void UpdateRecipesList(RecipesList _recipesList)

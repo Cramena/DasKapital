@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
   m_Name: Punch
   m_EditorClassIdentifier: 
-  index: 108
+  index: 150
   commodityName: Ponche
   exchangeValue: 0
   useValue: 0

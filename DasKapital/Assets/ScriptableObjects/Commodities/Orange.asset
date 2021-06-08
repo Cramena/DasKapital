@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
   m_Name: Orange
   m_EditorClassIdentifier: 
-  index: 103
+  index: 120
   commodityName: Orange
   exchangeValue: 1
   useValue: 0
@@ -20,7 +20,7 @@ MonoBehaviour:
   isDurable: 0
   usesAmount: 0
   components: []
-  icon: {fileID: 21300000, guid: 053253b45e6ac69418ea3996bb4903b9, type: 3}
+  icon: {fileID: 21300000, guid: 444153818e4613440a6dff1a8e67bc87, type: 3}
   sizeModifier: 1
   color: {r: 0.9803922, g: 0.5254902, b: 0, a: 1}
   probabilityWeight: 1

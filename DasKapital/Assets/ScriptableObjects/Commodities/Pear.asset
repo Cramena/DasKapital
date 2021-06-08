@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
   m_Name: Pear
   m_EditorClassIdentifier: 
-  index: 105
+  index: 130
   commodityName: Poire
   exchangeValue: 1
   useValue: 0

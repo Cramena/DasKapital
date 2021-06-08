@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
-  m_Name: Apple
+  m_Name: AppleSlice
   m_EditorClassIdentifier: 
-  index: 100
-  commodityName: Pomme
+  index: 103
+  commodityName: Tranche de pomme
   exchangeValue: 1
   useValue: 0
   useValueDescription: "Comestible. Sucr\xE9e."
   isDurable: 0
   usesAmount: 0
   components: []
-  icon: {fileID: 21300000, guid: d618c7d1a4e02b547b5214ecb7ed0eca, type: 3}
+  icon: {fileID: 21300000, guid: ca395498bde51984c9fb0264374bea4c, type: 3}
   sizeModifier: 1
   color: {r: 0.882353, g: 0.29803923, b: 0.2901961, a: 1}
   probabilityWeight: 1

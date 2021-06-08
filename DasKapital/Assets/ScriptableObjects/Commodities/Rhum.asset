@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
   m_Name: Rhum
   m_EditorClassIdentifier: 
-  index: 111
+  index: 160
   commodityName: Rhum
   exchangeValue: 3
   useValue: 0

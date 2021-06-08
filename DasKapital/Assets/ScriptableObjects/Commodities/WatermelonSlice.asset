@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
   m_Name: WatermelonSlice
   m_EditorClassIdentifier: 
-  index: 110
+  index: 181
   commodityName: "Tranche de past\xE8que"
   exchangeValue: 6
   useValue: 0
@@ -20,7 +20,7 @@ MonoBehaviour:
   isDurable: 0
   usesAmount: 0
   components: []
-  icon: {fileID: 21300000, guid: 6ecc19c8da3ac1c42a76e922db82fd21, type: 3}
+  icon: {fileID: 21300000, guid: 5708295edee9e1c4d904dd7f7d3918af, type: 3}
   sizeModifier: 1
   color: {r: 0.59607846, g: 0.8588236, b: 0.48627454, a: 1}
   probabilityWeight: 1

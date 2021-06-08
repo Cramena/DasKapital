@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
   m_Name: Coin50
   m_EditorClassIdentifier: 
-  index: 118
+  index: 115
   commodityName: "Pi\xE8ce de 50"
   exchangeValue: 50
   useValue: 0
@@ -20,7 +20,7 @@ MonoBehaviour:
   isDurable: 0
   usesAmount: 0
   components: []
-  icon: {fileID: 21300000, guid: 7efe6ef75d2b11046afb4e31344a612a, type: 3}
+  icon: {fileID: 21300000, guid: 05d66e584f14adb46886143be6e041d4, type: 3}
   sizeModifier: 1
   color: {r: 0.9960785, g: 0.8588236, b: 0.25490198, a: 1}
   probabilityWeight: 1

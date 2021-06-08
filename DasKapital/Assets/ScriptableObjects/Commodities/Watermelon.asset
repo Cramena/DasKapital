@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc667a8f558bf0d4e8f894f3e04c3a52, type: 3}
   m_Name: Watermelon
   m_EditorClassIdentifier: 
-  index: 109
+  index: 180
   commodityName: "Past\xE8que"
   exchangeValue: 2
   useValue: 0
@@ -20,7 +20,7 @@ MonoBehaviour:
   isDurable: 0
   usesAmount: 0
   components: []
-  icon: {fileID: 21300000, guid: fd41fdba2b0c4ef4bab759db9af2c00e, type: 3}
+  icon: {fileID: 21300000, guid: cdaa91fa9e984974b84fe30cd04d5aae, type: 3}
   sizeModifier: 1
   color: {r: 0.5294118, g: 0.6784314, b: 0.27450982, a: 1}
   probabilityWeight: 1
