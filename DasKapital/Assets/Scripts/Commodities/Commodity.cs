@@ -214,11 +214,11 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                     //No direct movement from left to right or from right to left
                     Mathf.Sign(target.stockID) != Mathf.Sign(targetScript.stockID) ||
                     //No direct movement from trade stock to a base stock from which the commodity doesn't orginate
-                    (currentStockCast == null && stockCast != null && targetScript.stockID != lastTarget.stockID) ||
+                    (currentStockCast == null && stockCast != null && targetScript.stockID != lastTarget.stockID) //||
                     //No direct movement from base stock to trade stock if another base stock
                     //already has at least one commodity of its own inside
-                    (currentStockCast != null && stockCast == null && target.stockID >= 0 &&
-                    target.stockID != ExchangeService.instance.otherStockIndex && ExchangeService.instance.otherStockIndex != -1))))
+                    /*(currentStockCast != null && stockCast == null && target.stockID >= 0 &&
+                    target.stockID != ExchangeService.instance.otherStockIndex && ExchangeService.instance.otherStockIndex != -1)*/)))
                     break;
                 if (targetScript.OnCommodityPlaced(this)) break;
             }
@@ -322,7 +322,7 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                     ExchangeService.instance.GetCommodities(this, true);
                 print("Go to home trading stock");
                 }
-                else if (target.stockID == ExchangeService.instance.otherStockIndex || ExchangeService.instance.otherStockIndex == -1)
+                else //if (target.stockID == ExchangeService.instance.otherStockIndex || ExchangeService.instance.otherStockIndex == -1)
                 {
                     //Move to other trading stock
                     ExchangeService.instance.GetCommodities(this, false);

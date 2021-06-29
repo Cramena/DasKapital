@@ -9,8 +9,14 @@ public class ScenarioNode : MonoBehaviour
     public UnityEvent onNodeLeft;
 
 
-    public virtual void OnNodeEntered()
+    public virtual void OnNodeEntered(bool _rewind)
     {
+        if (_rewind) 
+        {
+            ScenarioService.instance.SetContinueButtonActive(true);
+            return;
+        }
+        
         onNodeEntered.Invoke();
         ConditionNode condition = GetComponent<ConditionNode>();
         if (condition != null)
@@ -21,6 +27,11 @@ public class ScenarioNode : MonoBehaviour
         {
             ScenarioService.instance.SetContinueButtonActive(true);
         }
+    }
+
+    public virtual void OnNodeRewind()
+    {
+        ScenarioService.instance.SetContinueButtonActive(true);
     }
 
     public virtual void OnNodeLeft()

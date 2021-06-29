@@ -53,7 +53,13 @@ public class ExchangeService : MonoBehaviour
         {
             target.onCommodityPlaced += (Commodity _commodity) => 
             { 
-                if (otherStockIndex != -1 && otherStockIndex != _commodity.lastTarget.stockID) return;
+                if (otherStockIndex != -1 && otherStockIndex != _commodity.lastTarget.stockID) 
+                {
+                    List<Commodity> loadedCommodities = (from slot in otherTargets
+                                                        where slot.loadedCommodity != null && slot.loadedCommodity != _commodity
+                                                        select slot.loadedCommodity).ToList();
+                    stocks[otherStockIndex].GetCommodities(loadedCommodities);
+                }
                 otherStockIndex = _commodity.lastTarget.stockID;
                 otherSelectedCommodities.Add(_commodity); 
                 onBalanceUpdate?.Invoke(GetBalance());
@@ -164,7 +170,15 @@ public class ExchangeService : MonoBehaviour
 
     public void GetCommodities(Commodity _commodity, bool _targetsHome)
     {
+        print("Trading stock gets commodity");
         List<UITarget> targets = _targetsHome ? homeTargets : otherTargets;
+        if (!_targetsHome && otherStockIndex != _commodity.target.stockID && otherStockIndex != -1)
+        {
+            List<Commodity> loadedCommodities = (from slot in targets
+                                                where slot.loadedCommodity != null && slot.loadedCommodity != _commodity
+                                                select slot.loadedCommodity).ToList();
+            stocks[otherStockIndex].GetCommodities(loadedCommodities);
+        }
         List<UITarget> freeSlots = (from slot in targets
                                 where slot.loadedCommodity == null
                                 select slot).ToList();

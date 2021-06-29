@@ -20,9 +20,12 @@ public class ScenarioService : MonoBehaviour
     public Appearable continueButton;
     public Button transactionButton;
     public Button productionButton;
+    public Button previousButton;
+    public Animator interlocutorAnimator;
     public AutoSellStock autoSellStock;
     public AsteriskPanel asteriskPanel;
     public List<ScenarioNode> nodes = new List<ScenarioNode>();
+    private int farthestNodeIndex;
     private int currentNodeIndex;
     public List<UnityEvent> scenarioEvents = new List<UnityEvent>();
     public Condition currentCondition;
@@ -56,7 +59,7 @@ public class ScenarioService : MonoBehaviour
     {
         scenarioIndex = 0;
         animator = GetComponent<Animator>();
-        nodes[currentNodeIndex]?.OnNodeEntered();
+        nodes[farthestNodeIndex]?.OnNodeEntered(false);
         SetContinueButtonActive(true);
     }
 
@@ -71,13 +74,44 @@ public class ScenarioService : MonoBehaviour
 
     public void OnNodeStep()
     {
-        nodes[currentNodeIndex]?.OnNodeLeft();
-        currentCondition = Condition.None;
-        // SetContinueButtonActive(true);
-        currentNodeIndex++;
-        if (currentNodeIndex < nodes.Count)
+        if (currentNodeIndex == farthestNodeIndex)
         {
-            nodes[currentNodeIndex]?.OnNodeEntered();
+            nodes[farthestNodeIndex]?.OnNodeLeft();
+            currentCondition = Condition.None;
+            // SetContinueButtonActive(true);
+            farthestNodeIndex++;
+            currentNodeIndex++;
+            if (farthestNodeIndex < nodes.Count)
+            {
+                nodes[farthestNodeIndex]?.OnNodeEntered(false);
+            }
+            else 
+            {
+                previousButton.GetComponent<Appearable>().LaunchDisappear();
+                previousButton.interactable = false;
+            }
+        }
+        else
+        {
+            currentNodeIndex++;
+            if (farthestNodeIndex < nodes.Count)
+            {
+                nodes[currentNodeIndex]?.OnNodeEntered(true);
+            }
+        }
+    }
+
+    public void OnNodeRewind()
+    {
+        if (currentNodeIndex > 0)
+        {
+            currentNodeIndex--;
+            nodes[currentNodeIndex]?.OnNodeRewind();
+        }
+        if (scenarioIndex <= 1)
+        {
+            previousButton.GetComponent<Appearable>().LaunchDisappear();
+            previousButton.interactable = false;
         }
     }
 
@@ -110,8 +144,30 @@ public class ScenarioService : MonoBehaviour
         }
     }
 
-    public void DisplayLine(string _key)
+    public void PreviousLine(string _key)
     {
+        scenarioIndex--;
+        string key = "SCE_" + scenarioIndex.ToString("000");
+        if (scenarioIndex % 2 == 0)
+        {
+            scenarioTexts[0].text = LocalisationService.instance.Translate(key);
+            animator.SetTrigger("TwoSwipeUp");
+        }
+        else
+        {
+            scenarioTexts[1].text = LocalisationService.instance.Translate(key);
+            animator.SetTrigger("OneSwipeUp");
+        }
+        interlocutorAnimator.SetTrigger("Talk");
+    }
+
+    public void NextLine(string _key)
+    {
+        if (scenarioIndex > 0)
+        {
+            previousButton.gameObject.SetActive(true);
+            previousButton.interactable = true;
+        }
         scenarioIndex++;
         string key = "SCE_" + scenarioIndex.ToString("000");
         if (scenarioIndex % 2 == 0)
@@ -124,6 +180,7 @@ public class ScenarioService : MonoBehaviour
             scenarioTexts[1].text = LocalisationService.instance.Translate(key);
             animator.SetTrigger("TwoSwipeDown");
         }
+        interlocutorAnimator.SetTrigger("Talk");
     }
 
     public void LaunchEvent(int _index)
