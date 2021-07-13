@@ -8,7 +8,6 @@ public class DisappearableDisappear : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.gameObject.SetActive(false);
-        Debug.Log("Deactivate self");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

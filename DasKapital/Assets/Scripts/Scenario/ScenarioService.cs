@@ -25,7 +25,7 @@ public class ScenarioService : MonoBehaviour
     public AutoSellStock autoSellStock;
     public AsteriskPanel asteriskPanel;
     public List<ScenarioNode> nodes = new List<ScenarioNode>();
-    private int farthestNodeIndex;
+    private int maxProgress;
     private int currentNodeIndex;
     public List<UnityEvent> scenarioEvents = new List<UnityEvent>();
     public Condition currentCondition;
@@ -38,7 +38,7 @@ public class ScenarioService : MonoBehaviour
     public System.Action onDistribution;
     public System.Action<CommoditySO> onCommodityInspected;
     public System.Action onSandboxStart;
-    private int scenarioIndex;
+    // private int scenarioIndex;
     public bool sandboxActive;
     public bool manualProgress;
     public bool workforceIntroduced;
@@ -57,9 +57,9 @@ public class ScenarioService : MonoBehaviour
 
     private void Start()
     {
-        scenarioIndex = 0;
+        // scenarioIndex = 0;
         animator = GetComponent<Animator>();
-        nodes[farthestNodeIndex]?.OnNodeEntered(false);
+        nodes[maxProgress]?.OnNodeEntered(false);
         SetContinueButtonActive(true);
     }
 
@@ -72,47 +72,111 @@ public class ScenarioService : MonoBehaviour
         }
     }
 
-    public void OnNodeStep()
+    private void SetRewindButton(bool _activate)
     {
-        if (currentNodeIndex == farthestNodeIndex)
+        if (_activate)
         {
-            nodes[farthestNodeIndex]?.OnNodeLeft();
-            currentCondition = Condition.None;
-            // SetContinueButtonActive(true);
-            farthestNodeIndex++;
-            currentNodeIndex++;
-            if (farthestNodeIndex < nodes.Count)
-            {
-                nodes[farthestNodeIndex]?.OnNodeEntered(false);
-            }
-            else 
-            {
-                previousButton.GetComponent<Appearable>().LaunchDisappear();
-                previousButton.interactable = false;
-            }
+            previousButton.gameObject.SetActive(true);
+            previousButton.interactable = true;
         }
         else
-        {
-            currentNodeIndex++;
-            if (farthestNodeIndex < nodes.Count)
-            {
-                nodes[currentNodeIndex]?.OnNodeEntered(true);
-            }
-        }
-    }
-
-    public void OnNodeRewind()
-    {
-        if (currentNodeIndex > 0)
-        {
-            currentNodeIndex--;
-            nodes[currentNodeIndex]?.OnNodeRewind();
-        }
-        if (scenarioIndex <= 1)
         {
             previousButton.GetComponent<Appearable>().LaunchDisappear();
             previousButton.interactable = false;
         }
+    }
+
+    public void OnNodeStep()
+    {
+        //Regular progression
+        if (currentNodeIndex == maxProgress)
+        {
+            currentNodeIndex++;
+            maxProgress = currentNodeIndex;
+            if (nodes[currentNodeIndex].hasCondition)
+            {
+                SetContinueButtonActive(false);
+            }
+            else
+            {
+                SetContinueButtonActive(true);
+            }
+            nodes[currentNodeIndex]?.OnNodeEntered(false);
+        }
+        //Catching up
+        else
+        {
+            currentNodeIndex++;
+            //Just caught up
+            if (currentNodeIndex == maxProgress)
+            {
+                if (nodes[currentNodeIndex].hasCondition)
+                {
+                    SetContinueButtonActive(false);
+                }
+                else
+                {
+                    SetContinueButtonActive(true);
+                }
+            }
+            else
+            {
+                SetContinueButtonActive(true);
+            }
+            nodes[currentNodeIndex]?.OnNodeEntered(true);
+        }
+
+
+        // if (currentNodeIndex == maxProgress)
+        // {
+        //     // nodes[maxProgress]?.OnNodeLeft();
+        //     currentCondition = Condition.None;
+        //     // SetContinueButtonActive(true);
+        //     maxProgress++;
+        //     currentNodeIndex++;
+        //     if (maxProgress < nodes.Count)
+        //     {
+        //         nodes[maxProgress]?.OnNodeEntered(false);
+        //     }
+        //     else 
+        //     {
+        //         previousButton.GetComponent<Appearable>().LaunchDisappear();
+        //         previousButton.interactable = false;
+        //     }
+        // }
+        // else
+        // {
+        //     currentNodeIndex++;
+        //     if (maxProgress < nodes.Count)
+        //     {
+        //         nodes[currentNodeIndex]?.OnNodeEntered(true);
+        //     }
+        // }
+    }
+
+    public void OnNodeRewind()
+    {
+        if (currentNodeIndex > 1)
+        {
+            if (currentNodeIndex == 2)
+            {
+                SetRewindButton(false);
+                // previousButton.GetComponent<Appearable>().LaunchDisappear();
+                // previousButton.interactable = false;
+            }
+            else
+            {
+                SetRewindButton(true);
+            }
+            currentNodeIndex--;
+            nodes[currentNodeIndex]?.OnNodeRewind();
+            SetContinueButtonActive(true);
+        }
+        // if (/*scenarioIndex*/currentNodeIndex-1 <= 1)
+        // {
+        //     previousButton.GetComponent<Appearable>().LaunchDisappear();
+        //     previousButton.interactable = false;
+        // }
     }
 
     public void OnSandboxStart()
@@ -146,9 +210,9 @@ public class ScenarioService : MonoBehaviour
 
     public void PreviousLine(string _key)
     {
-        scenarioIndex--;
-        string key = "SCE_" + scenarioIndex.ToString("000");
-        if (scenarioIndex % 2 == 0)
+        // scenarioIndex--;
+        string key = "SCE_" + (currentNodeIndex).ToString("000");
+        if (currentNodeIndex % 2 == 0)
         {
             scenarioTexts[0].text = LocalisationService.instance.Translate(key);
             animator.SetTrigger("TwoSwipeUp");
@@ -163,20 +227,22 @@ public class ScenarioService : MonoBehaviour
 
     public void NextLine(string _key)
     {
-        if (scenarioIndex > 0)
+        if (currentNodeIndex-1 > 0)
         {
             previousButton.gameObject.SetActive(true);
             previousButton.interactable = true;
         }
-        scenarioIndex++;
-        string key = "SCE_" + scenarioIndex.ToString("000");
-        if (scenarioIndex % 2 == 0)
+        // scenarioIndex++;
+        string key = "SCE_" + (currentNodeIndex).ToString("000");
+        if (currentNodeIndex % 2 == 0)
         {
+            print("Key is" + key);
             scenarioTexts[0].text = LocalisationService.instance.Translate(key);
             animator.SetTrigger("OneSwipeDown");
         }
         else
         {
+            print("Key is" + key);
             scenarioTexts[1].text = LocalisationService.instance.Translate(key);
             animator.SetTrigger("TwoSwipeDown");
         }
