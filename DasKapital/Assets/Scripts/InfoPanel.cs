@@ -11,6 +11,7 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     private Commodity commodity;
     public JaugeSegment segmentPrefab;
 
+    public Animator lockAnimator;
     public Text title;
     public Image icon;
     public Text exchangeValueText;
@@ -82,6 +83,15 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             commodity.ResetInfoPanelTimer();
         }
         disablePending = true;
+    }
+
+    public void LaunchLockAnim()
+    {
+        //Set lock animation
+        if (UIService.instance.infoPanelLocked)
+        {
+            lockAnimator.SetTrigger("Lock");
+        }
     }
 
     public void Initialize(Commodity _commodity)

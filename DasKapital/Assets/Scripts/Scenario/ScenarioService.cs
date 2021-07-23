@@ -16,6 +16,7 @@ public class ScenarioService : MonoBehaviour
 {
     public static ScenarioService instance;
     private Animator animator;
+    public Animator endAnims;
     public List<TMP_Text> scenarioTexts = new List<TMP_Text>();
     public Appearable continueButton;
     public Button transactionButton;
@@ -68,7 +69,7 @@ public class ScenarioService : MonoBehaviour
         CheckAsterisk();
         if (Input.GetKeyDown(KeyCode.Space) && manualProgress)
         {
-            OnNodeStep();
+            OnNodeStep(true);
         }
     }
 
@@ -86,8 +87,14 @@ public class ScenarioService : MonoBehaviour
         }
     }
 
-    public void OnNodeStep()
+    public void OnNodeStep(bool _manual = false)
     {
+        //Emergency catch up because of condition reached while rewound
+        if (!_manual)
+        {
+            currentNodeIndex = maxProgress;
+        }
+
         //Regular progression
         if (currentNodeIndex == maxProgress)
         {
@@ -339,5 +346,10 @@ public class ScenarioService : MonoBehaviour
             text.enabled = false;
         }
         SetContinueButtonActive(false);
+    }
+
+    public void SetEndAnimStep(int _newStep)
+    {
+        endAnims.SetInteger("Step", _newStep);
     }
 }

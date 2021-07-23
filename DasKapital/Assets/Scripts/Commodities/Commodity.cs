@@ -184,6 +184,10 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnDrag(PointerEventData pointerEventData)
     {
         if (!draggable) return;
+        if (UIService.instance.infoPanelDisplaying && !UIService.instance.infoPanelLocked)
+        {
+            UIService.instance.HideInfoPanel();
+        }
         rect.position = pointerEventData.position;
         transform.SetAsLastSibling();
     }

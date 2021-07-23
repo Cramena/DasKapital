@@ -39,7 +39,7 @@ public class LocalisationService : MonoBehaviour
             {
                 string[] segmentedLine = line[1].Split(new string[] {"*"}, 3, System.StringSplitOptions.None);
                 string key = line[0].Replace("SCE", "AST");
-                line[1] = $"{segmentedLine[0]}<link=\"{key}\"><b><color=#1F6EBA>{segmentedLine[1]}*</color></b></link>{segmentedLine[2]}";
+                line[1] = $"{segmentedLine[0]}<link=\"{key}\"><b><color=#1F6EBA>[<u>{segmentedLine[1]}</u>]</color></b></link>{segmentedLine[2]}";
             }
             localisationLines.Add(line[0], line[1]);
         }

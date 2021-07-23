@@ -17,6 +17,7 @@ public class UIService : MonoBehaviour
     [HideInInspector] public UITarget highlightedTarget;
     private PointerEventData pointerEventData;
     public bool infoPanelLocked;
+    public System.Action onInfoPanelLocked;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class UIService : MonoBehaviour
             throw new System.Exception($"Too many {this} instances");
         }
         graphicRaycatser = GetComponent<GraphicRaycaster>();
+        onInfoPanelLocked += infoPanel.LaunchLockAnim;
     }
 
     private void Start()
@@ -109,5 +111,9 @@ public class UIService : MonoBehaviour
     public void SetInfoPanelLocked(bool _lock)
     {
         infoPanelLocked = _lock;
+        if (_lock)
+        {
+            onInfoPanelLocked.Invoke();
+        }
     }
 }

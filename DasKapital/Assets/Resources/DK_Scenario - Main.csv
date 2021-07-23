@@ -17,7 +17,7 @@ SCE_016,"Ceci est son stock de marchandises, tout ce qui y est présent lui appa
 SCE_017,Laissez la souris au-dessus d’une marchandise pour faire apparaître sa fiche d’information. Essayez !
 SCE_018,"Super ! On peut y voir les informations que nous avons vues précédemment. À présent, nous allons introduire un autre stock."
 SCE_019,"Ceci est un stock étranger, il appartient à quelqu’un d’autre sur le marché, peu importe qui."
-SCE_020,Cliquez sur une marchandise et déplacez la souris en gardant le bouton enfoncé pour la déplacer. Lâchez le bouton au-dessus d’une case <b>du même stock</b> pour finir de placer la marchandise. Essayez !
+SCE_020,"Cliquez sur une marchandise, gardez le bouton enfoncé et déplacez la souris au-dessus d’une case <b>du même stock</b>. Vous pouvez également double cliquer sur la marchandise. Essayez !"
 SCE_021,"Vous ne pouvez pas encore échanger des marchandises d’un stock à l’autre, pour cela, il nous faut un marché !"
 SCE_022,"Voilà une interface de marché ! Dans le 'panier' de gauche, on place les marchandises que l’on veut donner, et dans celui de droite celles que l’on veut prendre."
 SCE_023,"Au milieu, la balance permet de savoir quel panier a le plus de valeur."
@@ -32,7 +32,7 @@ SCE_031,"Bien joué ! Maintenant, nous avons tous nos ingrédients et outils, av
 SCE_032,"C’est le second pillier de notre système économique, la 'propriété privée des moyens de production'. Mais qu’est-ce que c’est au juste ?"
 SCE_033,"Simplement, il s'agit de l'ensemble des outils, matières premières et infrastrucures permettant de produire des marchandises. Ici, nos ingrédients, ustensiles, et notre restaurant."
 SCE_034,"Afin de produire quelque chose, il nous suffit de placer les ingrédients à l'intérieur, et d’appuyer sur le bouton 'Produire'."
-SCE_035,Essayez de créer un assiette de fruit en plaçant 3 pommes dans le restaurant et en appuyant sur le bouton 'Produire'.
+SCE_035,Essayez de créer un assiette de fruit en plaçant 3 pommes dans le restaurant et en appuyant sur le bouton 'Produire'. Vous pouvez double cliquer sur les marchandises pour les placer.
 SCE_036,Bravo ! Vous avez créé votre première marchandise ! Passez votre souris sur l’assiette de fruit pour voir d’où vient sa valeur.
 SCE_037,"Ici, vous pouvez voir un nouvel élément, la jauge de valeur. Elle décompose la valeur d’une marchandise selon sa provenance."
 SCE_038,"Par exemple, ici, en plaçant trois pommes ensemble, nous avons créé une assiette de fruit, la valeur de l’assiette est donc égale à la somme des valeurs de trois pommes, soit 3 x 1 = 3."
