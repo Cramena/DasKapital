@@ -74,7 +74,7 @@ public class CommoditiesService : MonoBehaviour
     {
         if (_type == workforce)
         {
-            worker.PopWorkForce();
+            worker.ReplenishWorkForce();
         }
     }
 

@@ -8,6 +8,7 @@ public class Worker : MonoBehaviour
     private RectTransform rect;
     public MeanOfProduction meanOfProduction;
     public Commodity workforcePrefab;
+    public Animator sleepAnimator;
     public UITarget workforceSlot;
     public float workforcePopSpeed = 5;
     private Queue<Commodity> workforces = new Queue<Commodity>();
@@ -29,6 +30,11 @@ public class Worker : MonoBehaviour
             newWorkforce.gameObject.SetActive(false);
             workforces.Enqueue(newWorkforce);
         }
+    }
+
+    public void ReplenishWorkForce()
+    {
+        sleepAnimator.SetTrigger("Sleep");
     }
 
     public void PopWorkForce()

@@ -43,7 +43,7 @@ public class ExchangeService : MonoBehaviour
                 mainSelectedCommodities.Add(_commodity); 
                 onBalanceUpdate?.Invoke(GetBalance());
             };
-            target.onCommodityUnloaded += (Commodity _commodity) => 
+            target.onCommodityUnloaded += (Commodity _commodity) =>
             {
                 mainSelectedCommodities.Remove(_commodity); 
                 onBalanceUpdate?.Invoke(GetBalance());
@@ -158,13 +158,18 @@ public class ExchangeService : MonoBehaviour
 
     public void DisableTradingStocksContent()
     {
-        foreach (UITarget target in otherTargets)
-        {
-            target.DestroyCommodity();
-        }
+        DestroyOtherStockContent();
         foreach (UITarget target in homeTargets)
         {
             stocks[0].GetCommodities(mainSelectedCommodities);
+        }
+    }
+
+    public void DestroyOtherStockContent()
+    {
+        foreach (UITarget target in otherTargets)
+        {
+            target.DestroyCommodity();
         }
     }
 
@@ -178,6 +183,7 @@ public class ExchangeService : MonoBehaviour
                                                 where slot.loadedCommodity != null && slot.loadedCommodity != _commodity
                                                 select slot.loadedCommodity).ToList();
             stocks[otherStockIndex].GetCommodities(loadedCommodities);
+            errorMessage.LaunchError("Un seul stock à la fois !");
         }
         List<UITarget> freeSlots = (from slot in targets
                                 where slot.loadedCommodity == null

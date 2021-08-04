@@ -28,7 +28,6 @@ public class UseWidget : MonoBehaviour
     
     public void LaunchDepleteAnim()
     {
-        print("Launching deplete anim");
         activatedBar.gameObject.SetActive(true);
         animator.SetTrigger("Deplete");
     }

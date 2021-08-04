@@ -67,9 +67,13 @@ public class ScenarioService : MonoBehaviour
     private void Update()
     {
         CheckAsterisk();
-        if (Input.GetKeyDown(KeyCode.Space) && manualProgress)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.RightArrow)) && manualProgress)
         {
             OnNodeStep(true);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            OnNodeRewind();
         }
     }
 
@@ -98,6 +102,7 @@ public class ScenarioService : MonoBehaviour
         //Regular progression
         if (currentNodeIndex == maxProgress)
         {
+            print("Regular progression");
             currentNodeIndex++;
             maxProgress = currentNodeIndex;
             if (nodes[currentNodeIndex].hasCondition)
@@ -114,9 +119,11 @@ public class ScenarioService : MonoBehaviour
         else
         {
             currentNodeIndex++;
+            print("Catching up");
             //Just caught up
             if (currentNodeIndex == maxProgress)
             {
+                print("Just caught up");
                 if (nodes[currentNodeIndex].hasCondition)
                 {
                     SetContinueButtonActive(false);
@@ -132,37 +139,11 @@ public class ScenarioService : MonoBehaviour
             }
             nodes[currentNodeIndex]?.OnNodeEntered(true);
         }
-
-
-        // if (currentNodeIndex == maxProgress)
-        // {
-        //     // nodes[maxProgress]?.OnNodeLeft();
-        //     currentCondition = Condition.None;
-        //     // SetContinueButtonActive(true);
-        //     maxProgress++;
-        //     currentNodeIndex++;
-        //     if (maxProgress < nodes.Count)
-        //     {
-        //         nodes[maxProgress]?.OnNodeEntered(false);
-        //     }
-        //     else 
-        //     {
-        //         previousButton.GetComponent<Appearable>().LaunchDisappear();
-        //         previousButton.interactable = false;
-        //     }
-        // }
-        // else
-        // {
-        //     currentNodeIndex++;
-        //     if (maxProgress < nodes.Count)
-        //     {
-        //         nodes[currentNodeIndex]?.OnNodeEntered(true);
-        //     }
-        // }
     }
 
     public void OnNodeRewind()
     {
+        print("Rewind");
         if (currentNodeIndex > 1)
         {
             if (currentNodeIndex == 2)
@@ -243,13 +224,11 @@ public class ScenarioService : MonoBehaviour
         string key = "SCE_" + (currentNodeIndex).ToString("000");
         if (currentNodeIndex % 2 == 0)
         {
-            print("Key is" + key);
             scenarioTexts[0].text = LocalisationService.instance.Translate(key);
             animator.SetTrigger("OneSwipeDown");
         }
         else
         {
-            print("Key is" + key);
             scenarioTexts[1].text = LocalisationService.instance.Translate(key);
             animator.SetTrigger("TwoSwipeDown");
         }

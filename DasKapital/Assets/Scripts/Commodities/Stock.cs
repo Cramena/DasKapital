@@ -159,6 +159,10 @@ public class Stock : UIOwner
 
     public void DestroyContent()
     {
+        if (ExchangeService.instance.otherStockIndex == spawnTargets[0].stockID)
+        {
+            ExchangeService.instance.DestroyOtherStockContent();
+        }
         foreach (UITarget target in spawnTargets)
         {
             target.DestroyCommodity();

@@ -20,7 +20,7 @@ MonoBehaviour:
   isDurable: 1
   usesAmount: 5
   components: []
-  icon: {fileID: 21300000, guid: 8925a9f90f093e5418cbc55d4d85ddfd, type: 3}
+  icon: {fileID: 21300000, guid: 0734682553874034ea3485b4547162d5, type: 3}
   sizeModifier: 1
-  color: {r: 0.73333335, g: 0.8705883, b: 0.9921569, a: 1}
+  color: {r: 0.5254902, g: 0.7372549, b: 0.9215687, a: 1}
   probabilityWeight: 1

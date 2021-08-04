@@ -281,7 +281,6 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             {
                 //Is in workslot or in stock
                 CommoditiesService.instance.meanOfProduction.GetCommodities(this);
-                print("Go to mean of production");
             }
             else
             {
@@ -290,21 +289,18 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 {
                     //New produced commodity
                     CommoditiesService.instance.homeStock.GetCommodities(this);
-                print("Go to stock");
                 }
                 else if (lastTarget.owner != null)
                 {
                     //Was in stock, then go to stock
                     Stock stock = lastTarget.owner as Stock;
                     stock.GetCommodities(this);
-                print("Go to stock");
                 }
                 else
                 {
                     //Was in worlslot, then go to worlslot
                     StartLerp();
                     lastTarget.OnCommodityPlaced(this);
-                print("Go to workslot");
                 }
             }
         }
