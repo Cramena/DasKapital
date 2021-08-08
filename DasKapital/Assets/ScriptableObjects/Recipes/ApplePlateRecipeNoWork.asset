@@ -18,3 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 15dc61d523de95444bdb5bd8e0e6ef5a, type: 2}
   result: {fileID: 11400000, guid: 0756601660f6c444a8aa9e1abd5ff33c, type: 2}
   description: Associer trois pommes ensemble.
+  specific: 1

@@ -18,3 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d73055712decdaa449618540c5d6ef03, type: 2}
   result: {fileID: 11400000, guid: 3725f28f4c6ca8d4f9a5bbc1fe1e36d5, type: 2}
   description: Couper une pomme avec un couteau.
+  specific: 1

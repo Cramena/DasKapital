@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c31768c04cea9db49bac6df102c81819, type: 3}
-  m_Name: PineappleSliceRecipe
+  m_Name: SmoothieRecipeNonSpecific
   m_EditorClassIdentifier: 
   components:
+  - {fileID: 11400000, guid: c4dc9efade43e1c469132f809a2bccb1, type: 2}
+  - {fileID: 11400000, guid: 01bc12a8b4a807244be93f6d10c33722, type: 2}
   - {fileID: 11400000, guid: 3b682a3481f627342a2ccd5a18cddd5f, type: 2}
+  - {fileID: 11400000, guid: 0270e6dd6f31bfd4990dc863322fbb70, type: 2}
   - {fileID: 11400000, guid: c480eb147cd452645a5221a6b997176c, type: 2}
-  - {fileID: 11400000, guid: d73055712decdaa449618540c5d6ef03, type: 2}
-  result: {fileID: 11400000, guid: 11fed17555606fb4f9c6c691628f2f4a, type: 2}
-  description: Couper un ananas avec un couteau.
-  specific: 1
+  result: {fileID: 11400000, guid: 0cd73f231fe8a40479ef90443686400c, type: 2}
+  description: "Mixer ensemble une orange, un ananas et une past\xE8que."
+  specific: 0

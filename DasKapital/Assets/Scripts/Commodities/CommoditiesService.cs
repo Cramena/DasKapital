@@ -40,22 +40,43 @@ public class CommoditiesService : MonoBehaviour
             tempComponents = (from _component in _components
                              select _component.type).ToList();
             if (recipe.components.Count != tempComponents.Count) continue; 
-            foreach (CommoditySO component in recipe.components)
+            if (recipe.specific)
             {
-                if (tempComponents.Contains(component))
+                foreach (CommoditySO component in recipe.components)
                 {
-                    tempComponents.Remove(component);
+                    if (tempComponents.Contains(component))
+                    {
+                        tempComponents.Remove(component);
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
-                else
-                {
-                    break;
-                }
-            }
-            if (tempComponents.Count > 0)
-            {
-                continue;
             }
             else
+            {
+                bool foundEquivalent = false;
+                foreach (CommoditySO component in recipe.components)
+                {
+                    foundEquivalent = false;
+                    foreach (CommoditySO tempComponent in tempComponents)
+                    {
+                        if (tempComponent == component ||
+                            (tempComponent.group != CommodityGroup.None && tempComponent.group == component.group))
+                        {
+                            foundEquivalent = true;
+                            tempComponents.Remove(tempComponent);
+                            break;
+                        }
+                    }
+                    if (!foundEquivalent)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (tempComponents.Count == 0)
             {
                 return recipe;
             }

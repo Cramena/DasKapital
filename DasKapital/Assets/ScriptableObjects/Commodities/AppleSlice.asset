@@ -24,3 +24,4 @@ MonoBehaviour:
   sizeModifier: 1
   color: {r: 0.882353, g: 0.29803923, b: 0.2901961, a: 1}
   probabilityWeight: 1
+  group: 2

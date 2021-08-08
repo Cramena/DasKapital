@@ -13,6 +13,19 @@ public enum UseValue
     Salty
 }
 
+public enum CommodityGroup
+{
+    None,
+    Fruit,
+    Tranche,
+    Jus,
+    Smoothie,
+    Salade,
+    Assiette,
+    Compote,
+    Cocktail
+}
+
 [CreateAssetMenu(fileName = "CommoditySO", menuName = "DasKapital/CommoditySO")]
 public class CommoditySO : ScriptableObject
 {
@@ -28,4 +41,5 @@ public class CommoditySO : ScriptableObject
     public float sizeModifier = 1;
     public Color color;
     public int probabilityWeight = 1;
+    public CommodityGroup group;
 }
