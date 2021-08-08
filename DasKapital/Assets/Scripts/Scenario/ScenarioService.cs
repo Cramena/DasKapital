@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.EventSystems;
+
 
 public enum Condition
 {
@@ -12,7 +14,7 @@ public enum Condition
     Produce,
     Info
 }
-public class ScenarioService : MonoBehaviour
+public class ScenarioService : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public static ScenarioService instance;
     private Animator animator;
@@ -34,11 +36,13 @@ public class ScenarioService : MonoBehaviour
     public bool valueJaugeActive;
     public bool inProductionPhase;
     public bool allowBaseCommoditiesAutoSell;
+    private bool hovering;
     public System.Action<CommoditySO> onProduceRegistered;
     public System.Action<CommoditySO> onAutoSell;
     public System.Action onDistribution;
     public System.Action<CommoditySO> onCommodityInspected;
     public System.Action onSandboxStart;
+    public System.Action onNodeStep;
     // private int scenarioIndex;
     public bool sandboxActive;
     public bool manualProgress;
@@ -113,6 +117,7 @@ public class ScenarioService : MonoBehaviour
             {
                 SetContinueButtonActive(true);
             }
+            onNodeStep?.Invoke();
             nodes[currentNodeIndex]?.OnNodeEntered(false);
         }
         //Catching up
@@ -173,12 +178,22 @@ public class ScenarioService : MonoBehaviour
         sandboxActive = true;
     }
 
+    public void OnPointerEnter(PointerEventData pointerEventData)
+    {
+        hovering = true;
+    }
+
+    public void OnPointerExit(PointerEventData pointerEventData)
+    {
+        hovering = false;
+    }
+
     void CheckAsterisk()
     {
         foreach (TMP_Text scenarioText in scenarioTexts)
         {
             int linkIndex = TMP_TextUtilities.FindIntersectingLink(scenarioText, Input.mousePosition, Camera.main);
-            if (linkIndex != -1)
+            if (linkIndex != -1 && hovering)
             {
                 TMP_LinkInfo linkInfo = scenarioText.textInfo.linkInfo[linkIndex];
                 string key = linkInfo.GetLinkID();

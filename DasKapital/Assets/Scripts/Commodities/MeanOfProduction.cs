@@ -29,6 +29,8 @@ public class MeanOfProduction : UIOwner
             target.onCommodityUnloaded += UnloadCommodity;
         }
         onCommodityProduced += ScenarioService.instance.RegisterProduce;
+        onCommodityProduced += DynamicDialogueService.instance.CheckCommodityDialogue;
+
     }
 
     public void OnCommodityClicked(Commodity _commodity)

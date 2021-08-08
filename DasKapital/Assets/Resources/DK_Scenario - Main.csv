@@ -50,7 +50,7 @@ SCE_049,"On sait déjà que la <b><color=#FFD400>force de travail</color></b> pe
 SCE_050,"En effet, elle ajoute de la valeur d'échange à la marchandise qu'elle produit."
 SCE_051,"C'est là la propriété singulière de la <b><color=#FFD400>force de travail</color></b>, elle rend plus de valeur que ce qu'elle coûte à employer. Elle est ainsi l'un des seuls moyens de créer du profit tout en respectant *l'équivalence de l'échange*."
 SCE_052,"Cette valeur ajoutée est nommée <b><color=#3DB39E>plus-value</color></b>, et son montant *peut varier*. Pour notre exemple, nous allons utiliser une valeur arbitraire."
-SCE_053,"À présent, avec 1 <size=150%><sprite=1><size=100%>, 1 <size=150%><sprite=4><size=100%>, 1 <size=150%><sprite=5><size=100%>, 1 <size=150%><sprite=12><size=100%> et 1 <size=150%><sprite=3><size=100%>, essayez de produire un smoothie !"
+SCE_053,"À présent, essayez de produire un smoothie !"
 SCE_054,"Parfait ! Encore une fois, passez la souris sur le smoothie pour observer sa jauge de valeur."
 SCE_055,"On retrouve des outils et des ingrédients dans la composition de sa valeur, mais, également, deux éléments supplémentaires."
 SCE_056,"Le premier, sans grande surprise, c’est le prix de maintenance de la <b><color=#FFD400>force de travail</color></b>, le salaire."
@@ -65,7 +65,7 @@ SCE_064,"Dans notre exemple, notre propriétaire décide de l'activité et de la
 SCE_065,"Nous arrivons au bout de notre parcours, il ne nous reste plus qu'à étudier la redistribution de la valeur de nos marchandises. Pour cela, on introduit notre propriétaire et un espace de revente."
 SCE_066,"En plaçant une marchandise dans cet espace, celle-ci est divisée en un montant de pièces égal à sa valeur d’échange."
 SCE_067,"Ensuite, ces pièces sont redistribuées entre le matériel (outils, ingrédients), la personne qui travaille, et celle qui possède le <b><color=#FFD400>moyen de production</color></b>."
-SCE_068,"Pour l'exemple suivant, combinez nos 3 tranches, 1 <size=150%><sprite=17><size=100%>, 1 <size=150%><sprite=7><size=100%> et 1 <size=150%><sprite=3><size=100%> pour produire un punch. Ensuite, essayez de le placer dans l'espace de revente."
+SCE_068,"Pour l'exemple suivant, suivez les instructions de notre propriétaire."
 SCE_069,"Et voilà ! Le punch a été divisé en 33 pièces ! Elles sont de 3 couleurs pour les différencier. Appuyez sur le bouton en bas du stock pour redistribuer ces pièces, couleur par couleur."
 SCE_070,"Les premières, vertes, sont utilisées pour rembourser l’achat de matière première et la maintenance des outils. Cette distribution est nécessaire pour se procurer et maintenir les <b><color=#FFD400>moyens de production</color></b> !"
 SCE_071,Appuyez une nouvelle fois sur le bouton pour distribuer les pièces suivantes.
@@ -78,7 +78,7 @@ SCE_077,"C'est la raison pour laquelle les propriétaires emploient la <b><color
 SCE_078,"La <b><color=#3DB39E>propriété privée</color></b> crée deux catégories de personnes, celles qui possèdent les *moyens de production*, et celles qui n'en possèdent pas."
 SCE_079,"La première catégorie se doit de faire travailler la seconde dans ses <b><color=#FFD400>moyens de production</color></b>, et peut vivre du profit généré par la <b><color=#3DB39E>plus-value</color></b> de sa <b><color=#FFD400>force de travail</color></b>. C'est la classe sociale de la <b><color=#3DB39E>bourgeoisie</color></b>."
 SCE_080,La seconde catégorie doit forcément vendre sa <b><color=#FFD400>force de travail</color></b> à la première pour vivre. C'est la classe sociale du <b><color=#FFD400>prolétariat</color></b>.
-SCE_081,"Ces deux classes dépendent l'une de l'autre, mais ont des intérêts opposés. "
+SCE_081,"Ces deux classes dépendent l'une de l'autre, mais ont des *intérêts opposés*. "
 SCE_082,"D'un côté, la <b><color=#3DB39E>bourgeoisie</color></b> a intérêt a augmenter la <b><color=#3DB39E>plus-value</color></b> qu'elle capte, de l'autre, le <b><color=#FFD400>prolétariat</color></b> a intérêt à sauvegarder le plus possible la valeur de son travail. C'est la naissance de la *lutte des classes*."
 SCE_083,"Cette lutte asymétrique est intrinsèque à la <b><color=#3DB39E>propriété privée</color></b>, car celle-ci crée de facto deux classes sociales aux intérêts incompatibles."
 SCE_084,"Si l'origine de cet antagonisme est la <b><color=#3DB39E>propriété privée</color></b>, une alternative est-elle envisageable ?"
@@ -96,4 +96,5 @@ AST_052,La <b><color=#3DB39E>plus-value</color></b> naît de la différence entr
 AST_063,"Ces personnes ne travaillent que très rarement au sein de ce moyen de production. Généralement elles l'ont acheté, créé ou en ont hérité."
 AST_076,"Les investir, les garder pour soi, payer une rente, etc."
 AST_078,"Rappel : Les <b><color=#FFD400>moyens de production</color></b> regroupent toutes les ressources non humaines nécessaires à une production, ici, le restaurant, les outils, les matières premières."
+AST_081,"C'est une stricte question d'intérêts dans un système de production. <b>La morale n'a rien à voir là-dedans</b>, on ne décrit pas de 'camp du bien' ou de 'camp du mal', mais des rapports sociaux de domination."
 AST_082,"Entre <b><color=#3DB39E>bourgeoisie</color></b> et <b><color=#FFD400>prolétariat</color></b>. D'autres luttes des classes ont traversé l'histoire : noblesse, clergé, paysannerie, etc."
