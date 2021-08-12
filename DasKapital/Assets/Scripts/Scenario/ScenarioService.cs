@@ -106,7 +106,6 @@ public class ScenarioService : MonoBehaviour, IPointerEnterHandler, IPointerExit
         //Regular progression
         if (currentNodeIndex == maxProgress)
         {
-            print("Regular progression");
             currentNodeIndex++;
             maxProgress = currentNodeIndex;
             if (nodes[currentNodeIndex].hasCondition)
@@ -124,11 +123,9 @@ public class ScenarioService : MonoBehaviour, IPointerEnterHandler, IPointerExit
         else
         {
             currentNodeIndex++;
-            print("Catching up");
             //Just caught up
             if (currentNodeIndex == maxProgress)
             {
-                print("Just caught up");
                 if (nodes[currentNodeIndex].hasCondition)
                 {
                     SetContinueButtonActive(false);
@@ -148,7 +145,6 @@ public class ScenarioService : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnNodeRewind()
     {
-        print("Rewind");
         if (currentNodeIndex > 1)
         {
             if (currentNodeIndex == 2)

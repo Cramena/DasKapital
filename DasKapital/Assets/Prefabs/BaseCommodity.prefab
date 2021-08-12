@@ -97,7 +97,7 @@ MonoBehaviour:
   lerpSnapThreshold: 0.001
   lerpSpeed: 20
   currentLerpSpeed: 0
-  infoPanelTriggerDelay: 0.5
+  infoPanelTriggerDelay: 0.6
   hovering: 0
   draggable: 1
 --- !u!114 &2718469670666233864

@@ -311,7 +311,6 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 //Is in trading stock
                 Stock stock = lastTarget.owner as Stock;
                 stock.GetCommodities(this);
-                print("Go to stock");
             }
             else
             {
@@ -320,13 +319,11 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 {
                     //Move to home trading stock
                     ExchangeService.instance.GetCommodities(this, true);
-                print("Go to home trading stock");
                 }
                 else //if (target.stockID == ExchangeService.instance.otherStockIndex || ExchangeService.instance.otherStockIndex == -1)
                 {
                     //Move to other trading stock
                     ExchangeService.instance.GetCommodities(this, false);
-                print("Go to other trading stock");
                 }
             }
         }
