@@ -9,6 +9,7 @@ public class RecipesPanel : MonoBehaviour
     public Text description;
     public RectTransform rect;
     public Appearable appearable;
+    public System.Action onDeath;
 
     public void InitializePanel(Recipe _recipe)
     {
@@ -17,5 +18,10 @@ public class RecipesPanel : MonoBehaviour
         description.text = _recipe.description;
         // UnityEditorInternal.InternalEditorUtility.RepaintAllViews();
         LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
+     }
+
+     private void OnDisable()
+     {
+         onDeath?.Invoke();
      }
 }

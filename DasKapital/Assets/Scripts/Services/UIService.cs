@@ -31,6 +31,7 @@ public class UIService : MonoBehaviour
         }
         graphicRaycatser = GetComponent<GraphicRaycaster>();
         onInfoPanelLocked += infoPanel.LaunchLockAnim;
+        recipesPanel.onDeath += () => { recipePanelDisplaying = false; };
     }
 
     private void Start()
@@ -105,7 +106,6 @@ public class UIService : MonoBehaviour
     {
         recipesPanel.appearable.LaunchDisappear();
         // recipesPanel.gameObject.SetActive(false);
-        recipePanelDisplaying = false;
     }
 
     public void SetInfoPanelLocked(bool _lock)

@@ -358,7 +358,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: 960784fdc61c3d8499a033fe3ea5c109, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: 0b59cb77178e7d14490bca0d4e6ebd76, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -16088,7 +16088,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: 960784fdc61c3d8499a033fe3ea5c109, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: 0b59cb77178e7d14490bca0d4e6ebd76, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -18737,7 +18737,8 @@ MonoBehaviour:
   rect: {fileID: 975482637}
   particlePrefab: {fileID: 6775603376702966212, guid: ef8553b2a8aa5e247a66a486ce916746, type: 3}
   productionTarget: {fileID: 1295571756}
-  particleSpawnInterval: 0.005
+  particleSpawnInterval: 0.015
+  poolSize: 500
 --- !u!1 &979590732
 GameObject:
   m_ObjectHideFlags: 0
@@ -19840,7 +19841,7 @@ RectTransform:
   m_Children:
   - {fileID: 5255742876379673036}
   m_Father: {fileID: 1133386904}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21987,8 +21988,8 @@ RectTransform:
   - {fileID: 1750921375}
   - {fileID: 405551064}
   - {fileID: 31106441888099920}
-  - {fileID: 2042069870}
   - {fileID: 1024986298}
+  - {fileID: 2042069870}
   - {fileID: 1816298391}
   - {fileID: 1358534000}
   - {fileID: 1239001161}
@@ -22985,7 +22986,7 @@ GameObject:
   - component: {fileID: 1165329850}
   - component: {fileID: 1165329849}
   m_Layer: 5
-  m_Name: PRODUCE_BUTTOn
+  m_Name: PRODUCE_BUTTON
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29031,6 +29032,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3b682a3481f627342a2ccd5a18cddd5f, type: 2}
   - {fileID: 11400000, guid: 01bc12a8b4a807244be93f6d10c33722, type: 2}
   - {fileID: 11400000, guid: 23aed0f88863e7841bb8d48d0562daac, type: 2}
+  - {fileID: 11400000, guid: 512b1906296aa7d4181ec61965ef3a22, type: 2}
+  - {fileID: 11400000, guid: 1e72567de38f69647aa1c30b9169f74a, type: 2}
+  - {fileID: 11400000, guid: e8dc13f0ad437094d91080c6c979d1e8, type: 2}
   recipes:
   - {fileID: 11400000, guid: 501ef008a151d074c8b1d5b220cd3793, type: 2}
   - {fileID: 11400000, guid: 641e000cd46817b42af6f1d946693686, type: 2}
@@ -38692,7 +38696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1783510910
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39941,7 +39945,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: 960784fdc61c3d8499a033fe3ea5c109, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: 0b59cb77178e7d14490bca0d4e6ebd76, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -40938,6 +40942,7 @@ MonoBehaviour:
   particlePrefab: {fileID: 6775603376702966212, guid: ef8553b2a8aa5e247a66a486ce916746, type: 3}
   productionTarget: {fileID: 881614734}
   particleSpawnInterval: 0.1
+  poolSize: 500
 --- !u!114 &1907554395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41043,7 +41048,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -44498,7 +44503,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1133386904}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -44819,7 +44824,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: 960784fdc61c3d8499a033fe3ea5c109, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: 0b59cb77178e7d14490bca0d4e6ebd76, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -46845,7 +46850,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.43529412, g: 0.43529412, b: 0.43529412, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -48062,6 +48067,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1096367175708080360, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096367175708080362, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1096367175708080363, guid: 1e27731f787421b4993e7e5a2b33e8c6, type: 3}

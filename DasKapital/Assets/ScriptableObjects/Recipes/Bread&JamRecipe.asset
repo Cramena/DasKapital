@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c31768c04cea9db49bac6df102c81819, type: 3}
+  m_Name: Bread&JamRecipe
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 11400000, guid: c480eb147cd452645a5221a6b997176c, type: 2}
+  - {fileID: 11400000, guid: 314a478fdeaf493458aa2ece97adb54a, type: 2}
+  - {fileID: 11400000, guid: bab48ac75a08fc845886b85d6bffe96a, type: 2}
+  result: {fileID: 11400000, guid: e5208e38bbff6ee4eb0de9b6119a7d73, type: 2}
+  description: Spread jam on a slice of bread.
+  specific: 0

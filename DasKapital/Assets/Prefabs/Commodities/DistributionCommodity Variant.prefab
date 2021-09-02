@@ -15,11 +15,11 @@ MonoBehaviour:
   commodity: {fileID: 0}
   icon: {fileID: 7988788138845604349}
   typeColors:
-  - {r: 0, g: 0.6862745, b: 0, a: 1}
-  - {r: 0.6132076, g: 0.28888085, b: 0.089088626, a: 1}
-  - {r: 0, g: 0.39215687, b: 0.6862745, a: 1}
+  - {r: 0.25882354, g: 0.7294118, b: 0.17254902, a: 1}
+  - {r: 1, g: 0.83137256, b: 0.003921569, a: 1}
+  - {r: 0.23921569, g: 0.7019608, b: 0.61960787, a: 1}
   type: 0
-  coinSO: {fileID: 11400000, guid: d354bf7caf917d546aeda69e0eb5c298, type: 2}
+  coinSO: {fileID: 11400000, guid: ff2961e2e2cb23c44a4754977415150b, type: 2}
   reduceCurve:
     serializedVersion: 2
     m_Curve:

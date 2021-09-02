@@ -11,7 +11,7 @@ public class MeanOfProduction : UIOwner
     public List<UITarget> targets = new List<UITarget>();
     public UITarget productionTarget;
     public System.Action<CommoditySO> onCommodityProduced;
-    public System.Action<List<Commodity>> onIngredientsConsumed;
+    // public System.Action<List<Commodity>> onIngredientsConsumed;
     private Commodity produceInstance;
 
     private void Start()
@@ -33,7 +33,8 @@ public class MeanOfProduction : UIOwner
         }
         onCommodityProduced += ScenarioService.instance.RegisterProduce;
         onCommodityProduced += DynamicDialogueService.instance.CheckCommodityDialogue;
-        onIngredientsConsumed += ProductionEffectService.instance.LaunchProductionEffect;
+        // onIngredientsConsumed += ProductionEffectService.instance.LaunchProductionEffect;
+        ProductionEffectService.instance.onCommodityConsumed += UnloadCommodity;
         targetDoor.onFilledUp += DisplayProducedCommodity;
     }
 
@@ -59,7 +60,7 @@ public class MeanOfProduction : UIOwner
         }
     }
 
-    void UnloadCommodity(Commodity _commodity)
+    public void UnloadCommodity(Commodity _commodity)
     {
         loadedCommodities.Remove(_commodity);
     }
@@ -75,20 +76,15 @@ public class MeanOfProduction : UIOwner
                                                select commodity.profile).ToList();
             produceInstance.TransferComponentsValue(profiles);
             productionTarget.OnCommodityPlaced(produceInstance);
+            ProductionEffectService.instance.LaunchProductionEffect(loadedCommodities);
+            // onIngredientsConsumed?.Invoke(loadedCommodities);
             targetDoor.InitializeMOPDoor(produceInstance.profile.exchangeValue*3);
             produceInstance.icon.enabled = false;
-            List<Commodity> toRemove = new List<Commodity>();
-            foreach (Commodity component in loadedCommodities)
-            {
-                if (!component.OnUsed())
-                {
-                    toRemove.Add(component);
-                }
-            }
-            onIngredientsConsumed?.Invoke(loadedCommodities);
-            loadedCommodities = (loadedCommodities.Where(x => !toRemove.Contains(x))).ToList();
-            onCommodityProduced?.Invoke(producedCommoditySO);
             CommoditiesService.instance.CheckRecipes(recipe);
+            foreach (Commodity _commodity in loadedCommodities)
+            {
+                _commodity.draggable = false;
+            }
         }
         else if (recipe == null)
         {
@@ -112,20 +108,18 @@ public class MeanOfProduction : UIOwner
 
     public void DisplayProducedCommodity()
     {
-            produceInstance.icon.enabled = true;
-
-        // produceInstance.gameObject.SetActive(true);
+        produceInstance.icon.enabled = true;
+        foreach (Commodity _commodity in loadedCommodities)
+        {
+            _commodity.draggable = true;
+        }
+        onCommodityProduced?.Invoke(produceInstance.type);
     }
 
     private void OnEnable()
     {
         SetContentEnabled(true);
     }
-
-    // private void OnDisable()
-    // {
-    //     SetContentEnabled(false);
-    // }
 
     void SetContentEnabled(bool _enabled)
     {

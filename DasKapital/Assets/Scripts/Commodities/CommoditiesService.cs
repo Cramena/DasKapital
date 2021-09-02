@@ -19,7 +19,7 @@ public class CommoditiesService : MonoBehaviour
     public System.Action onCommodityPlacementRegistered;
     public System.Action<CommoditySO, List<int>> onCommoditiesEdition;
 
-    private void Awake() 
+    private void Awake()
     {
         if (instance == null)
         {

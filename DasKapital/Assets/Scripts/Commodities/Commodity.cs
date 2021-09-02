@@ -275,6 +275,7 @@ public class Commodity : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void AutomaticMove()
     {
+        if (!draggable) return;
         if (ScenarioService.instance.inProductionPhase)
         {
             if ((target.owner == null && target.stockID == 1) || target.owner as Stock != null)

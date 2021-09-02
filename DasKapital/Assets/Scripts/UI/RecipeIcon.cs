@@ -48,7 +48,7 @@ public class RecipeIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerExit(PointerEventData pointerEventData)
     {
-        UIService.instance.HideRecipe();
         hovering = false;
+        UIService.instance.HideRecipe();
     }
 }

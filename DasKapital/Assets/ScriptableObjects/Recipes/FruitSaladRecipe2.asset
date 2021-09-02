@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c31768c04cea9db49bac6df102c81819, type: 3}
+  m_Name: FruitSaladRecipe2
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 11400000, guid: c480eb147cd452645a5221a6b997176c, type: 2}
+  - {fileID: 11400000, guid: 3725f28f4c6ca8d4f9a5bbc1fe1e36d5, type: 2}
+  - {fileID: 11400000, guid: 3725f28f4c6ca8d4f9a5bbc1fe1e36d5, type: 2}
+  - {fileID: 11400000, guid: 3725f28f4c6ca8d4f9a5bbc1fe1e36d5, type: 2}
+  result: {fileID: 11400000, guid: ba33b9b4139669748ae24045ed1e0504, type: 2}
+  description: "Couper des fruits diff\xE9rents et les assembler."
+  specific: 0

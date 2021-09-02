@@ -92,6 +92,6 @@ public class ProductionParticle : MonoBehaviour
     private void Die()
     {
         onProductionParticleDeath?.Invoke();
-        Destroy(gameObject);
+        ProductionEffectService.instance.ReturnParticle(this);
     }
 }
