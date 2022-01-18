@@ -19,5 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d73055712decdaa449618540c5d6ef03, type: 2}
   - {fileID: 11400000, guid: c480eb147cd452645a5221a6b997176c, type: 2}
   result: {fileID: 11400000, guid: 2f0eff788cb378e4c8eeef8455c49896, type: 2}
-  description: Couper trois pommes et les associer ensemble.
+  description: RECIPE_008
   specific: 1

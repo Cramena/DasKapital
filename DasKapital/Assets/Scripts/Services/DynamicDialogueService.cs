@@ -118,7 +118,7 @@ public class DynamicDialogueService : MonoBehaviour
     {
         DynamicBubble _bubble = bubbles[(int)currentDialogue.lines[lineIndex].bubble];
         _bubble.gameObject.SetActive(true);
-        _bubble.InitializeBubble(currentDialogue.lines[lineIndex].text);
+        _bubble.InitializeBubble(LocalisationService.instance.Translate(currentDialogue.lines[lineIndex].text));
 
         lineIndex++;
         if (lineIndex < currentDialogue.lines.Count)

@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 01bc12a8b4a807244be93f6d10c33722, type: 2}
   - {fileID: 11400000, guid: d73055712decdaa449618540c5d6ef03, type: 2}
   result: {fileID: 11400000, guid: 9ed135a598d40fc43a5ed17e1e55b1d2, type: 2}
-  description: "Couper une past\xE8que avec un couteau."
+  description: RECIPE_004
   specific: 1

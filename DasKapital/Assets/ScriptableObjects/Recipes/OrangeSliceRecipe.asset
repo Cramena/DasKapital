@@ -17,5 +17,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c480eb147cd452645a5221a6b997176c, type: 2}
   - {fileID: 11400000, guid: d73055712decdaa449618540c5d6ef03, type: 2}
   result: {fileID: 11400000, guid: 81054a2968f41c240bee974587a0b1aa, type: 2}
-  description: Couper une orange avec un couteau.
+  description: RECIPE_002
   specific: 1

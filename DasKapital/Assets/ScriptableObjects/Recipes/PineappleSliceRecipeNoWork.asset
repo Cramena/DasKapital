@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3b682a3481f627342a2ccd5a18cddd5f, type: 2}
   - {fileID: 11400000, guid: d73055712decdaa449618540c5d6ef03, type: 2}
   result: {fileID: 11400000, guid: 11fed17555606fb4f9c6c691628f2f4a, type: 2}
-  description: Couper un ananas avec un couteau.
+  description: RECIPE_003
   specific: 1

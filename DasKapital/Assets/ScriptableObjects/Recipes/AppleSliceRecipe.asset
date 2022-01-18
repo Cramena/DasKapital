@@ -17,5 +17,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 15dc61d523de95444bdb5bd8e0e6ef5a, type: 2}
   - {fileID: 11400000, guid: d73055712decdaa449618540c5d6ef03, type: 2}
   result: {fileID: 11400000, guid: 3725f28f4c6ca8d4f9a5bbc1fe1e36d5, type: 2}
-  description: Couper une pomme avec un couteau.
+  description: RECIPE_005
   specific: 0

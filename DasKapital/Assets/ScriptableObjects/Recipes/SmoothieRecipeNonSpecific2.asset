@@ -18,5 +18,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6c1f3c5ad4febd3409891ab3abecc1e1, type: 2}
   - {fileID: 11400000, guid: 6c1f3c5ad4febd3409891ab3abecc1e1, type: 2}
   result: {fileID: 11400000, guid: 0cd73f231fe8a40479ef90443686400c, type: 2}
-  description: "Mixer ensemble une orange, un ananas et une past\xE8que."
+  description: RECIPE_007
   specific: 0

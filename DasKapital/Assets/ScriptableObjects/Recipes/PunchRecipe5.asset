@@ -18,6 +18,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10ba4178d0359a6478ba1aa782fad52e, type: 2}
   - {fileID: 11400000, guid: 10ba4178d0359a6478ba1aa782fad52e, type: 2}
   result: {fileID: 11400000, guid: 205e41909f9fa13408cf440015b7cc69, type: 2}
-  description: "M\xE9langer un smoothie et une bouteille de rhum. Rajouter une tranche
-    d'orange, de past\xE8que et d'ananas."
+  description: RECIPE_006
   specific: 0

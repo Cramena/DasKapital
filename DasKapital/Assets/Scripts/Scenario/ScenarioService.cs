@@ -66,6 +66,7 @@ public class ScenarioService : MonoBehaviour, IPointerEnterHandler, IPointerExit
         animator = GetComponent<Animator>();
         nodes[maxProgress]?.OnNodeEntered(false);
         SetContinueButtonActive(true);
+        // LocalisationService.instance.onLanguageLoaded += OnLanguageLoaded;
     }
 
     private void Update()
@@ -79,6 +80,11 @@ public class ScenarioService : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             OnNodeRewind();
         }
+    }
+
+    public void OnLanguageLoaded()
+    {
+        scenarioTexts[0].text = LocalisationService.instance.Translate("SCE_001");
     }
 
     private void SetRewindButton(bool _activate)

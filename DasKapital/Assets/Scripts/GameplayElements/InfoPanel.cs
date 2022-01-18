@@ -108,17 +108,18 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         rect.position = pos;
 
         //Main info panel
-        title.text = commodity.profile.commodityName;
+        string comIndex = commodity.type.index.ToString("000");
+        title.text = LocalisationService.instance.Translate($"COMNAME_{comIndex}"); //commodity.profile.commodityName;
         icon.sprite = commodity.profile.icon;
         icon.preserveAspect = true;
-        exchangeValueText.text = $"Valeur d'échange: {commodity.profile.exchangeValue.ToString()}";
-        useValueText.text = commodity.profile.useValueDescription;
+        exchangeValueText.text = $"{LocalisationService.instance.Translate("UI_EXCHVAL")} {commodity.profile.exchangeValue.ToString()}";
+        useValueText.text = LocalisationService.instance.Translate($"COMDESC_{comIndex}");//commodity.profile.useValueDescription;
 
         //Durable panel
         if (commodity.profile.isDurable)
         {
             durablePanel.SetActive(true);
-            usesText.text = "Nb d'emplois";
+            usesText.text = LocalisationService.instance.Translate("UI_USENB");
             // usesText.text = commodity.profile.usesAmount == 1 ? "1 emploi restant:" : $"{commodity.profile.usesAmount} emplois restants:";
             foreach (UseWidget use in uses)
             {
@@ -177,13 +178,18 @@ public class InfoPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                     string nameText = "";
                     string pluralAnnex = toSpawnAmount == 1 || (tempProfiles[i].type.index == 0 || tempProfiles[i].type.index == 106) ? "" : "s";
                     int value = tempProfiles[i].isDurable ? tempProfiles[i].valuePerUse * toSpawnAmount : tempProfiles[i].exchangeValue * toSpawnAmount;
+                    string tempComIndex = tempProfiles[i].type.index.ToString("000");
+                    string tempName = LocalisationService.instance.Translate($"COMNAME_{tempComIndex}");
+                    string of = LocalisationService.instance.Translate("UI_OF");
+                    string from = LocalisationService.instance.Translate("UI_FROM");
+                    string use = LocalisationService.instance.Translate("UI_USE");
                     if (tempProfiles[i].isDurable)
                     {
-                        nameText = $"{value} de ({toSpawnAmount}) emploi{pluralAnnex} de {tempProfiles[i].commodityName}";
+                        nameText = $"{value} {from} ({toSpawnAmount}) {use}{pluralAnnex} {of} {tempName}";
                     }
                     else
                     {
-                        nameText = $"{value} de ({toSpawnAmount}) {tempProfiles[i].commodityName}{pluralAnnex}";
+                        nameText = $"{value} {from} ({toSpawnAmount}) {tempName}{pluralAnnex}";
                     }
                     segment.InitializeSegment(value, tempProfiles[i].icon, toSpawnAmount, nameText, tempProfiles[i].color, tempProfiles[i].sizeModifier);
                     toSpawnAmount = 0;

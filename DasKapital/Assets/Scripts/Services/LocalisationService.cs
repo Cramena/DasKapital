@@ -9,6 +9,7 @@ public class LocalisationService : MonoBehaviour
     public static LocalisationService instance;
     public string filePath = "Assets/Texts/fr.csv";
     public Dictionary<string, string> localisationLines = new Dictionary<string, string>();
+    public System.Action onLanguageLoaded;
     
     void Awake()
     {
@@ -21,12 +22,12 @@ public class LocalisationService : MonoBehaviour
             throw new System.Exception($"Too many {this} instances");
         }
 
-        LoadFile(filePath);
+        // LoadFile(filePath);
     }
 
-    void LoadFile(string _path)
+    public void LoadFile(string _path)
     {
-        TextAsset asset = (TextAsset)Resources.Load(filePath, typeof(TextAsset));
+        TextAsset asset = (TextAsset)Resources.Load(_path, typeof(TextAsset));
         string baseText = asset.text;
         string[] texts = baseText.Split("\n" [0]);
 
@@ -43,6 +44,7 @@ public class LocalisationService : MonoBehaviour
             }
             localisationLines.Add(line[0], line[1]);
         }
+        onLanguageLoaded?.Invoke();
     }
 
     public string Translate(string _key)
